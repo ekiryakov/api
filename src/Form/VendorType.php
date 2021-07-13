@@ -12,9 +12,10 @@ class VendorType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('logo')
+            ->add('email')
             ->add('name')
             ->add('about')
+            ->add('logo')
         ;
     }
 
