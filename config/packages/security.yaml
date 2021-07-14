@@ -40,7 +40,7 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/offer, roles: ROLE_VENDOR }
+        - { path: ^/(vendor/$|vendor/\d+), roles: ROLE_VENDOR }
+        - { path: ^/customer/(\d+|)$, methods: [GET], roles: ROLE_VENDOR] }
         - { path: ^/(customer|offer|subscription|vendor), roles: ROLE_ADMIN }
-        - { path: ^/offer, roles: [ROLE_VENDOR] }
-        - { path: ^/(vendor/$|vendor/\d+), roles: [ROLE_VENDOR] }
-        - { path: ^/customer/(\d+|)$, methods: [GET], roles: [ROLE_VENDOR] }
