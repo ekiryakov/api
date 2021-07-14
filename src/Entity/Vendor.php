@@ -15,6 +15,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class Vendor implements UserInterface
 {
+    public const DEFAULT_ROLE = 'ROLE_VENDOR';
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -135,7 +137,7 @@ class Vendor implements UserInterface
 
     public function getRoles()
     {
-        return array('ROLE_USER');
+        return [self::DEFAULT_ROLE];
     }
 
     public function getPassword()
