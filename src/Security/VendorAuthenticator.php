@@ -54,7 +54,7 @@ class VendorAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        return new RedirectResponse($this->urlGenerator->generate('app_homepage'));
+        return new RedirectResponse($this->urlGenerator->generate('offer_new'));
     }
 
     public function checkCredentials($credentials, PasswordAuthenticatedUserInterface $user): bool
