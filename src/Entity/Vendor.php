@@ -11,7 +11,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=VendorRepository::class)
- * @method string getUserIdentifier()
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
 class Vendor implements UserInterface
@@ -136,17 +135,17 @@ class Vendor implements UserInterface
 
     public function getRoles()
     {
-        // TODO: Implement getRoles() method.
+        return array('ROLE_USER');
     }
 
     public function getPassword()
     {
-        // TODO: Implement getPassword() method.
+        return $this->password;
     }
 
     public function getSalt()
     {
-        // TODO: Implement getSalt() method.
+        return null;
     }
 
     public function eraseCredentials()
@@ -156,12 +155,12 @@ class Vendor implements UserInterface
 
     public function getUsername()
     {
-        // TODO: Implement getUsername() method.
+        return $this->email;
     }
 
-    public function __call($name, $arguments)
+    public function getUserIdentifier(): string
     {
-        // TODO: Implement @method string getUserIdentifier()
+        return $this->getUsername();
     }
 
     public function getEmail(): ?string
