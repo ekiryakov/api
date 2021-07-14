@@ -4,6 +4,15 @@ security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         users_in_memory: { memory: null }
+        users:
+            entity:
+                # the class of the entity that represents users
+                class: 'App\Entity\Vendor'
+                # the property to query by - e.g. username, email, etc
+                property: 'email'
+                # optional: if you're using multiple Doctrine entity
+                # managers, this option defines which one to use
+                # manager_name: 'customer'
     encoders:
         App\Entity\Vendor:
             algorithm: auto
@@ -13,7 +22,7 @@ security:
             security: false
         main:
             lazy: true
-            provider: users_in_memory
+            provider: users
             custom_authenticator: App\Security\VendorAuthenticator
             logout:
                 path: app_logout
