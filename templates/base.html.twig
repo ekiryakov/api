@@ -12,7 +12,13 @@
         <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
     </head>
     <body>
-        <div id="app"></div>
+        <div id="app">
+            <v-app>
+                <v-main>
+                    <v-container>Hello world</v-container>
+                </v-main>
+            </v-app>
+        </div>
         {% block body %}{% endblock %}
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
