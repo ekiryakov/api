@@ -72,7 +72,8 @@ Encore
     //.autoProvidejQuery()
 ;
 
-module.exports = Encore.getWebpackConfig({
+// module.exports = Encore.getWebpackConfig();
+module.exports = {
     module: {
         rules: [
             {
@@ -94,4 +95,4 @@ module.exports = Encore.getWebpackConfig({
             },
         ],
     }
-});
+};
