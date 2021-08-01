@@ -5,6 +5,8 @@
 {% block body %}
 <v-container>
 
+    {% block page_title %}Log in!{% endblock %}
+
     {% if error %}
         {% block alert %}
             <v-alert type="error">${ error.messageKey|trans(error.messageData, 'security') }$</v-alert>
