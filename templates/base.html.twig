@@ -23,7 +23,7 @@
                     <strong>
                         {% if app.user %}
                             ${app.user.username}$ | <a href="{{ path('app_logout') }}">Logout</a>
-                        {% elseif %}
+                        {% else %}
                             <a href="{{ path('app_login') }}">Login</a>
                         {% endif %}
                     </strong>
