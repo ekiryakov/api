@@ -43,7 +43,6 @@
 
 <script>
 export default {
-  delimiters: ['${', '}$'],
   props: {
     csrf_token: String,
     last_username: String,

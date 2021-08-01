@@ -9,12 +9,12 @@
 
     {% if error %}
         {% block alert %}
-            <v-alert type="error">${ error.messageKey|trans(error.messageData, 'security') }$</v-alert>
+            <v-alert type="error">$[ error.messageKey|trans(error.messageData, 'security') ]$</v-alert>
         {% endblock %}
     {% endif %}
 
-    <Login :last_username="${ last_username }$"
-           :csrf_token="${ csrf_token('authenticate') }$">
+    <Login :last_username="$[ last_username ]$"
+           :csrf_token="$[ csrf_token('authenticate') ]$">
     </Login>
 </v-container>
 {% endblock %}
