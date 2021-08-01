@@ -9,7 +9,7 @@
 
     {% if error %}
         {% block alert %}
-            <v-alert type="error">$[ error.messageKey|trans(error.messageData, 'security') ]$</v-alert>
+            <v-alert type="error">'$[ error.messageKey|trans(error.messageData, 'security') ]$'</v-alert>
         {% endblock %}
     {% endif %}
 
