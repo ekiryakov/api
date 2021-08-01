@@ -62,7 +62,6 @@
 
 <script>
 export default {
-  name: 'Login',
   data: () => ({
     valid: true,
     name: '',
