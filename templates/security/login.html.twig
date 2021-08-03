@@ -7,7 +7,7 @@
 
     {% block page_title %}Log in!{% endblock %}
 
-    {% if error %}
+    {% if error is not empty %}
         {% block alert %}
             <v-alert type="error">{{ error.messageKey|trans(error.messageData, 'security') }}</v-alert>
         {% endblock %}
