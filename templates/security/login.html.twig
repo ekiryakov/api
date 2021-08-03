@@ -14,7 +14,7 @@
     {% endblock %}
 
     <Login :last_username="{{ last_username }}"
-           :csrf_token="${ json_encode({{ csrf_token('authenticate') }}) }$">
+           :csrf_token="${{ csrf_token('authenticate') }}">
     </Login>
 </v-container>
 {% endblock %}
