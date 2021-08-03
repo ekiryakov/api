@@ -7,11 +7,11 @@
 
     {% block page_title %}Log in!{% endblock %}
 
-    {% if error is not empty %}
-        {% block alert %}
+    {% block alert %}
+        {% if error %}
             <v-alert type="error">{{ error.messageKey|trans(error.messageData, 'security') }}</v-alert>
-        {% endblock %}
-    {% endif %}
+        {% endif %}
+    {% endblock %}
 
     <Login :last_username="{{ last_username }}"
            :csrf_token="{{ csrf_token('authenticate') }}">
