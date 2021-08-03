@@ -22,7 +22,7 @@
                     <v-spacer></v-spacer>
                     <strong>
                         {% if app.user %}
-                            $[app.user.username]$ | <a href="{{ path('app_logout') }}">Logout</a>
+                            {{app.user.username}} | <a href="{{ path('app_logout') }}">Logout</a>
                         {% else %}
                             <a href="{{ path('app_login') }}">Login</a>
                         {% endif %}

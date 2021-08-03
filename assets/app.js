@@ -5,7 +5,7 @@ import Login from "./templates/security/Login";
 
 new Vue({
     vuetify,
-    delimiters: ['$[', ']$'],
+    delimiters: ['${', '}$'],
     components: {
         Login
     }
