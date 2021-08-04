@@ -1,5 +1,5 @@
 <template>
-  <v-form ref="form" v-model="valid" lazy-validation>
+  <v-form method="post" ref="form" v-model="valid" lazy-validation>
 
     <h1>Please sign in</h1>
 
@@ -13,14 +13,23 @@
         v-model="email"
         :rules="emailRules"
         :value="last_username"
+        type="email"
+        name="email"
+        id="inputEmail"
+        autocomplete="email"
         label="Email"
-        required>
+        required
+        autofocus>
     </v-text-field>
 
     <v-text-field
         v-model="password"
         :counter="10"
         :rules="passwordRules"
+        type="password"
+        name="password"
+        id="inputPassword"
+        autocomplete="current-password"
         label="Password"
         required>
     </v-text-field>
@@ -28,11 +37,12 @@
     <v-checkbox
         v-model="remember_me"
         name="_remember_me"
-        label="Do you agree?">
+        label="Remember me">
     </v-checkbox>
 
     <v-btn
         :disabled="!valid"
+        type="submit"
         color="success"
         @click="validate">
       Sign in
