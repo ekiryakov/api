@@ -13,8 +13,8 @@
         {% endif %}
     {% endblock %}
 
-    <Login :last_username="{{ last_username }}"
-           :csrf_token="${{ csrf_token('authenticate') }}">
+    <Login last_username="{{ last_username }}"
+           csrf_token="{{ csrf_token('authenticate') }}">
     </Login>
 </v-container>
 {% endblock %}
