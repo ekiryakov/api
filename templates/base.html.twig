@@ -14,7 +14,7 @@
     <body>
         <div id="app">
             <v-app>
-                <v-app-bar color="white" flat app>
+                <v-app-bar color="white" flat app inverted-scroll>
                     <v-app-bar-nav-icon></v-app-bar-nav-icon>
                     <v-spacer></v-spacer>
                     <strong>
@@ -25,7 +25,7 @@
                         {% endif %}
                     </strong>
                 </v-app-bar>
-                <v-main style="background:lime">
+                <v-main>
                     {% block body %}{% endblock %}
                 </v-main>
                 <v-footer app>
