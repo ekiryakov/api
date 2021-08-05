@@ -14,21 +14,18 @@
     <body>
         <div id="app">
             <v-app>
-                <v-app-bar color="white" dense flat app>
+                <v-app-bar color="white" flat app>
                     <v-app-bar-nav-icon></v-app-bar-nav-icon>
-                    <v-toolbar-title>
-                        {% block page_title %}{% endblock %}
-                    </v-toolbar-title>
                     <v-spacer></v-spacer>
                     <strong>
                         {% if app.user %}
-                            {{app.user.username}} | <a href="{{ path('app_logout') }}">Logout</a>
+                            {{app.user.username}} | <a href="{{ path('app_logout') }}">Sign Out</a>
                         {% else %}
-                            <a href="{{ path('app_login') }}">Login</a>
+                            <a href="{{ path('app_login') }}">Sign In</a>
                         {% endif %}
                     </strong>
                 </v-app-bar>
-                <v-main>
+                <v-main color="lime">
                     {% block body %}{% endblock %}
                 </v-main>
                 <v-footer app>

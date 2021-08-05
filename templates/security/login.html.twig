@@ -1,8 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in #1!{% endblock %}
-
-{% block page_title %}Log in #2!{% endblock %}
+{% block title %}Auth{% endblock %}
 
 {% block body %}
 <v-container>
@@ -16,5 +14,6 @@
     <Login last_username="{{ last_username }}"
            csrf_token="{{ csrf_token('authenticate') }}">
     </Login>
+
 </v-container>
 {% endblock %}
