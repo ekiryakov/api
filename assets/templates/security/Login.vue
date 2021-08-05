@@ -6,7 +6,8 @@
     <v-text-field
         name="_csrf_token"
         :value="csrf_token"
-        type="hidden">
+        type="hidden"
+        hide-details="auto">
     </v-text-field>
 
     <v-text-field
