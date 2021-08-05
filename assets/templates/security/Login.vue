@@ -5,7 +5,7 @@
 
     <v-input
         name="_csrf_token"
-        :value="csrf_token" 
+        :value="csrf_token"
         type="hidden">
     </v-input>
 
