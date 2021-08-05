@@ -3,13 +3,7 @@
 
     <h1 class="display-4">Please sign in</h1>
 
-    <v-text-field
-        name="_csrf_token"
-        :value="csrf_token"
-        hide-details="auto"
-        style="border: none"
-        type="hidden">
-    </v-text-field>
+    <input name="_csrf_token" value="${csrf_token}$" type="hidden"/>
 
     <v-text-field
         v-model="email"
