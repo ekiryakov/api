@@ -14,12 +14,12 @@
     <body>
         <div id="app">
             <v-app>
-                <v-app-bar color="white" flat app inverted-scroll>
+                <v-app-bar color="white" app inverted-scroll>
                     <v-app-bar-nav-icon></v-app-bar-nav-icon>
                     <v-spacer></v-spacer>
                     <strong>
                         {% if app.user %}
-                            {{app.user.username}} | <a href="{{ path('app_logout') }}">Sign Out</a>
+                            <a href="{{ path('app_logout') }}">Sign Out</a>
                         {% else %}
                             <a href="{{ path('app_login') }}">Sign In</a>
                         {% endif %}
