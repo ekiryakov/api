@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>
-            {% block title %}Welcome!{% endblock %}
+            {% block title %}{% endblock %}
         </title>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
@@ -14,7 +14,7 @@
     <body>
         <div id="app">
             <v-app>
-                <v-app-bar app>
+                <v-app-bar color="white" dense flat app>
                     <v-app-bar-nav-icon></v-app-bar-nav-icon>
                     <v-toolbar-title>
                         {% block page_title %}{% endblock %}
