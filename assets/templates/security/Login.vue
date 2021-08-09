@@ -1,7 +1,7 @@
 <template>
   <v-form method="post" ref="form" v-model="valid" lazy-validation>
 
-    <h1 class="display-4">Please sign in</h1>
+    <h1 class="display-1">Please sign in</h1>
 
     <v-text-field
         v-model="email"
