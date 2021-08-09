@@ -1,7 +1,8 @@
 <template>
-  <v-form method="post" ref="form" v-model="valid" lazy-validation>
 
-    <h1 class="display-1">Please sign in</h1>
+  <h1 class="display-1">Please sign in</h1>
+
+  <v-form method="post" ref="form" v-model="valid" lazy-validation>
 
     <v-text-field
         v-model="email"
@@ -50,6 +51,7 @@
     </v-btn>
 
   </v-form>
+  
 </template>
 
 <script>
