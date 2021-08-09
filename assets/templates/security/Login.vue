@@ -1,57 +1,53 @@
 <template>
-
-  <h1 class="display-1">Please sign in</h1>
-
-  <v-form method="post" ref="form" v-model="valid" lazy-validation>
-
-    <v-text-field
-        v-model="email"
-        :rules="emailRules"
-        :value="last_username"
-        type="email"
-        name="email"
-        id="inputEmail"
-        autocomplete="email"
-        label="Email"
-        required
-        autofocus>
-    </v-text-field>
-
-    <v-text-field
-        v-model="password"
-        :counter="10"
-        :rules="passwordRules"
-        type="password"
-        name="password"
-        id="inputPassword"
-        autocomplete="current-password"
-        label="Password"
-        required>
-    </v-text-field>
-
-    <v-checkbox
-        v-model="remember_me"
-        name="_remember_me"
-        label="Remember me">
-    </v-checkbox>
-
-    <v-text-field
-        name="_csrf_token"
-        :value="csrf_token"
-        type="hidden"
-        hide-details="auto">
-    </v-text-field>
-
-    <v-btn
-        :disabled="!valid"
-        type="submit"
-        color="success"
-        @click="validate">
-      Sign in
-    </v-btn>
-
-  </v-form>
-
+  <v-row>
+    <v-col cols="6" offset="3">
+      <h1 class="display-1">Please sign in</h1>
+      <v-spacer></v-spacer>
+      <v-form method="post" ref="form" v-model="valid" lazy-validation>
+        <v-text-field
+            v-model="email"
+            :rules="emailRules"
+            :value="last_username"
+            type="email"
+            name="email"
+            id="inputEmail"
+            autocomplete="email"
+            label="Email"
+            required
+            autofocus>
+        </v-text-field>
+        <v-text-field
+            v-model="password"
+            :counter="10"
+            :rules="passwordRules"
+            type="password"
+            name="password"
+            id="inputPassword"
+            autocomplete="current-password"
+            label="Password"
+            required>
+        </v-text-field>
+        <v-checkbox
+            v-model="remember_me"
+            name="_remember_me"
+            label="Remember me">
+        </v-checkbox>
+        <v-text-field
+            name="_csrf_token"
+            :value="csrf_token"
+            type="hidden"
+            hide-details="auto">
+        </v-text-field>
+        <v-btn
+            :disabled="!valid"
+            type="submit"
+            color="success"
+            @click="validate">
+          Sign in
+        </v-btn>
+      </v-form>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
