@@ -4,13 +4,6 @@
     <h1 class="display-4">Please sign in</h1>
 
     <v-text-field
-        name="_csrf_token"
-        :value="csrf_token"
-        type="hidden"
-        hide-details="auto">
-    </v-text-field>
-
-    <v-text-field
         v-model="email"
         :rules="emailRules"
         :value="last_username"
@@ -40,6 +33,13 @@
         name="_remember_me"
         label="Remember me">
     </v-checkbox>
+
+    <v-text-field
+        name="_csrf_token"
+        :value="csrf_token"
+        type="hidden"
+        hide-details="auto">
+    </v-text-field>
 
     <v-btn
         :disabled="!valid"
