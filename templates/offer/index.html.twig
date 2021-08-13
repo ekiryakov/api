@@ -19,7 +19,8 @@
         </thead>
         <tbody>
         {% for offer in offers %}
-            <Offer :data="{{ offer }}"
+            {{ offer|json_encode() }}
+            <Offer data="{{ offer|json_encode() }}"
                 show="{{ path('offer_show', {'id': offer.id}) }}"
                 edit="{{ path('offer_edit', {'id': offer.id}) }}">
             </Offer>
