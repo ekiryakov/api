@@ -20,6 +20,7 @@ class OfferController extends AbstractController
      */
     public function index(OfferRepository $offerRepository): Response
     {
+        var_dump($offerRepository->findAll());
         return $this->render('offer/index.html.twig', [
             'offers' => $offerRepository->findAll(),
         ]);
