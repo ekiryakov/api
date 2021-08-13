@@ -41,7 +41,7 @@ class Offer
     private $cost;
 
     /**
-     * @Ignore 
+     * @Ignore
      * @ORM\ManyToOne(targetEntity=Vendor::class, inversedBy="offers")
      * @ORM\JoinColumn(nullable=false)
      */
