@@ -50,6 +50,11 @@ class Offer
      */
     private $subscriptions;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="offers")
+     */
+    private $categories;
+
     public function __construct()
     {
         $this->subscriptions = new ArrayCollection();
@@ -143,6 +148,18 @@ class Offer
         if ($this->subscriptions->removeElement($subscription)) {
             $subscription->removeOffer($this);
         }
+
+        return $this;
+    }
+
+    public function getCategories(): ?Category
+    {
+        return $this->categories;
+    }
+
+    public function setCategories(?Category $categories): self
+    {
+        $this->categories = $categories;
 
         return $this;
     }
