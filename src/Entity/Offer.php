@@ -41,20 +41,17 @@ class Offer
     private $cost;
 
     /**
-     * @Ignore
      * @ORM\ManyToOne(targetEntity=Vendor::class, inversedBy="offers")
      * @ORM\JoinColumn(nullable=false)
      */
     private $vendor;
 
     /**
-     * @Ignore
      * @ORM\ManyToMany(targetEntity=Subscription::class, mappedBy="offer")
      */
     private $subscriptions;
 
     /**
-     * @Ignore
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="offers")
      */
     private $categories;
@@ -117,6 +114,10 @@ class Offer
         return $this;
     }
 
+    /**
+     * @Ignore
+     * @return Vendor|null
+     */
     public function getVendor(): ?Vendor
     {
         return $this->vendor;
@@ -130,6 +131,7 @@ class Offer
     }
 
     /**
+     * @Ignore
      * @return Collection|Subscription[]
      */
     public function getSubscriptions(): Collection
@@ -156,6 +158,10 @@ class Offer
         return $this;
     }
 
+    /**
+     * @Ignore
+     * @return Category|null
+     */
     public function getCategories(): ?Category
     {
         return $this->categories;
