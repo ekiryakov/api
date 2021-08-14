@@ -4,33 +4,16 @@
 
 {% block body %}
 <v-container>
-    <h1>Offer index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Image</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Cost</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <v-list two-line>
+        <v-list-item-group active-class="pink--text" multiple>
         {% for offer in offers %}
             <Offer data="{{ offer|serialize(format = 'json') }}"
                 show="{{ path('offer_show', {'id': offer.id}) }}"
                 edit="{{ path('offer_edit', {'id': offer.id}) }}">
             </Offer>
         {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('offer_new') }}">Create new</a>
+        </v-list-item-group>
+    </v-list>
+    <v-btn href="{{ path('offer_new') }}">Create new</v-btn>
 </v-container>
 {% endblock %}
