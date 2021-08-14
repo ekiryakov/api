@@ -14,7 +14,7 @@
     <body>
         <div id="app">
             <v-app>
-                <v-app-bar app flat prominent>
+                <v-app-bar app dense flat prominent>
                     <v-app-bar-nav-icon></v-app-bar-nav-icon>
                     <v-spacer></v-spacer>
                     <strong>
@@ -30,17 +30,6 @@
                                 Sign Out
                             </v-btn>
                             Sign OUT
-                        {% endif %}
-                    </strong>
-                    <strong>
-                        {% if app.user %}
-                            <a href="">Sign Out</a>
-                            <v-btn icon href="{{ path('app_logout') }}">
-                                <v-icon>mdi-arrow-right</v-icon>
-                                Sign Out
-                            </v-btn>
-                        {% else %}
-                            <a href="{{ path('app_login') }}">Sign In</a>
                         {% endif %}
                     </strong>
                 </v-app-bar>
