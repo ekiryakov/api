@@ -11,7 +11,7 @@
                 show="{{ path('offer_show', {'id': offer.id}) }}"
                 edit="{{ path('offer_edit', {'id': offer.id}) }}">
             </Offer>
-        {% else %}
+        {% endfor %}
         </v-list-item-group>
     </v-list>
     <v-btn href="{{ path('offer_new') }}">Create new</v-btn>
