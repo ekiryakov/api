@@ -11,6 +11,9 @@
                 show="{{ path('offer_show', {'id': offer.id}) }}"
                 edit="{{ path('offer_edit', {'id': offer.id}) }}">
             </Offer>
+            {% if loop.last == false %}
+                <v-divider :key="{{ loop.index }}"></v-divider>
+            {% endif %}
         {% endfor %}
         </v-list-item-group>
     </v-list>
