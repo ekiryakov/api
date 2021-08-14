@@ -6,9 +6,8 @@
       <v-list-item-subtitle v-text="offer.description"></v-list-item-subtitle>
     </v-list-item-content>
     <v-list-item-action>
-      <v-list-item-action-text>Action</v-list-item-action-text>
-      <v-btn :href="show"></v-btn>
-      <v-btn :href="edit"></v-btn>
+      <v-btn icon :href="show" ><v-icon>mdi-eye</v-icon></v-btn>
+      <v-btn icon :href="edit"><v-icon>mdi-pencil</v-icon></v-btn>
     </v-list-item-action>
   </v-list-item>
 </template>
