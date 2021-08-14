@@ -18,11 +18,11 @@
                     <v-app-bar-nav-icon></v-app-bar-nav-icon>
                     <v-spacer></v-spacer>
                     {% if app.user %}
-                        <v-btn icon href="{{ path('app_logout') }}" title="Sign In">
+                        <v-btn icon href="{{ path('app_logout') }}" title="Sign Out">
                             <v-icon>mdi-arrow-right</v-icon>
                         </v-btn>
                     {% else %}
-                        <v-btn icon href="{{ path('app_login') }}" title="Sign Out">
+                        <v-btn icon href="{{ path('app_login') }}" title="Sign In">
                             <v-icon>mdi-arrow-left</v-icon>
                         </v-btn>
                     {% endif %}
