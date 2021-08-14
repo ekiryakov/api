@@ -12,7 +12,7 @@
             <v-icon>mdi-dots-vertical</v-icon>
           </v-btn>
         </template>
-        <v-list>
+        <v-list dense>
           <v-list-item :href="show">
             <v-list-item-icon>
               <v-icon>mdi-eye</v-icon>
