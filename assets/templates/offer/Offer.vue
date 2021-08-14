@@ -6,7 +6,7 @@
       <v-list-item-subtitle v-text="offer.description"></v-list-item-subtitle>
     </v-list-item-content>
     <v-list-item-action>
-      <v-menu bottom left rounded="b-xl">
+      <v-menu bottom left rounded="lg">
         <template v-slot:activator="{ on, attrs }">
           <v-btn icon v-bind="attrs" v-on="on">
             <v-icon>mdi-dots-vertical</v-icon>
