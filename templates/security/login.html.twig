@@ -3,7 +3,7 @@
 {% block title %}Auth{% endblock %}
 
 {% block body %}
-<v-container>
+<v-container fluid>
 
     <Login last_username="{{ last_username }}"
            csrf_token="{{ csrf_token('authenticate') }}">
