@@ -6,13 +6,13 @@
       <v-list-item-subtitle v-text="offer.description"></v-list-item-subtitle>
     </v-list-item-content>
     <v-list-item-action>
-      <v-menu bottom left>
+      <v-menu bottom left rounded="b-xl">
         <template v-slot:activator="{ on, attrs }">
           <v-btn icon v-bind="attrs" v-on="on">
             <v-icon>mdi-dots-vertical</v-icon>
           </v-btn>
         </template>
-        <v-list dense width="200">
+        <v-list rounded width="200">
           <v-list-item :href="show">
             <v-list-item-icon>
               <v-icon>mdi-eye</v-icon>
