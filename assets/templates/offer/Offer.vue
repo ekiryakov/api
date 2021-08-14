@@ -6,10 +6,31 @@
       <v-list-item-subtitle v-text="offer.description"></v-list-item-subtitle>
     </v-list-item-content>
     <v-list-item-action>
-      <v-btn icon :href="show" ><v-icon>mdi-eye</v-icon></v-btn>
-    </v-list-item-action>
-    <v-list-item-action>
-      <v-btn icon :href="edit"><v-icon>mdi-pencil</v-icon></v-btn>
+      <v-menu bottom left>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn dark icon v-bind="attrs" v-on="on">
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item :href="show">
+            <v-list-item-icon>
+              <v-icon>mdi-eye</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>show</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item :href="edit">
+            <v-list-item-icon>
+              <v-icon>mdi-pencil</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>edit</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </v-list-item-action>
   </v-list-item>
 </template>
