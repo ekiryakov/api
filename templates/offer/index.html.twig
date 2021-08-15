@@ -4,6 +4,12 @@
 
 {% block body %}
 <v-container class="pa-0" fluid>
+    <v-tabs dark background-color="teal darken-3" show-arrows>
+        <v-tabs-slider color="teal lighten-3"></v-tabs-slider>
+        <v-tab v-for="i in 5" :key="i" :href="'#tab-' + i">
+            Item {{ i }}
+        </v-tab>
+    </v-tabs>
     <v-list class="pa-0" two-line>
         <v-list-item-group active-class="pink--text" multiple>
             {% for offer in offers %}
