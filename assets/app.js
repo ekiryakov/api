@@ -5,7 +5,7 @@ import './styles/app.scss';
 
 import Login from "./templates/security/Login";
 import Offer from "./templates/offer/Offer";
-import Test from "./templates/offer/Categories";
+import Categories from "./templates/offer/Categories";
 
 new Vue({
     vuetify,
@@ -13,6 +13,6 @@ new Vue({
     components: {
         Login,
         Offer,
-        Test,
+        Categories,
     },
 }).$mount('#app');
