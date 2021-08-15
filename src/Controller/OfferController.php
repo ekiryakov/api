@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Offer;
 use App\Form\OfferType;
+use App\Repository\CategoryRepository;
 use App\Repository\OfferRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,7 +19,7 @@ class OfferController extends AbstractController
     /**
      * @Route("/", name="offer_index", methods={"GET"})
      */
-    public function index(Request $request, OfferRepository $offerRepository): Response
+    public function index(Request $request, OfferRepository $offerRepository, CategoryRepository $categoryRepository): Response
     {
         $category = $request->get('category');
         $offers = empty($category)
@@ -27,6 +28,7 @@ class OfferController extends AbstractController
         
         return $this->render('offer/index.html.twig', [
             'offers' => $offers,
+            'categories' => $categoryRepository->findAll(),
         ]);
     }
 
