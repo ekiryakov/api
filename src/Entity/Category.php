@@ -35,7 +35,7 @@ class Category
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity=Offer::class, mappedBy="categories")
+     * @ORM\OneToMany(targetEntity=Offer::class, mappedBy="category")
      */
     private $offers;
 
@@ -97,7 +97,7 @@ class Category
     {
         if (!$this->offers->contains($offer)) {
             $this->offers[] = $offer;
-            $offer->setCategories($this);
+            $offer->setCategory($this);
         }
 
         return $this;
@@ -107,8 +107,8 @@ class Category
     {
         if ($this->offers->removeElement($offer)) {
             // set the owning side to null (unless already changed)
-            if ($offer->getCategories() === $this) {
-                $offer->setCategories(null);
+            if ($offer->getCategory() === $this) {
+                $offer->setCategory(null);
             }
         }
 

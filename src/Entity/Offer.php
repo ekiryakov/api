@@ -54,7 +54,7 @@ class Offer
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="offers")
      */
-    private $categories;
+    private $category;
 
     public function __construct()
     {
@@ -162,14 +162,14 @@ class Offer
      * @Ignore
      * @return Category|null
      */
-    public function getCategories(): ?Category
+    public function getCategory(): ?Category
     {
-        return $this->categories;
+        return $this->category;
     }
 
-    public function setCategories(?Category $categories): self
+    public function setCategory(?Category $category): self
     {
-        $this->categories = $categories;
+        $this->category = $category;
 
         return $this;
     }
