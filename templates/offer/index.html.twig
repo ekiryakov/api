@@ -6,21 +6,21 @@
 <v-container class="pa-0" fluid>
     <v-list class="pa-0" two-line>
         <v-list-item-group active-class="pink--text" multiple>
-        {% for offer in offers %}
-            <Offer data="{{ offer|serialize(format = 'json') }}"
-                show="{{ path('offer_show', {'id': offer.id}) }}"
-                edit="{{ path('offer_edit', {'id': offer.id}) }}">
-            </Offer>
-            {% if loop.last == false %}
-                <v-divider :key="{{ loop.index }}"></v-divider>
-            {% endif %}
-        {% endfor %}
+            {% for offer in offers %}
+                <Offer data="{{ offer|serialize(format = 'json') }}"
+                    show="{{ path('offer_show', {'id': offer.id}) }}"
+                    edit="{{ path('offer_edit', {'id': offer.id}) }}">
+                </Offer>
+                {% if loop.last == false %}
+                    <v-divider :key="{{ loop.index }}"></v-divider>
+                {% endif %}
+            {% endfor %}
+            <v-fab-transition>
+                <v-btn href="{{ path('offer_new') }}" fab large dark absolute bottom right>
+                    <v-icon>mdi-plus</v-icon>
+                </v-btn>
+            </v-fab-transition>
         </v-list-item-group>
-        <v-fab-transition>
-            <v-btn href="{{ path('offer_new') }}" fab large dark absolute bottom right>
-                <v-icon>mdi-plus</v-icon>
-            </v-btn>
-        </v-fab-transition>
     </v-list>
 </v-container>
 {% endblock %}
