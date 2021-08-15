@@ -4,7 +4,7 @@
 
 {% block body %}
 <v-container class="pa-0" fluid>
-    <v-tabs dark background-color="teal darken-3" show-arrows>
+    <v-tabs dark background-color="teal darken-3" show-arrows v-model="activeTab">
         <v-tabs-slider color="teal lighten-3"></v-tabs-slider>
         {% for category in categories %}
             <v-tab key="{{ category.id }}" href="{{ url('offer_index', {'category': category.id}) }}" >
@@ -32,3 +32,14 @@
     </v-list>
 </v-container>
 {% endblock %}
+<script>
+    export default {
+        data: () => ({
+            activeTab: 2
+        }),
+        mounted() {
+            let usp = new URLSearchParams(location.search);
+            this.activeTab = usp.get('category');
+        }
+    }
+</script>
