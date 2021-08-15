@@ -20,8 +20,13 @@ class OfferController extends AbstractController
      */
     public function index(Request $request, OfferRepository $offerRepository): Response
     {
+        $category = $request->get('category');
+        $offers = empty($category)
+            ? $offerRepository->findAll()
+            : $offerRepository->findBy(['category' => $category]);
+        
         return $this->render('offer/index.html.twig', [
-            'offers' => $offerRepository->findBy(['category' => $request->get('category')]),
+            'offers' => $offers,
         ]);
     }
 
