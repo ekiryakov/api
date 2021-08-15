@@ -4,7 +4,7 @@
 
 {% block body %}
 <v-container class="pa-0" fluid>
-    <v-list class="ma-0" two-line>
+    <v-list class="pa-0" two-line>
         <v-list-item-group active-class="pink--text" multiple>
         {% for offer in offers %}
             <Offer data="{{ offer|serialize(format = 'json') }}"
