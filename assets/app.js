@@ -13,10 +13,4 @@ new Vue({
         Login,
         Offer,
     },
-    data: () => ({
-        categoryId: () => {
-            let usp = new URLSearchParams(location.search);
-            return usp.get('category');
-        }
-    })
-}).$mount('#app')
+}).$mount('#app');
