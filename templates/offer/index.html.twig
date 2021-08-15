@@ -4,6 +4,7 @@
 
 {% block body %}
 <v-container fluid>
+    <v-card class="mx-auto" max-width="500">
     <v-list two-line>
         <v-list-item-group active-class="pink--text" multiple>
         {% for offer in offers %}
@@ -22,5 +23,6 @@
             </v-btn>
         </v-fab-transition>
     </v-list>
+    </v-card>
 </v-container>
 {% endblock %}
