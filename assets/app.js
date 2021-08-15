@@ -12,5 +12,11 @@ new Vue({
     components: {
         Login,
         Offer,
+    },
+    computed: {
+        categoryId: () => {
+            let usp = new URLSearchParams(location.search);
+            return usp.get('category');
+        }
     }
 }).$mount('#app')
