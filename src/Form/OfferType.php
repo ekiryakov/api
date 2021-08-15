@@ -17,7 +17,7 @@ class OfferType extends AbstractType
             ->add('description')
             ->add('cost')
             ->add('vendor')
-            ->add('subscriptions')
+            ->add('category')
         ;
     }
 
