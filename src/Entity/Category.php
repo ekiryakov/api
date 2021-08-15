@@ -36,7 +36,7 @@ class Category
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity=Offer::class, mappedBy="category")
+     * @ORM\OneToMany(targetEntity=Offer::class, mappedBy="category", fetch="EAGER")
      */
     private $offers;
 
