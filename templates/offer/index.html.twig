@@ -16,11 +16,11 @@
             {% endif %}
         {% endfor %}
         </v-list-item-group>
+        <v-fab-transition>
+            <v-btn href="{{ path('offer_new') }}" fab large dark absolute bottom right>
+                <v-icon>mdi-plus</v-icon>
+            </v-btn>
+        </v-fab-transition>
     </v-list>
-    <v-fab-transition>
-        <v-btn href="{{ path('offer_new') }}" fab large dark absolute bottom right>
-            <v-icon>mdi-plus</v-icon>
-        </v-btn>
-    </v-fab-transition>
 </v-container>
 {% endblock %}
