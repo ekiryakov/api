@@ -7,7 +7,7 @@
     <v-tabs dark background-color="teal darken-3" show-arrows>
         <v-tabs-slider color="teal lighten-3"></v-tabs-slider>
         {% for category in categories %}
-            <v-tab href="{{ url('offer', {'category': category.id}) }}">
+            <v-tab href="{{ url('offer_index', {'category': category.id}) }}">
                 {{ category.name }}
             </v-tab>
         {% endfor %}
