@@ -13,12 +13,10 @@ export default {
     data: String
   },
   data: () => ({
-    selected: 0,
+    selected: null,
     categories: [],
   }),
-  created() {
-    this.categories = JSON.parse(this.data);
-
+  mounted() {
     let usp = new URLSearchParams(location.search);
     let category = usp.get('category');
 
@@ -26,6 +24,7 @@ export default {
       this.selected = category;
     }
 
+    this.categories = JSON.parse(this.data);
   },
   methods: {
     initHref(id) {
