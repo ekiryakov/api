@@ -4,8 +4,12 @@
 
 {% block body %}
 <v-container class="pa-0" fluid>
-    {% if categories %}
-        <Categories data="{{ categories|serialize(format = 'json', context = ['category_offer']) }}"></Categories>
+    {% set cats = [] %}
+    {% for category in categories %}
+        {% set cats[] = category %}
+    {% endfor %}
+    {% if cats %}
+        <Categories data="{{ cats|serialize(format = 'json') }}"></Categories>
     {% endif %}
     <v-list class="pa-0" two-line>
         <v-list-item-group active-class="pink--text" multiple>
