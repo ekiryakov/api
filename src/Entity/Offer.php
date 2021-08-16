@@ -52,6 +52,7 @@ class Offer
     private $subscriptions;
 
     /**
+     * @Ignore 
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="offers")
      */
     private $category;
