@@ -1,7 +1,7 @@
 <template>
   <v-tabs dark background-color="teal darken-3" show-arrows v-model="selected">
     <v-tabs-slider color="teal lighten-3"></v-tabs-slider>
-    <v-tab v-for="category in categories" :key="category.id">
+    <v-tab v-for="category in categories" :key="category.id" :href="initHref(category.id)">
       {{ category.name }}
     </v-tab>
   </v-tabs>
@@ -13,11 +13,23 @@ export default {
     data: String
   },
   data: () => ({
-    selected: 2,
+    selected: 0,
     categories: [],
   }),
   mounted() {
+    let usp = new URLSearchParams(location.search);
+    let category = usp.get('category');
+    if (category) {
+      this.selected = category;
+    }
+  },
+  created() {
     this.categories = JSON.parse(this.data);
+  },
+  methods: {
+    initHref(id) {
+      return '/offer/?category=' + id;
+    }
   }
 }
 </script>
