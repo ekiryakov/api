@@ -36,6 +36,7 @@ class Category
     private $description;
 
     /**
+     * @Ignore
      * @ORM\OneToMany(targetEntity=Offer::class, mappedBy="category")
      */
     private $offers;
