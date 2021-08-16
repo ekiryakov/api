@@ -5,8 +5,8 @@
 {% block body %}
 <v-container class="pa-0" fluid>
     {% set cats = [] %}
-    {% for category in categories %}
-        {% set cats[] = category %}
+    {% for c,category in categories %}
+        {% set cats[c] = category %}
     {% endfor %}
     {% if cats %}
         <Categories data="{{ cats|serialize(format = 'json') }}"></Categories>
