@@ -16,7 +16,7 @@ export default {
     selected: null,
     categories: [],
   }),
-  mounted() {
+  beforeMount() {
     let usp = new URLSearchParams(location.search);
     let category = usp.get('category');
 
