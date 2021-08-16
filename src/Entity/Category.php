@@ -36,7 +36,6 @@ class Category
     private $description;
 
     /**
-     * @Ignore
      * @ORM\OneToMany(targetEntity=Offer::class, mappedBy="category")
      */
     private $offers;
@@ -88,7 +87,6 @@ class Category
     }
 
     /**
-     * @Ignore
      * @return Collection|Offer[]
      */
     public function getOffers(): Collection
