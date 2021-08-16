@@ -4,13 +4,8 @@
 
 {% block body %}
 <v-container class="pa-0" fluid>
-    {% set cats = [] %}
-    {% for category in categories %}
-        {% set category = category|serialize(format = 'json') %}
-        {% set cats = cats|merge([category]) %}
-    {% endfor %}
-    {% if cats %}
-        <Categories data="{{ '['~(cats|join(', '))~']' }}"></Categories>
+    {% if categories %}
+        <Categories data="{{ categories|serialize(format = 'json') }}"></Categories>
     {% endif %}
     <v-list class="pa-0" two-line>
         <v-list-item-group active-class="pink--text" multiple>
