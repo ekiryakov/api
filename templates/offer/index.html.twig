@@ -4,8 +4,8 @@
 
 {% block body %}
 <v-container class="pa-0" fluid>
+    {{ dump() }}
     {% if categories %}
-        {{ dump() }}
 {#        <Categories data="{{ categories|serialize(format = 'json') }}"></Categories>#}
     {% endif %}
     <v-list class="pa-0" two-line>
