@@ -1,5 +1,5 @@
 <template>
-  <v-tabs dark background-color="teal darken-3" show-arrows v-model="selected">
+  <v-tabs dark background-color="teal darken-3" show-arrows v-model="tab">
     <v-tabs-slider color="teal lighten-3"></v-tabs-slider>
     <v-tab v-for="category in categories" :key="category.id" :href="initHref(category.id)">
       {{ category.name }}
@@ -13,10 +13,9 @@ export default {
     data: String
   },
   data: () => ({
-    selected: null,
     categories: [],
   }),
-  beforeMount() {
+  mounted() {
     let usp = new URLSearchParams(location.search);
     let category = usp.get('category');
 
@@ -25,6 +24,14 @@ export default {
     }
 
     this.categories = JSON.parse(this.data);
+  },
+  computed: {
+    tab: function () {
+      let usp = new URLSearchParams(location.search);
+      let category = usp.get('category');
+
+      return this.initHref(category);
+    },
   },
   methods: {
     initHref(id) {
