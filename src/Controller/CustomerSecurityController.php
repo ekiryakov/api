@@ -7,10 +7,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
-class VendorSecurityController extends AbstractController
+class CustomerSecurityController extends AbstractController
 {
     /**
-     * @Route("/vendor/login", name="vendor_login")
+     * @Route("/customer/login", name="customer_login")
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
@@ -23,11 +23,11 @@ class VendorSecurityController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/vendor_login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        return $this->render('security/customer_login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
     }
 
     /**
-     * @Route("/vendor/logout", name="vendor_logout")
+     * @Route("/customer/logout", name="customer_logout")
      */
     public function logout()
     {

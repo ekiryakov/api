@@ -18,11 +18,11 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Authenticator\Passport\PassportInterface;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
-class VendorAuthenticator extends AbstractLoginFormAuthenticator
+class CustomerAuthenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
 
-    public const LOGIN_ROUTE = 'vendor_login';
+    public const LOGIN_ROUTE = 'customer_login';
 
     private UrlGeneratorInterface $urlGenerator;
     private UserPasswordHasherInterface $passwordEncoder;
@@ -35,12 +35,12 @@ class VendorAuthenticator extends AbstractLoginFormAuthenticator
 
     public function authenticate(Request $request): PassportInterface
     {
-        $email = $request->request->get('email', '');
+        $phone_number = $request->request->get('phone_number', '');
 
-        $request->getSession()->set(Security::LAST_USERNAME, $email);
+        $request->getSession()->set(Security::LAST_USERNAME, $phone_number);
 
         return new Passport(
-            new UserBadge($email),
+            new UserBadge($phone_number),
             new PasswordCredentials($request->request->get('password', '')),
             [
                 new CsrfTokenBadge('authenticate', $request->get('_csrf_token')),
@@ -54,7 +54,7 @@ class VendorAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        return new RedirectResponse($this->urlGenerator->generate('offer_new'));
+        return new RedirectResponse($this->urlGenerator->generate('subscription_index'));
     }
 
     public function checkCredentials($credentials, PasswordAuthenticatedUserInterface $user): bool

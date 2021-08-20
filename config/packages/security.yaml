@@ -4,7 +4,7 @@ security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         users_in_memory: { memory: null }
-        users:
+        vendors:
             entity:
                 # the class of the entity that represents users
                 class: 'App\Entity\Vendor'
@@ -12,20 +12,47 @@ security:
                 property: 'email'
                 # optional: if you're using multiple Doctrine entity
                 # managers, this option defines which one to use
+                # manager_name: 'vendor'
+        customers:
+            entity:
+                # the class of the entity that represents users
+                class: 'App\Entity\Customer'
+                # the property to query by - e.g. username, email, etc
+                property: 'phone_number'
+                # optional: if you're using multiple Doctrine entity
+                # managers, this option defines which one to use
                 # manager_name: 'customer'
     encoders:
         App\Entity\Vendor:
+            algorithm: auto
+        App\Entity\Customer:
             algorithm: auto
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        main:
+        vendor_side:
             lazy: true
-            provider: users
+            provider: vendors
             custom_authenticator: App\Security\VendorAuthenticator
             logout:
-                path: app_logout
+                path: vendor_logout
+                # where to redirect after logout
+                # target: app_any_route
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 604800 # 1 week in seconds
+                path: /
+                # by default, the feature is enabled by checking a
+                # checkbox in the login form (see below), uncomment the
+                # following line to always enable it.
+                #always_remember_me: true
+        customer_side:
+            lazy: true
+            provider: customers
+            custom_authenticator: App\Security\CustomerAuthenticator
+            logout:
+                path: customer_logout
                 # where to redirect after logout
                 # target: app_any_route
             remember_me:

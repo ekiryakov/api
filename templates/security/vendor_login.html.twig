@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Auth{% endblock %}
+
+{% block body %}
+<v-container fluid>
+
+    <Login last_username="{{ last_username }}"
+           csrf_token="{{ csrf_token('authenticate') }}">
+    </Login>
+
+</v-container>
+{% endblock %}
+
+{% block alert %}
+    {% if error %}
+        <v-alert type="error">{{ error.messageKey|trans(error.messageData, 'security') }}</v-alert>
+    {% endif %}
+{% endblock %}
