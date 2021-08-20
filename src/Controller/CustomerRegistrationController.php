@@ -35,7 +35,7 @@ class CustomerRegistrationController extends AbstractController
             $entityManager->flush();
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('subscription_show');
+            return $this->redirectToRoute('subscription_index');
         }
 
         return $this->render('registration/customer_register.html.twig', [
