@@ -6,7 +6,12 @@
     <h1>Register</h1>
 
     {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.phone_number) }}
+        {{ form_row(registrationForm.photo) }}
+        {{ form_row(registrationForm.name) }}
+        {{ form_row(registrationForm.last_name) }}
+        {{ form_row(registrationForm.subscriptions) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
