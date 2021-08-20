@@ -6,12 +6,15 @@ use App\Repository\CustomerRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=CustomerRepository::class)
  */
-class Customer
+class Customer implements UserInterface
 {
+    public const DEFAULT_ROLE = 'ROLE_CUSTOMER';
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -48,6 +51,11 @@ class Customer
      * @ORM\OneToMany(targetEntity=Subscription::class, mappedBy="customer", orphanRemoval=true)
      */
     private $subscriptions;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $password;
 
     public function __construct()
     {
@@ -147,5 +155,46 @@ class Customer
         }
 
         return $this;
+    }
+
+    public function getRoles()
+    {
+        return [self::DEFAULT_ROLE];
+    }
+
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    public function getSalt()
+    {
+        return null;
+    }
+
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
+    }
+
+    public function getUsername()
+    {
+        return $this->phone_number;
+    }
+
+    public function getUserIdentifier(): string
+    {
+        return $this->getUsername();
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    public function __toString() {
+        return $this->getName();
     }
 }
