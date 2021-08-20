@@ -24,7 +24,7 @@ class VendorRegistrationController extends AbstractController
     }
 
     /**
-     * @Route("/vendor/register", name="vendor_register")
+     * @Route("/register/vendor", name="vendor_register")
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
@@ -46,7 +46,7 @@ class VendorRegistrationController extends AbstractController
             $entityManager->flush();
 
             // generate a signed url and email it to the user
-            $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
+            $this->emailVerifier->sendEmailConfirmation('vendor_verify_email', $user,
                 (new TemplatedEmail())
                     ->from(new Address('ekiryakov@gmail.com', 'API Registration Bot'))
                     ->to($user->getEmail())
@@ -58,13 +58,13 @@ class VendorRegistrationController extends AbstractController
             return $this->redirectToRoute('offer_new');
         }
 
-        return $this->render('registration/register.html.twig', [
+        return $this->render('registration/vendor_register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/verify/email", name="app_verify_email")
+     * @Route("/verify/email/vendor", name="vendor_verify_email")
      */
     public function verifyUserEmail(Request $request): Response
     {
@@ -76,12 +76,12 @@ class VendorRegistrationController extends AbstractController
         } catch (VerifyEmailExceptionInterface $exception) {
             $this->addFlash('verify_email_error', $exception->getReason());
 
-            return $this->redirectToRoute('app_register');
+            return $this->redirectToRoute('vendor_register');
         }
 
         // @TODO Change the redirect on success and handle or remove the flash message in your templates
         $this->addFlash('success', 'Your email address has been verified.');
 
-        return $this->redirectToRoute('app_register');
+        return $this->redirectToRoute('vendor_register');
     }
 }
