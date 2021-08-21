@@ -10,7 +10,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class VendorSecurityController extends AbstractController
 {
     /**
-     * @Route("/login/vendor", name="vendor_login")
+     * @Route("/vendor/login", name="vendor_login")
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
@@ -27,7 +27,7 @@ class VendorSecurityController extends AbstractController
     }
 
     /**
-     * @Route("/logout/vendor", name="vendor_logout")
+     * @Route("/vendor/logout", name="vendor_logout")
      */
     public function logout()
     {

@@ -24,7 +24,7 @@ class VendorRegistrationController extends AbstractController
     }
 
     /**
-     * @Route("/register/vendor", name="vendor_register")
+     * @Route("/vendor/register", name="vendor_register")
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
@@ -64,7 +64,7 @@ class VendorRegistrationController extends AbstractController
     }
 
     /**
-     * @Route("/verify/email/vendor", name="vendor_verify_email")
+     * @Route("/vendor/verify/email", name="vendor_verify_email")
      */
     public function verifyUserEmail(Request $request): Response
     {

@@ -42,7 +42,7 @@ security:
             remember_me:
                 secret: '%kernel.secret%'
                 lifetime: 604800 # 1 week in seconds
-                path: /
+                path: /vendor/
                 # by default, the feature is enabled by checking a
                 # checkbox in the login form (see below), uncomment the
                 # following line to always enable it.
@@ -58,7 +58,7 @@ security:
             remember_me:
                 secret: '%kernel.secret%'
                 lifetime: 604800 # 1 week in seconds
-                path: /
+                path: /customer/
                 # by default, the feature is enabled by checking a
                 # checkbox in the login form (see below), uncomment the
                 # following line to always enable it.
@@ -75,7 +75,7 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
-        - { path: ^/offer, roles: ROLE_VENDOR }
-        - { path: ^/(vendor/$|vendor/\d+), roles: ROLE_VENDOR }
-        - { path: ^/customer/(\d+|)$, methods: [GET], roles: ROLE_VENDOR }
-        - { path: ^/(customer|offer|subscription|vendor), roles: ROLE_ADMIN }
+#        - { path: ^/offer, roles: ROLE_VENDOR }
+#        - { path: ^/(vendor/$|vendor/\d+), roles: ROLE_VENDOR }
+#        - { path: ^/customer/(\d+|)$, methods: [GET], roles: ROLE_VENDOR }
+#        - { path: ^/(customer|offer|subscription|vendor), roles: ROLE_ADMIN }
