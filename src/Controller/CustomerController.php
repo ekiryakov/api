@@ -49,7 +49,7 @@ class CustomerController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="customer_show", methods={"GET"})
+     * @Route("/{id}", name="customer_show", methods={"GET"}, requirements={"id":"\d+"})
      */
     public function show(Customer $customer): Response
     {
@@ -59,7 +59,7 @@ class CustomerController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="customer_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="customer_edit", methods={"GET","POST"}, requirements={"id":"\d+"})
      */
     public function edit(Request $request, Customer $customer): Response
     {
@@ -79,7 +79,7 @@ class CustomerController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="customer_delete", methods={"POST"})
+     * @Route("/{id}", name="customer_delete", methods={"POST"}, requirements={"id":"\d+"})
      */
     public function delete(Request $request, Customer $customer): Response
     {

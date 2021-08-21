@@ -49,7 +49,7 @@ class VendorController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="vendor_show", methods={"GET"})
+     * @Route("/{id}", name="vendor_show", methods={"GET"}, requirements={"id":"\d+"})
      */
     public function show(Vendor $vendor): Response
     {
@@ -59,7 +59,7 @@ class VendorController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="vendor_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="vendor_edit", methods={"GET","POST"}, requirements={"id":"\d+"})
      */
     public function edit(Request $request, Vendor $vendor): Response
     {
@@ -79,7 +79,7 @@ class VendorController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="vendor_delete", methods={"POST"})
+     * @Route("/{id}", name="vendor_delete", methods={"POST"}, requirements={"id":"\d+"})
      */
     public function delete(Request $request, Vendor $vendor): Response
     {
