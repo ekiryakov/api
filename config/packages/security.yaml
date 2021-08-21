@@ -33,6 +33,7 @@ security:
             security: false
         vendor_side:
             lazy: true
+            pattern: ^/vendor
             provider: vendors
             custom_authenticator: App\Security\VendorAuthenticator
             logout:
@@ -49,6 +50,7 @@ security:
                 #always_remember_me: true
         customer_side:
             lazy: true
+            pattern: ^/customer
             provider: customers
             custom_authenticator: App\Security\CustomerAuthenticator
             logout:
