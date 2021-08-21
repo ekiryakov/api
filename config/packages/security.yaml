@@ -77,8 +77,8 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/(customer|vendor)/(new|\d+|)$, roles: ROLE_ADMIN }
         - { path: ^/(vendor|customer)/(register|login), roles: PUBLIC_ACCESS }
         - { path: ^/offer/(\d+|)$, methods: [GET], roles: PUBLIC_ACCESS }
         - { path: ^/(customer|subscription), roles: ROLE_CUSTOMER }
         - { path: ^/(vendor|offer), roles: ROLE_VENDOR }
-        - { path: ^/(customer|vendor)/(new|\d+|)$, roles: ROLE_ADMIN }
