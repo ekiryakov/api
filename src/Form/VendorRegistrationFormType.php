@@ -17,10 +17,9 @@ class VendorRegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('logo')
-            ->add('name')
-            ->add('about')
             ->add('email')
+            ->add('name')
+            ->add('logo')
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
