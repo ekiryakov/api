@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Customer;
 use App\Entity\Subscription;
 use App\Form\SubscriptionType;
 use App\Repository\SubscriptionRepository;
@@ -9,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 /**
  * @Route("/subscription")
@@ -20,8 +22,12 @@ class SubscriptionController extends AbstractController
      */
     public function index(SubscriptionRepository $subscriptionRepository): Response
     {
+        $subscriptions = $this->getUser() instanceof Customer
+            ? $subscriptionRepository->findBy(['customer' => $this->getUser()])
+            : [];
+
         return $this->render('subscription/index.html.twig', [
-            'subscriptions' => $subscriptionRepository->findAll(),
+            'subscriptions' => $subscriptions,
         ]);
     }
 
@@ -31,6 +37,11 @@ class SubscriptionController extends AbstractController
     public function new(Request $request): Response
     {
         $subscription = new Subscription();
+
+        /** @var Customer $user */
+        $user = $this->getUser();
+        $subscription->setCustomer($user);
+
         $form = $this->createForm(SubscriptionType::class, $subscription);
         $form->handleRequest($request);
 
@@ -53,6 +64,8 @@ class SubscriptionController extends AbstractController
      */
     public function show(Subscription $subscription): Response
     {
+        $this->validateOwner($subscription);
+
         return $this->render('subscription/show.html.twig', [
             'subscription' => $subscription,
         ]);
@@ -63,6 +76,8 @@ class SubscriptionController extends AbstractController
      */
     public function edit(Request $request, Subscription $subscription): Response
     {
+        $this->validateOwner($subscription);
+
         $form = $this->createForm(SubscriptionType::class, $subscription);
         $form->handleRequest($request);
 
@@ -83,6 +98,8 @@ class SubscriptionController extends AbstractController
      */
     public function delete(Request $request, Subscription $subscription): Response
     {
+        $this->validateOwner($subscription);
+
         if ($this->isCsrfTokenValid('delete'.$subscription->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($subscription);
@@ -90,5 +107,17 @@ class SubscriptionController extends AbstractController
         }
 
         return $this->redirectToRoute('subscription_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    /**
+     * @param Subscription $subscription
+     */
+    protected function validateOwner(Subscription $subscription): void
+    {
+        /** @var Customer $user */
+        $user = $this->getUser();
+        if ($user->getId() !== $subscription->getCustomer()->getId()) {
+            throw new AccessDeniedException();
+        }
     }
 }

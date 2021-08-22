@@ -13,7 +13,6 @@ class SubscriptionType extends AbstractType
     {
         $builder
             ->add('status')
-            ->add('customer')
             ->add('offer')
         ;
     }
