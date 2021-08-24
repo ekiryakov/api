@@ -41,7 +41,7 @@ class SubscriptionController extends AbstractController
     /**
      * @Route("/new", name="subscription_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, LiqpayManager $liqpay): Response
     {
         $subscription = new Subscription();
         $subscription->setStatus(self::STATUS_CREATED);
@@ -58,7 +58,9 @@ class SubscriptionController extends AbstractController
             $entityManager->persist($subscription);
             $entityManager->flush();
 
-            return $this->redirectToRoute('subscription_index', [], Response::HTTP_SEE_OTHER);
+            $dto = new LiqpayDTO($subscription->getId(), 9.99, 'description');
+
+            return $this->redirect($liqpay->link($dto));
         }
 
         return $this->renderForm('subscription/new.html.twig', [
@@ -114,9 +116,7 @@ class SubscriptionController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
         }
 
-        $dto = new LiqpayDTO($subscription->getId(), 9.99, 'description');
-
-        return $this->redirect($liqpay->link($dto));
+        return $this->redirectToRoute('subscription_index', [], Response::HTTP_SEE_OTHER);
     }
 
     /**
