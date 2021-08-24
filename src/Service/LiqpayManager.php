@@ -5,6 +5,7 @@ namespace App\Service;
 use App\DTO\LiqpayDTO;
 use InvalidArgumentException;
 use LiqPay;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
 
 class LiqpayManager
@@ -37,8 +38,8 @@ class LiqpayManager
     public function link(LiqpayDTO $liqpayDTO): string
     {
         $data = $liqpayDTO->toArray();
-        $data['result_url'] = $this->router->generate('subscription_index');
-        $data['server_url'] = $this->router->generate('subscription_pay', ['id' => $liqpayDTO->getOrderId()]);
+        $data['result_url'] = $this->router->generate('subscription_index', [], UrlGeneratorInterface::ABSOLUTE_URL);
+        $data['server_url'] = $this->router->generate('subscription_pay', ['id' => $liqpayDTO->getOrderId()], UrlGeneratorInterface::ABSOLUTE_URL);
 
         $params = $this->validate($data);
 
