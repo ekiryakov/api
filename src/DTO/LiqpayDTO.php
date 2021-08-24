@@ -82,6 +82,14 @@ class LiqpayDTO
     }
 
     /**
+     * @return string
+     */
+    public function getPeriodicity(): string
+    {
+        return 'month';
+    }
+
+    /**
      * @return array
      */
     public function toArray(): array
@@ -94,6 +102,7 @@ class LiqpayDTO
             'description' => $this->getDescription(),
             'order_id' => $this->getOrderId(),
             'subscribe_date_start' => $this->getDateStart(),
+            'subscribe_periodicity' => $this->getPeriodicity(),
         ];
     }
 }
