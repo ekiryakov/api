@@ -91,6 +91,9 @@
     "laminas/laminas-code": {
         "version": "4.4.2"
     },
+    "liqpay/liqpay": {
+        "version": "v1.2.3"
+    },
     "nikic/php-parser": {
         "version": "v4.11.0"
     },

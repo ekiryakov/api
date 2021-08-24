@@ -24,3 +24,8 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Service\LiqpayManager:
+        arguments:
+            $public_key: 'sandbox_i37041908495'
+            $private_key: 'sandbox_CnUyB5ezF0Gtbuy8kialpwLBAoSPTKhBTpUXHInL'

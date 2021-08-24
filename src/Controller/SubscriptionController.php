@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
+use App\DTO\LiqpayDTO;
 use App\Entity\Customer;
 use App\Entity\Subscription;
 use App\Form\SubscriptionType;
 use App\Repository\SubscriptionRepository;
+use App\Service\LiqpayManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,6 +19,11 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class SubscriptionController extends AbstractController
 {
+    protected const STATUS_CREATED = 1;
+    protected const STATUS_PAYED = 2;
+    protected const STATUS_UPDATED = 3;
+    protected const STATUS_CANCELED = 4;
+
     /**
      * @Route("/", name="subscription_index", methods={"GET"})
      */
@@ -37,6 +44,7 @@ class SubscriptionController extends AbstractController
     public function new(Request $request): Response
     {
         $subscription = new Subscription();
+        $subscription->setStatus(self::STATUS_CREATED);
 
         /** @var Customer $user */
         $user = $this->getUser();
@@ -77,6 +85,7 @@ class SubscriptionController extends AbstractController
     public function edit(Request $request, Subscription $subscription): Response
     {
         $this->validateOwner($subscription);
+        $subscription->setStatus(self::STATUS_UPDATED);
 
         $form = $this->createForm(SubscriptionType::class, $subscription);
         $form->handleRequest($request);
@@ -96,17 +105,27 @@ class SubscriptionController extends AbstractController
     /**
      * @Route("/{id}", name="subscription_delete", methods={"POST"})
      */
-    public function delete(Request $request, Subscription $subscription): Response
+    public function delete(Request $request, Subscription $subscription, LiqpayManager $liqpay): Response
     {
         $this->validateOwner($subscription);
+        $subscription->setStatus(self::STATUS_CANCELED);
 
         if ($this->isCsrfTokenValid('delete'.$subscription->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($subscription);
-            $entityManager->flush();
+            $this->getDoctrine()->getManager()->flush();
         }
 
-        return $this->redirectToRoute('subscription_index', [], Response::HTTP_SEE_OTHER);
+        $dto = new LiqpayDTO($subscription->getId(), 9.99, 'description');
+
+        return $this->redirect($liqpay->link($dto));
+    }
+
+    /**
+     * @Route("/{id}/pay", name="subscription_pay", methods={"GET"})
+     */
+    public function pay(Subscription $subscription): void
+    {
+        $subscription->setStatus(self::STATUS_PAYED);
+        $this->getDoctrine()->getManager()->flush();
     }
 
     /**
