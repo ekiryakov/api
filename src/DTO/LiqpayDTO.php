@@ -74,6 +74,14 @@ class LiqpayDTO
     }
 
     /**
+     * @return string
+     */
+    public function getDateStart(): string
+    {
+        return date('Y-m-d H:i:s');
+    }
+
+    /**
      * @return array
      */
     public function toArray(): array
@@ -85,6 +93,7 @@ class LiqpayDTO
             'currency' => $this->getCurrency(),
             'description' => $this->getDescription(),
             'order_id' => $this->getOrderId(),
+            'subscribe_date_start' => $this->getDateStart(),
         ];
     }
 }
