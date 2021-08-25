@@ -5,6 +5,7 @@ namespace App\Service;
 use App\DTO\LiqpayDTO;
 use App\Entity\Subscription;
 use LiqPay;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
@@ -20,16 +21,25 @@ class LiqpayManager implements PaymentManagerInterface
     /** @var RouterInterface  */
     private RouterInterface $router;
 
+    /** @var LoggerInterface  */
+    private LoggerInterface $logger;
+
     /**
      * @param string $public_key
      * @param string $private_key
      * @param RouterInterface $router
+     * @param LoggerInterface $logger
      */
-    public function __construct(string $public_key, string $private_key, RouterInterface $router)
-    {
+    public function __construct(
+        string $public_key,
+        string $private_key,
+        RouterInterface $router,
+        LoggerInterface $logger
+    ) {
         $this->public_key = $public_key;
         $this->liqpay = new LiqPay($public_key, $private_key);
         $this->router = $router;
+        $this->logger = $logger;
     }
 
     /**
@@ -62,6 +72,7 @@ class LiqpayManager implements PaymentManagerInterface
      */
     public function proof(Request $request): bool
     {
+        $this->logger->critical(json_encode($request->request->all()));
         $data = $request->request->get('data');
         $params = $this->liqpay->decode_params($data);
         $signature = $this->liqpay->cnb_signature($params);
