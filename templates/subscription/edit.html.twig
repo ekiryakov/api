@@ -8,6 +8,10 @@
 
     {{ include('subscription/_form.html.twig', {'button_label': 'Update'}) }}
 
+    {% if pay %}
+        <a href="{{ pay }}">pay</a>
+    {% endif %}
+
     <a href="{{ path('subscription_index') }}">back to list</a>
 
     {{ include('subscription/_delete_form.html.twig') }}

@@ -81,7 +81,7 @@ class SubscriptionController extends AbstractController
     /**
      * @Route("/{id}/edit", name="subscription_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Subscription $subscription): Response
+    public function edit(Request $request, Subscription $subscription, PaymentManagerInterface $payment): Response
     {
         $this->validateOwner($subscription);
         $subscription->setStatus(self::STATUS_UPDATED);
@@ -94,11 +94,17 @@ class SubscriptionController extends AbstractController
 
             return $this->redirectToRoute('subscription_index', [], Response::HTTP_SEE_OTHER);
         }
-
-        return $this->renderForm('subscription/edit.html.twig', [
+        
+        $data = [
             'subscription' => $subscription,
             'form' => $form,
-        ]);
+        ];
+
+        if (in_array($subscription->getStatus(), [self::STATUS_CREATED, self::STATUS_CANCELED])) {
+            $data['pay'] = $payment->link($subscription);
+        }
+
+        return $this->renderForm('subscription/edit.html.twig', $data);
     }
 
     /**
