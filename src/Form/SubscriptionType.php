@@ -11,10 +11,7 @@ class SubscriptionType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('status')
-            ->add('offer')
-        ;
+        $builder->add('offer');
     }
 
     public function configureOptions(OptionsResolver $resolver)

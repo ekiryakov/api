@@ -43,7 +43,6 @@ class SubscriptionController extends AbstractController
     public function new(Request $request, PaymentManagerInterface $payment): Response
     {
         $subscription = new Subscription();
-        $subscription->setStatus(self::STATUS_CREATED);
 
         /** @var Customer $user */
         $user = $this->getUser();
@@ -53,6 +52,7 @@ class SubscriptionController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $subscription->setStatus(self::STATUS_CREATED);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($subscription);
             $entityManager->flush();
@@ -84,25 +84,25 @@ class SubscriptionController extends AbstractController
     public function edit(Request $request, Subscription $subscription, PaymentManagerInterface $payment): Response
     {
         $this->validateOwner($subscription);
-        $subscription->setStatus(self::STATUS_UPDATED);
 
         $form = $this->createForm(SubscriptionType::class, $subscription);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $subscription->setStatus(self::STATUS_UPDATED);
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('subscription_index', [], Response::HTTP_SEE_OTHER);
         }
-        
-        if (in_array($subscription->getStatus(), [self::STATUS_CREATED, self::STATUS_CANCELED])) {
-            $pay = $payment->link($subscription);
-        }
+
+        $pay = in_array($subscription->getStatus(), [self::STATUS_CREATED, self::STATUS_CANCELED])
+            ? $payment->link($subscription)
+            : null;
 
         return $this->renderForm('subscription/edit.html.twig', [
             'subscription' => $subscription,
             'form' => $form,
-            'pay' => empty($pay) ? null : $pay
+            'pay' => $pay,
         ]);
     }
 
@@ -112,9 +112,9 @@ class SubscriptionController extends AbstractController
     public function delete(Request $request, Subscription $subscription): Response
     {
         $this->validateOwner($subscription);
-        $subscription->setStatus(self::STATUS_CANCELED);
 
         if ($this->isCsrfTokenValid('delete'.$subscription->getId(), $request->request->get('_token'))) {
+            $subscription->setStatus(self::STATUS_CANCELED);
             $this->getDoctrine()->getManager()->flush();
         }
 
