@@ -18,4 +18,10 @@ interface PaymentManagerInterface
      * @return bool
      */
     public function proof(Request $request): bool;
+
+    /**
+     * @param Subscription $subscription
+     * @return bool
+     */
+    public function unsubscribe(Subscription $subscription): bool;
 }

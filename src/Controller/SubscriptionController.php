@@ -109,11 +109,13 @@ class SubscriptionController extends AbstractController
     /**
      * @Route("/{id}", name="subscription_delete", methods={"POST"})
      */
-    public function delete(Request $request, Subscription $subscription): Response
+    public function delete(Request $request, Subscription $subscription, PaymentManagerInterface $payment): Response
     {
         $this->validateOwner($subscription);
 
-        if ($this->isCsrfTokenValid('delete'.$subscription->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$subscription->getId(), $request->request->get('_token'))
+            && $payment->unsubscribe($subscription)
+        ) {
             $subscription->setStatus(self::STATUS_CANCELED);
             $this->getDoctrine()->getManager()->flush();
         }
