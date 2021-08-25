@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\Subscription;
+use Symfony\Component\HttpFoundation\Request;
 
 interface PaymentManagerInterface
 {
@@ -11,4 +12,10 @@ interface PaymentManagerInterface
      * @return string
      */
     public function link(Subscription $subscription): string;
+
+    /**
+     * @param Request $request
+     * @return bool
+     */
+    public function proof(Request $request): bool;
 }

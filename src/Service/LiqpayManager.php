@@ -5,6 +5,7 @@ namespace App\Service;
 use App\DTO\LiqpayDTO;
 use App\Entity\Subscription;
 use LiqPay;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
 
@@ -54,6 +55,17 @@ class LiqpayManager implements PaymentManagerInterface
         return 'https://www.liqpay.ua/api/3/checkout'
             . '?data=' . $this->data($params)
             . '&signature=' . $this->signature($params);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function proof(Request $request): bool
+    {
+        $params = $this->liqpay->decode_params($request->get('data'));
+        $signature = $this->liqpay->cnb_signature($params);
+
+        return $signature === $request->get('signature');
     }
 
     /**

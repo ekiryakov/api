@@ -119,12 +119,14 @@ class SubscriptionController extends AbstractController
     /**
      * @Route("/{id}/pay", name="subscription_pay", methods={"POST"})
      */
-    public function pay(Subscription $subscription): Response
+    public function pay(Request $request, Subscription $subscription, PaymentManagerInterface $payment): Response
     {
-        $subscription->setStatus(self::STATUS_PAYED);
-        $this->getDoctrine()->getManager()->flush();
-        
-        return new Response();
+        if ($payment->proof($request)) {
+            $subscription->setStatus(self::STATUS_PAYED);
+            $this->getDoctrine()->getManager()->flush();
+            return new Response();
+        }
+        return (new Response())->setStatusCode(Response::HTTP_BAD_REQUEST);
     }
 
     /**
