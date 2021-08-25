@@ -119,10 +119,12 @@ class SubscriptionController extends AbstractController
     /**
      * @Route("/{id}/pay", name="subscription_pay", methods={"POST"})
      */
-    public function pay(Subscription $subscription): void
+    public function pay(Subscription $subscription): Response
     {
         $subscription->setStatus(self::STATUS_PAYED);
         $this->getDoctrine()->getManager()->flush();
+        
+        return new Response();
     }
 
     /**
