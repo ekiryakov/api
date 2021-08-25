@@ -126,6 +126,7 @@ class SubscriptionController extends AbstractController
             $this->getDoctrine()->getManager()->flush();
             return new Response();
         }
+
         return (new Response())->setStatusCode(Response::HTTP_BAD_REQUEST);
     }
 
