@@ -78,7 +78,7 @@ class LiqpayManager implements PaymentManagerInterface
     {
         $data = $request->request->get('data');
         $params = $this->liqpay->decode_params($data);
-        $signature = $this->liqpay->cnb_signature($params);
+        $signature = base64_encode(sha1($this->private_key.$data.$this->private_key, 1));
 
         return $signature === $request->request->get('signature')
             && in_array($params['status'], ['subscribed', 'wait_accept']);
