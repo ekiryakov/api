@@ -11,6 +11,8 @@ use Symfony\Component\Routing\RouterInterface;
 
 class LiqpayManager implements PaymentManagerInterface
 {
+    private const COMMISSION = 2.75;
+
     /** @var LiqPay  */
     private LiqPay $liqpay;
 
@@ -45,7 +47,11 @@ class LiqpayManager implements PaymentManagerInterface
     public function link(Subscription $subscription): string
     {
         $sid = $subscription->getId();
-        $dto = new LiqpayDTO($sid, 9.99, 'description (#' . $sid . ')');
+
+        $dto = new LiqpayDTO($sid,
+            Calculator::execute($subscription, self::COMMISSION),
+            $this->description($subscription)
+        );
 
         $params = $dto->toArray();
 
@@ -94,5 +100,19 @@ class LiqpayManager implements PaymentManagerInterface
     protected function signature(array $params): string
     {
         return $this->liqpay->cnb_signature($params);
+    }
+
+    /**
+     * @param Subscription $subscription
+     * @return string
+     */
+    protected function description(Subscription $subscription): string
+    {
+        $description = 'Subscription #' . $subscription->getId() . ':\\n';
+        foreach ($subscription->getOffer() as $offer) {
+            $description .= '\\t> ' . $offer->getTitle() . '\\n';
+        }
+
+        return $description;
     }
 }
