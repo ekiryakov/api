@@ -95,16 +95,15 @@ class SubscriptionController extends AbstractController
             return $this->redirectToRoute('subscription_index', [], Response::HTTP_SEE_OTHER);
         }
         
-        $data = [
-            'subscription' => $subscription,
-            'form' => $form,
-        ];
-
         if (in_array($subscription->getStatus(), [self::STATUS_CREATED, self::STATUS_CANCELED])) {
-            $data['pay'] = $payment->link($subscription);
+            $pay = $payment->link($subscription);
         }
 
-        return $this->renderForm('subscription/edit.html.twig', $data);
+        return $this->renderForm('subscription/edit.html.twig', [
+            'subscription' => $subscription,
+            'form' => $form,
+            'pay' => $pay ?? null
+        ]);
     }
 
     /**
