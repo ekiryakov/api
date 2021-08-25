@@ -108,9 +108,9 @@ class LiqpayManager implements PaymentManagerInterface
      */
     protected function description(Subscription $subscription): string
     {
-        $description = 'Subscription #' . $subscription->getId() . ':</br>';
+        $description = 'Subscription #' . $subscription->getId() . ':' . PHP_EOL;
         foreach ($subscription->getOffer() as $offer) {
-            $description .= '>  ' . $offer->getTitle() . '</br>';
+            $description .= ' > ' . $offer->getTitle() . PHP_EOL;
         }
 
         return $description;
