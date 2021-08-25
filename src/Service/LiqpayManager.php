@@ -62,10 +62,12 @@ class LiqpayManager implements PaymentManagerInterface
      */
     public function proof(Request $request): bool
     {
-        $params = $this->liqpay->decode_params($request->get('data'));
+        $data = $request->request->get('data');
+        $params = $this->liqpay->decode_params($data);
         $signature = $this->liqpay->cnb_signature($params);
 
-        return $signature === $request->get('signature');
+        return $signature === $request->request->get('signature')
+            && in_array($data['status'], ['subscribed', 'wait_accept']);
     }
 
     /**
