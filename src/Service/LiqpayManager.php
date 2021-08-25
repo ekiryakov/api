@@ -89,13 +89,12 @@ class LiqpayManager implements PaymentManagerInterface
      */
     public function unsubscribe(Subscription $subscription): bool
     {
-        $resultJSON = $this->liqpay->api("request", [
+        /** @var mixed $result */
+        $result = $this->liqpay->api("request", [
             'action'        => 'unsubscribe',
             'version'       => '3',
             'order_id'      => $subscription->getId(),
         ]);
-
-        $result = json_decode($resultJSON);
 
         return $result['status'] === 'unsubscribed';
     }
