@@ -110,7 +110,7 @@ class LiqpayManager implements PaymentManagerInterface
     {
         $description = 'Subscription #' . $subscription->getId() . ':' . PHP_EOL;
         foreach ($subscription->getOffer() as $offer) {
-            $description .= ' > ' . $offer->getTitle() . PHP_EOL;
+            $description .= "&#10003;" . $offer->getTitle() . PHP_EOL;
         }
 
         return $description;
