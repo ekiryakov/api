@@ -96,7 +96,9 @@ class LiqpayManager implements PaymentManagerInterface
             'order_id'      => $subscription->getId(),
         ]);
 
-        return $result['status'] === 'unsubscribed';
+        $status = is_array($result) ? $result['status'] : $result->{'status'};
+
+        return $status === 'unsubscribed';
     }
 
     /**
