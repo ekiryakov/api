@@ -18,6 +18,9 @@ class LiqpayManager implements PaymentManagerInterface
     /** @var string  */
     private string $public_key;
 
+    /** @var string  */
+    private string $private_key;
+
     /** @var RouterInterface  */
     private RouterInterface $router;
 
@@ -37,6 +40,7 @@ class LiqpayManager implements PaymentManagerInterface
         LoggerInterface $logger
     ) {
         $this->public_key = $public_key;
+        $this->private_key = $private_key;
         $this->liqpay = new LiqPay($public_key, $private_key);
         $this->router = $router;
         $this->logger = $logger;
@@ -73,8 +77,9 @@ class LiqpayManager implements PaymentManagerInterface
     public function proof(Request $request): bool
     {
         $data = $request->request->get('data');
+        $signature = base64_encode(sha1( $this->private_key . $data . $this->private_key ));
+
         $params = $this->liqpay->decode_params($data);
-        $signature = $this->liqpay->cnb_signature($params);
 
         return $signature === $request->request->get('signature')
             && in_array($params['status'], ['subscribed', 'wait_accept']);
