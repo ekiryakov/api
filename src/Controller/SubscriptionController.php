@@ -124,6 +124,7 @@ class SubscriptionController extends AbstractController
         if ($payment->proof($request)) {
             $subscription->setStatus(self::STATUS_PAYED);
             $this->getDoctrine()->getManager()->flush();
+
             return new Response();
         }
 
