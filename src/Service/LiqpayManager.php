@@ -3,12 +3,12 @@
 namespace App\Service;
 
 use App\DTO\LiqpayDTO;
-use InvalidArgumentException;
+use App\Entity\Subscription;
 use LiqPay;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
 
-class LiqpayManager
+class LiqpayManager implements PaymentManagerInterface
 {
     /** @var LiqPay  */
     private LiqPay $liqpay;
@@ -32,50 +32,28 @@ class LiqpayManager
     }
 
     /**
-     * @param LiqpayDTO $liqpayDTO
-     * @return string
+     * @inheritDoc
      */
-    public function link(LiqpayDTO $liqpayDTO): string
+    public function link(Subscription $subscription): string
     {
-        $data = $liqpayDTO->toArray();
-        $data['result_url'] = $this->router->generate('subscription_index', [], UrlGeneratorInterface::ABSOLUTE_URL);
-        $data['server_url'] = $this->router->generate('subscription_pay', ['id' => $liqpayDTO->getOrderId()], UrlGeneratorInterface::ABSOLUTE_URL);
+        $sid = $subscription->getId();
+        $dto = new LiqpayDTO($sid, 9.99, 'description (#' . $sid . ')');
 
-        $params = $this->validate($data);
+        $params = $dto->toArray();
+
+        $params['public_key'] = $this->public_key;
+        $params['result_url'] = $this->router->generate(
+            'subscription_index', [],
+            UrlGeneratorInterface::ABSOLUTE_URL
+        );
+        $params['server_url'] = $this->router->generate(
+            'subscription_pay', ['id' => $sid],
+            UrlGeneratorInterface::ABSOLUTE_URL
+        );
 
         return 'https://www.liqpay.ua/api/3/checkout'
             . '?data=' . $this->data($params)
             . '&signature=' . $this->signature($params);
-    }
-
-    /**
-     * @param array $params
-     * @return array
-     */
-    protected function validate(array $params): array
-    {
-        $params['public_key'] = $this->public_key;
-
-        if (!isset($params['version'])) {
-            throw new InvalidArgumentException('version is null');
-        }
-        if (!isset($params['action'])) {
-            throw new InvalidArgumentException('action is null');
-        }
-        if (!isset($params['amount'])) {
-            throw new InvalidArgumentException('amount is null');
-        }
-        if (!isset($params['currency'])) {
-            throw new InvalidArgumentException('currency is null');
-        }
-        if (!isset($params['description'])) {
-            throw new InvalidArgumentException('description is null');
-        }
-        if (!isset($params['order_id'])) {
-            throw new InvalidArgumentException('order_id is null');
-        }
-
-        return $params;
     }
 
     /**

@@ -13,16 +13,25 @@ class LiqpayDTO
     /** @var int */
     private int $order_id;
 
+    /** @var string */
+    private string $periodicity;
+
     /**
-     * @param $order_id
-     * @param $amount
-     * @param $description
+     * @param int $order_id
+     * @param float $amount
+     * @param string $description
+     * @param string $periodicity
      */
-    public function __construct($order_id, $amount, $description)
-    {
+    public function __construct(
+        int $order_id,
+        float $amount,
+        string $description,
+        string $periodicity = 'month'
+    ) {
         $this->order_id = $order_id;
         $this->amount = $amount;
         $this->description = $description;
+        $this->periodicity = $periodicity;
     }
 
     /**
@@ -86,7 +95,7 @@ class LiqpayDTO
      */
     public function getPeriodicity(): string
     {
-        return 'month';
+        return $this->periodicity;
     }
 
     /**

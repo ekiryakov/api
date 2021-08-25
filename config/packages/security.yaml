@@ -80,5 +80,6 @@ security:
         - { path: ^/(customer|vendor)/(new|\d+|)$, roles: ROLE_ADMIN }
         - { path: ^/(vendor|customer)/(register|login), roles: PUBLIC_ACCESS }
         - { path: ^/offer/(\d+|)$, methods: [GET], roles: PUBLIC_ACCESS }
+        - { path: ^/subscription/(\d+)/pay$, methods: [POST], roles: PUBLIC_ACCESS }
         - { path: ^/(customer|subscription), roles: ROLE_CUSTOMER }
         - { path: ^/(vendor|offer), roles: ROLE_VENDOR }

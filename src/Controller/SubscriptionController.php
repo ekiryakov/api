@@ -2,12 +2,11 @@
 
 namespace App\Controller;
 
-use App\DTO\LiqpayDTO;
 use App\Entity\Customer;
 use App\Entity\Subscription;
 use App\Form\SubscriptionType;
 use App\Repository\SubscriptionRepository;
-use App\Service\LiqpayManager;
+use App\Service\PaymentManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -41,7 +40,7 @@ class SubscriptionController extends AbstractController
     /**
      * @Route("/new", name="subscription_new", methods={"GET","POST"})
      */
-    public function new(Request $request, LiqpayManager $liqpay): Response
+    public function new(Request $request, PaymentManagerInterface $payment): Response
     {
         $subscription = new Subscription();
         $subscription->setStatus(self::STATUS_CREATED);
@@ -58,9 +57,7 @@ class SubscriptionController extends AbstractController
             $entityManager->persist($subscription);
             $entityManager->flush();
 
-            $dto = new LiqpayDTO($subscription->getId(), 9.99, 'description');
-
-            return $this->redirect($liqpay->link($dto));
+            return $this->redirect($payment->link($subscription));
         }
 
         return $this->renderForm('subscription/new.html.twig', [
@@ -107,7 +104,7 @@ class SubscriptionController extends AbstractController
     /**
      * @Route("/{id}", name="subscription_delete", methods={"POST"})
      */
-    public function delete(Request $request, Subscription $subscription, LiqpayManager $liqpay): Response
+    public function delete(Request $request, Subscription $subscription): Response
     {
         $this->validateOwner($subscription);
         $subscription->setStatus(self::STATUS_CANCELED);
@@ -120,7 +117,7 @@ class SubscriptionController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/pay", name="subscription_pay", methods={"GET"})
+     * @Route("/{id}/pay", name="subscription_pay", methods={"POST"})
      */
     public function pay(Subscription $subscription): void
     {
