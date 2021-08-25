@@ -102,7 +102,7 @@ class SubscriptionController extends AbstractController
         return $this->renderForm('subscription/edit.html.twig', [
             'subscription' => $subscription,
             'form' => $form,
-            'pay' => $pay ?? null
+            'pay' => empty($pay) ? null : $pay
         ]);
     }
 
