@@ -21,7 +21,9 @@
                 <td>{{ subscription.status }}</td>
                 <td>
                     <a href="{{ path('subscription_show', {'id': subscription.id}) }}">show</a>
-                    <a href="{{ path('subscription_edit', {'id': subscription.id}) }}">edit</a>
+                    {% if subscription.status != 4 %}
+                        <a href="{{ path('subscription_edit', {'id': subscription.id}) }}">edit</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}

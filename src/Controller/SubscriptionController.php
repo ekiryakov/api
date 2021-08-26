@@ -83,6 +83,10 @@ class SubscriptionController extends AbstractController
      */
     public function edit(Request $request, Subscription $subscription, PaymentManagerInterface $payment): Response
     {
+        if ($subscription->getStatus() === self::STATUS_CANCELED) {
+            return $this->redirectToRoute('subscription_index', [], Response::HTTP_SEE_OTHER);
+        }
+
         $this->validateOwner($subscription);
 
         $form = $this->createForm(SubscriptionType::class, $subscription);
