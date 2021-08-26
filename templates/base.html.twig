@@ -18,6 +18,9 @@
     <body>
         <div id="app">
             <v-app>
+                <v-banner app sticky :value="show">
+                    <iframe src="https://www.youtube.com/embed/vgtReuY02JA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </v-banner>
                 <v-app-bar app flat inverted-scroll>
                     <v-toolbar-title>Title</v-toolbar-title>
                     <v-spacer></v-spacer>
@@ -26,11 +29,6 @@
                     </v-btn>
                 </v-app-bar>
                 <v-main>
-                    <v-expand-transition>
-                        <v-banner app sticky :value="show">
-                            <iframe src="https://www.youtube.com/embed/vgtReuY02JA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </v-banner>
-                    </v-expand-transition>
                     {% block body %}{% endblock %}
                 </v-main>
                 <v-footer app>
