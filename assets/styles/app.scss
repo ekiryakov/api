@@ -10,5 +10,8 @@ h1 {
 .v-banner {
   .v-banner__wrapper {
     padding: 0 !important;
+    .v-banner__text {
+      line-height: 0;
+    }
   }
 }
