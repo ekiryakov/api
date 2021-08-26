@@ -17,4 +17,9 @@ new Vue({
         Offer,
         Categories,
     },
+    data: () => {
+        return {
+            show: false
+        }
+    }
 }).$mount('#app');
