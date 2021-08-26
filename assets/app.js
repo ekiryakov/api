@@ -22,5 +22,10 @@ new Vue({
             show: false,
             width: window.screen.width,
         }
+    },
+    computed: {
+        height: function () {
+            return this.width * 0.5625
+        }
     }
 }).$mount('#app');
