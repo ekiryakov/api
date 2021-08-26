@@ -24,7 +24,7 @@
                     <v-btn icon @click="show = !show">
                         <v-icon>${ show ? 'mdi-video' : 'mdi-video-outline' }$</v-icon>
                     </v-btn>
-                    <template v-slot:extension>
+                    <v-container>
                         <v-expand-transition>
                             <div v-show="show">
                                 <v-card-text>
@@ -32,7 +32,7 @@
                                 </v-card-text>
                             </div>
                         </v-expand-transition>
-                    </template>
+                    </v-container>
                 </v-app-bar>
                 <v-main>
                     {% block body %}{% endblock %}
