@@ -95,7 +95,7 @@ class SubscriptionController extends AbstractController
             return $this->redirectToRoute('subscription_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        $pay = in_array($subscription->getStatus(), [self::STATUS_CREATED, self::STATUS_CANCELED])
+        $pay = $subscription->getStatus() === self::STATUS_CREATED
             ? $payment->link($subscription)
             : null;
 
