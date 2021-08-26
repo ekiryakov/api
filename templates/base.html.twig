@@ -21,8 +21,8 @@
                 <v-app-bar app flat inverted-scroll extension-height="250">
                     <v-toolbar-title>Title</v-toolbar-title>
                     <v-spacer></v-spacer>
-                    <v-btn icon>
-                        <v-icon>mdi-video-outline</v-icon>
+                    <v-btn icon @click="show = !show">
+                        <v-icon>${ show ? 'mdi-video' : 'mdi-video-outline' }$</v-icon>
                     </v-btn>
                     <template v-slot:extension>
                         <v-expand-transition>
