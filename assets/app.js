@@ -19,7 +19,8 @@ new Vue({
     },
     data: () => {
         return {
-            show: false
+            show: false,
+            width: window.screen.width,
         }
     }
 }).$mount('#app');
