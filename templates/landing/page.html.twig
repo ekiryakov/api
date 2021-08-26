@@ -2,8 +2,16 @@
 
 {% block title %}Landing page{% endblock %}
 
+{% block banner %}
+    <iframe src="https://www.youtube.com/embed/vgtReuY02JA?autoplay=1&playsinline=1&showinfo=0"
+            style="border:none"
+            :width="this.width"
+            :height="this.height">
+    </iframe>
+{% endblock %}
+
 {% block body %}
-<v-container fluid>
-    Landing page))
-</v-container>
+    <v-container fluid>
+        Landing page))
+    </v-container>
 {% endblock %}
