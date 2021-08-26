@@ -18,11 +18,10 @@
     <body>
         <div id="app">
             <v-app>
-                <v-app-bar absolute inverted-scroll scroll-target="#top-bar">
+                <v-app-bar flat absolute inverted-scroll>
                     <v-app-bar-nav-icon></v-app-bar-nav-icon>
                     <v-toolbar-title>Title</v-toolbar-title>
                 </v-app-bar>
-                <v-sheet id="top-bar" class="overflow-y-auto" max-height="600"></v-sheet>
                 <v-main>
                     {% block body %}{% endblock %}
                 </v-main>
