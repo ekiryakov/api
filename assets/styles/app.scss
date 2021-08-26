@@ -1,7 +1,3 @@
-$banner-start-padding: 0;
-$banner-end-padding: 0;
-$banner-y-padding: 0;
-
 h1 {
   margin: revert;
   font-weight: bold !important;
@@ -9,5 +5,10 @@ h1 {
 .v-input--hide-details {
   .v-input__slot:before {
     border: none !important;
+  }
+}
+.v-banner {
+  .v-banner__wrapper {
+    padding: 0 !important;
   }
 }

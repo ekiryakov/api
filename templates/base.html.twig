@@ -18,8 +18,8 @@
     <body>
         <div id="app">
             <v-app>
-                <v-banner app sticky :value="show" class="ma-0 pa-0" mobile-breakpoint="0" elevation="0">
-                    <iframe src="https://www.youtube.com/embed/vgtReuY02JA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <v-banner app sticky :value="show">
+                    <iframe src="https://www.youtube.com/embed/vgtReuY02JA" :width="window.screen.width" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </v-banner>
                 <v-app-bar app flat inverted-scroll>
                     <v-toolbar-title>Title</v-toolbar-title>
