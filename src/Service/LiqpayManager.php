@@ -87,10 +87,30 @@ class LiqpayManager implements PaymentManagerInterface
     /**
      * @inheritDoc
      */
+    public function update(Subscription $subscription): bool
+    {
+        /** @var mixed $result */
+        $result = $this->liqpay->api('request', [
+            'action'        => 'subscribe_update',
+            'version'       => '3',
+            'order_id'      => $subscription->getId(),
+            'amount'        => Calculator::execute($subscription, self::COMMISSION),
+            'currency'      => 'UAH',
+            'description'   => $this->description($subscription)
+        ]);
+
+        $status = is_array($result) ? $result['status'] : $result->{'status'};
+
+        return $status === 'subscribed';
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function unsubscribe(Subscription $subscription): bool
     {
         /** @var mixed $result */
-        $result = $this->liqpay->api("request", [
+        $result = $this->liqpay->api('request', [
             'action'        => 'unsubscribe',
             'version'       => '3',
             'order_id'      => $subscription->getId(),

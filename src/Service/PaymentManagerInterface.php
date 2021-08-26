@@ -23,5 +23,11 @@ interface PaymentManagerInterface
      * @param Subscription $subscription
      * @return bool
      */
+    public function update(Subscription $subscription): bool;
+
+    /**
+     * @param Subscription $subscription
+     * @return bool
+     */
     public function unsubscribe(Subscription $subscription): bool;
 }

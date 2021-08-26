@@ -88,7 +88,7 @@ class SubscriptionController extends AbstractController
         $form = $this->createForm(SubscriptionType::class, $subscription);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid() && $payment->update($subscription)) {
             $subscription->setStatus(self::STATUS_UPDATED);
             $this->getDoctrine()->getManager()->flush();
 
