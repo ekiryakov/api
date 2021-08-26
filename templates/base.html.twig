@@ -24,15 +24,15 @@
                     <v-btn icon @click="show = !show">
                         <v-icon>${ show ? 'mdi-video' : 'mdi-video-outline' }$</v-icon>
                     </v-btn>
-                </v-app-bar>
-                <v-main>
-                    <v-banner app sticky :value="show" elevation="0">
+                    <v-banner sticky :value="show" elevation="0">
                         <iframe src="https://www.youtube.com/embed/vgtReuY02JA?autoplay=1&playsinline=1&showinfo=0"
                                 style="border:none"
                                 :width="this.width"
                                 :height="this.height">
                         </iframe>
                     </v-banner>
+                </v-app-bar>
+                <v-main>
                     {% block body %}{% endblock %}
                 </v-main>
                 <v-footer app>
