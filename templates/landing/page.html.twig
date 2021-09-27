@@ -11,7 +11,34 @@
 {% endblock %}
 
 {% block body %}
-    <v-container fluid>
-        Landing page))
+    <v-container id="introducing" fluid>
+        <v-row>
+            <v-col md="6">
+                <p class="font-weight-light">
+                    Light weight text.
+                </p>
+            </v-col>
+        </v-row>
     </v-container>
+    <v-container id="principles" fluid>
+        <v-tabs centered slider-color="yellow">
+            <v-tab :href="`#customer`">
+                customer
+            </v-tab>
+            <v-tab :href="`#vendor`">
+                vendor
+            </v-tab>
+        </v-tabs>
+        <v-tabs-items>
+            <v-tab-item :value="`customer`">
+                customer content
+            </v-tab-item>
+            <v-tab-item :value="`vendor`">
+                vendor content
+            </v-tab-item>
+        </v-tabs-items>
+    </v-container>
+    <v-container id="examples" fluid></v-container>
+    <v-container id="partners" fluid></v-container>
+    <v-container id="faq" fluid></v-container>
 {% endblock %}
