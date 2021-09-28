@@ -37,11 +37,17 @@
 
 <script>
 export default {
-  props: ['data'],
+  props: {
+    data: Object,
+  },
   data: () => ({
-    show: '/offer/' + this.data.id,
-    edit: '/offer/' + this.data.id + '/edit',
+    show: '',
+    edit: '',
   }),
+  mounted() {
+    this.show = '/offer/' + this.data.id;
+    this.edit = '/offer/' + this.data.id + '/edit';
+  }
 }
 </script>
 
