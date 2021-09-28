@@ -21,7 +21,7 @@
         </v-row>
     </v-container>
     <v-container id="principles" fluid>
-        <v-tabs centered slider-color="yellow">
+        <v-tabs v-model="this.user" centered slider-color="yellow">
             <v-tab :href="`#customer`">
                 customer
             </v-tab>
@@ -29,11 +29,11 @@
                 vendor
             </v-tab>
         </v-tabs>
-        <v-tabs-items>
-            <v-tab-item :id="`customer`">
+        <v-tabs-items v-model="this.user">
+            <v-tab-item :value="`customer`">
                 customer content
             </v-tab-item>
-            <v-tab-item :id="`vendor`">
+            <v-tab-item :value="`vendor`">
                 vendor content
             </v-tab-item>
         </v-tabs-items>

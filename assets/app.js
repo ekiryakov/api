@@ -19,6 +19,7 @@ new Vue({
     },
     data: () => {
         return {
+            user: 'customer',
             show: false,
             width: window.screen.width,
         }
