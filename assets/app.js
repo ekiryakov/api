@@ -4,6 +4,7 @@ import vuetify from './plugins/vuetify.js' // path to vuetify export
 import './styles/app.scss';
 
 import UserTabs from "./templates/landing/UserTabs";
+import Partners from "./templates/landing/Partners";
 import Login from "./templates/security/Login";
 import CustomerLogin from "./templates/security/CustomerLogin";
 import List from "./templates/offer/List";
@@ -14,6 +15,7 @@ new Vue({
     delimiters: ['${', '}$'],
     components: {
         UserTabs,
+        Partners,
         Login,
         CustomerLogin,
         List,
