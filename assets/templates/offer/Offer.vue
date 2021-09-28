@@ -1,9 +1,9 @@
 <template>
-  <v-list-item :key="offer.title">
+  <v-list-item :key="data.title">
     <v-list-item-content>
-      <v-list-item-title v-text="offer.title"></v-list-item-title>
-      <v-list-item-subtitle v-text="offer.cost" class="text--primary"></v-list-item-subtitle>
-      <v-list-item-subtitle v-text="offer.description"></v-list-item-subtitle>
+      <v-list-item-title v-text="data.title"></v-list-item-title>
+      <v-list-item-subtitle v-text="data.cost" class="text--primary"></v-list-item-subtitle>
+      <v-list-item-subtitle v-text="data.description"></v-list-item-subtitle>
     </v-list-item-content>
     <v-list-item-action>
       <v-menu bottom left rounded="lg">
@@ -37,17 +37,11 @@
 
 <script>
 export default {
-  props: {
-    data: String,
-    show: String,
-    edit: String,
-  },
+  props: ['data'],
   data: () => ({
-    offer: {},
+    show: '/offer/' + this.data.id,
+    edit: '/offer/' + this.data.id + '/edit',
   }),
-  mounted() {
-    this.offer = JSON.parse(this.data);
-  }
 }
 </script>
 
