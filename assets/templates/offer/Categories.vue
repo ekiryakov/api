@@ -17,15 +17,14 @@ export default {
     categories: [],
   }),
   mounted() {
+    this.categories = JSON.parse(this.data);
+
     let usp = new URLSearchParams(location.search);
     let category = usp.get('category');
 
     if (category) {
-      this.selected = category;
       this.tab = this.initHref(category);
     }
-
-    this.categories = JSON.parse(this.data);
   },
   methods: {
     initHref(id) {
