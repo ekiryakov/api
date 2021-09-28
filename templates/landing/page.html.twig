@@ -26,6 +26,9 @@
     <v-container id="examples" fluid>
         <v-row>
             <v-col md="6">
+                <List data="{{ offers|serialize(format = 'json') }}"></List>
+            </v-col>
+            <v-col md="6">
                 <p class="font-weight-light">
                     Light weight text.
                 </p>
@@ -35,3 +38,9 @@
     <v-container id="partners" fluid></v-container>
     <v-container id="faq" fluid></v-container>
 {% endblock %}
+<script>
+    import List from "../../assets/templates/offer/List";
+    export default {
+        components: {List}
+    }
+</script>

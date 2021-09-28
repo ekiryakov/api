@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\OfferRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,8 +12,10 @@ class LandingPageController extends AbstractController
     /**
      * @Route("/", name="landing_page", methods={"GET"})
      */
-    public function index(): Response
+    public function index(OfferRepository $offerRepository): Response
     {
-        return $this->render('landing/page.html.twig');
+        return $this->render('landing/page.html.twig', [
+            'offers' => $offerRepository->findBy([],null,3,0),
+        ]);
     }
 }
