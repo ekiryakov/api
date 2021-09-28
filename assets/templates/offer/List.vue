@@ -1,8 +1,7 @@
 <template>
   <v-list class="pa-0" two-line>
     <v-list-item-group active-class="pink--text" multiple>
-      <Offer v-for="(offer, n) in offers" :key="n" :data="offer"></Offer>
-      <v-divider></v-divider>
+      <Offer v-for="offer in offers" :key="offer.id" :data="offer"></Offer>
       <v-fab-transition>
         <v-btn href="/offer/new" fab large dark absolute bottom right>
           <v-icon>mdi-plus</v-icon>

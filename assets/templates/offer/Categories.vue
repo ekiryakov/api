@@ -1,5 +1,5 @@
 <template>
-  <v-tabs dark background-color="teal darken-3" show-arrows v-model="tab">
+  <v-tabs dark background-color="teal darken-3" show-arrows>
     <v-tabs-slider color="teal lighten-3"></v-tabs-slider>
     <v-tab v-for="category in categories" :key="category.id" :href="initHref(category.id)">
       {{ category.name }}

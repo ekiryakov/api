@@ -32,6 +32,7 @@
         </v-list>
       </v-menu>
     </v-list-item-action>
+    <v-divider></v-divider>
   </v-list-item>
 </template>
 
