@@ -1,10 +1,10 @@
 <template>
   <section>
     <v-tabs v-model="user" centered slider-color="yellow">
-      <v-tab :href="`customer`">
+      <v-tab :href="`#customer`">
         customer
       </v-tab>
-      <v-tab :href="`vendor`">
+      <v-tab :href="`#vendor`">
         vendor
       </v-tab>
     </v-tabs>
