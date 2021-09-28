@@ -21,7 +21,6 @@
 
 <script>
 export default {
-  name: "UserTabs",
   data () {
     return {
       user: 'customer',
