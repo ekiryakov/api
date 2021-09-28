@@ -22,10 +22,10 @@
     </v-container>
     <v-container id="principles" fluid>
         <v-tabs v-model="this.user" centered slider-color="yellow">
-            <v-tab :href="`#customer`">
+            <v-tab @click="this.user = `customer`">
                 customer
             </v-tab>
-            <v-tab :href="`#vendor`">
+            <v-tab @click="this.user = `vendor`">
                 vendor
             </v-tab>
         </v-tabs>
