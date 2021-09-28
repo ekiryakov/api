@@ -21,15 +21,15 @@
         </v-row>
     </v-container>
     <v-container id="principles" fluid>
-        <v-tabs v-model="this.user" centered slider-color="yellow">
-            <v-tab @click="this.user = `customer`">
+        <v-tabs v-model="this.$root.user" centered slider-color="yellow">
+            <v-tab @click="this.$root.user = `customer`">
                 customer
             </v-tab>
-            <v-tab @click="this.user = `vendor`">
+            <v-tab @click="this.$root.user = `vendor`">
                 vendor
             </v-tab>
         </v-tabs>
-        <v-tabs-items v-model="this.user">
+        <v-tabs-items v-model="this.$root.user">
             <v-tab-item :value="`customer`">
                 customer content
             </v-tab-item>
