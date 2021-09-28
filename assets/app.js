@@ -5,7 +5,6 @@ import './styles/app.scss';
 
 import UserTabs from "./templates/landing/UserTabs";
 import Partners from "./templates/landing/Partners";
-import FAQ from "./templates/landing/FAQ";
 import Login from "./templates/security/Login";
 import CustomerLogin from "./templates/security/CustomerLogin";
 import List from "./templates/offer/List";
@@ -17,7 +16,6 @@ new Vue({
     components: {
         UserTabs,
         Partners,
-        FAQ,
         Login,
         CustomerLogin,
         List,
