@@ -13,6 +13,7 @@ export default {
     data: String
   },
   data: () => ({
+    tab: '',
     categories: [],
   }),
   mounted() {
@@ -21,17 +22,10 @@ export default {
 
     if (category) {
       this.selected = category;
+      this.tab = this.initHref(category);
     }
 
     this.categories = JSON.parse(this.data);
-  },
-  computed: {
-    tab: function () {
-      let usp = new URLSearchParams(location.search);
-      let category = usp.get('category');
-
-      return this.initHref(category);
-    },
   },
   methods: {
     initHref(id) {
