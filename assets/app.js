@@ -6,7 +6,7 @@ import './styles/app.scss';
 import UserTabs from "./templates/landing/UserTabs";
 import Login from "./templates/security/Login";
 import CustomerLogin from "./templates/security/CustomerLogin";
-import Offer from "./templates/offer/Offer";
+import List from "./templates/offer/List";
 import Categories from "./templates/offer/Categories";
 
 new Vue({
@@ -16,7 +16,7 @@ new Vue({
         UserTabs,
         Login,
         CustomerLogin,
-        Offer,
+        List,
         Categories,
     },
     data: () => {
