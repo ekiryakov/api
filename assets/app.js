@@ -3,6 +3,7 @@ import vuetify from './plugins/vuetify.js' // path to vuetify export
 
 import './styles/app.scss';
 
+import UserTabs from "./templates/landing/UserTabs";
 import Login from "./templates/security/Login";
 import CustomerLogin from "./templates/security/CustomerLogin";
 import Offer from "./templates/offer/Offer";
@@ -12,6 +13,7 @@ new Vue({
     vuetify,
     delimiters: ['${', '}$'],
     components: {
+        UserTabs,
         Login,
         CustomerLogin,
         Offer,
@@ -19,7 +21,6 @@ new Vue({
     },
     data: () => {
         return {
-            user: 'customer',
             show: false,
             width: window.screen.width,
         }

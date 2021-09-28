@@ -21,24 +21,15 @@
         </v-row>
     </v-container>
     <v-container id="principles" fluid>
-        <v-tabs v-model="this.$root.user" centered slider-color="yellow">
-            <v-tab @click="this.$root.user = `customer`">
-                customer
-            </v-tab>
-            <v-tab @click="this.$root.user = `vendor`">
-                vendor
-            </v-tab>
-        </v-tabs>
-        <v-tabs-items v-model="this.$root.user">
-            <v-tab-item :value="`customer`">
-                customer content
-            </v-tab-item>
-            <v-tab-item :value="`vendor`">
-                vendor content
-            </v-tab-item>
-        </v-tabs-items>
+        <UserTabs></UserTabs>
     </v-container>
     <v-container id="examples" fluid></v-container>
     <v-container id="partners" fluid></v-container>
     <v-container id="faq" fluid></v-container>
 {% endblock %}
+<script>
+    import UserTabs from "../../assets/templates/landing/UserTabs";
+    export default {
+        components: {UserTabs}
+    }
+</script>
