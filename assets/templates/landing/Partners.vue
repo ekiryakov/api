@@ -1,16 +1,22 @@
 <template>
-  <v-slide-group v-model="model" active-class="success" show-arrows>
-    <v-slide-item v-for="n in 15" :key="n" v-slot="{ active, toggle }">
-      ${ n }$
+  <v-slide-group active-class="success" show-arrows>
+    <v-slide-item v-for="partner in partners" :key="partner.id" v-slot="{ active, toggle }">
+      {{ partner.logo }}
     </v-slide-item>
   </v-slide-group>
 </template>
 
 <script>
 export default {
+  props: {
+    data: String
+  },
   data: () => ({
-    model: null,
+    partners: [],
   }),
+  mounted() {
+    this.partners = JSON.parse(this.data);
+  }
 }
 </script>
 
