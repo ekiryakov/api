@@ -23,7 +23,7 @@ new Vue({
     },
     data: () => {
         return {
-            show: false,
+            darkMode: false,
             width: window.screen.width,
         }
     },
