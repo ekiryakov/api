@@ -21,7 +21,7 @@
                 <v-app-bar app rounded="pill" class="ma-3">
                     <v-toolbar-title>Title</v-toolbar-title>
                     <v-spacer></v-spacer>
-                    <v-switch :value="this.darkMode" @click="this.$vuetify.theme.dark = !this.$vuetify.theme.dark"></v-switch>
+                    <v-switch :value="this.$root.darkMode" @click="this.$root.$vuetify.theme.dark = !this.$root.$vuetify.theme.dark"></v-switch>
                 </v-app-bar>
                 <v-banner>
                     {% block banner %}{% endblock %}
