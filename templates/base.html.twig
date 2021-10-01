@@ -21,7 +21,9 @@
                 <v-app-bar app rounded="pill" class="ma-3">
                     <v-toolbar-title>Title</v-toolbar-title>
                     <v-spacer></v-spacer>
-                    <v-switch :value="this.$root.darkMode" @change="this.$root.toggleDarkMode"></v-switch>
+                    <v-toolbar-items>
+                        <v-switch :value="this.$root.darkMode" @change="this.$root.toggleDarkMode"></v-switch>
+                    </v-toolbar-items>
                 </v-app-bar>
                 <v-banner>
                     {% block banner %}{% endblock %}
