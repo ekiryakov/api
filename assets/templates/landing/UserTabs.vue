@@ -1,6 +1,6 @@
 <template>
   <section>
-    <v-tabs v-model="user" centered slider-color="yellow">
+    <v-tabs v-model="user" centered>
       <v-tab :href="`#customer`">
         customer
       </v-tab>
