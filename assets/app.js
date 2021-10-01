@@ -12,6 +12,7 @@ import Categories from "./templates/offer/Categories";
 
 new Vue({
     vuetify,
+    theme: { dark: true },
     delimiters: ['${', '}$'],
     components: {
         UserTabs,
