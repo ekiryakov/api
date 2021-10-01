@@ -27,6 +27,12 @@ new Vue({
             width: window.screen.width,
         }
     },
+    methods: {
+        toggleDarkMode: function () {
+            this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+            this.darkMode = !this.darkMode;
+        }
+    },
     computed: {
         height: function () {
             return this.width * 0.5625
