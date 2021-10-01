@@ -1,7 +1,7 @@
 <template>
   <v-slide-group active-class="success" show-arrows>
     <v-slide-item v-for="partner in partners" :key="partner.id" v-slot="{ active, toggle }">
-      {{ partner.logo }}
+      <v-img :src="partner.logo"></v-img>
     </v-slide-item>
   </v-slide-group>
 </template>
