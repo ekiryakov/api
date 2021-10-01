@@ -21,11 +21,11 @@
                 <v-app-bar app flat hide-on-scroll>
                     <v-toolbar-title>Title</v-toolbar-title>
                     <v-spacer></v-spacer>
-                    <v-btn icon @click="show = !show">
-                        <v-icon>${ show ? 'mdi-video' : 'mdi-video-outline' }$</v-icon>
+                    <v-btn icon>
+                        <v-icon>mdi-video</v-icon>
                     </v-btn>
                 </v-app-bar>
-                <v-banner sticky :value="show" elevation="0">
+                <v-banner>
                     {% block banner %}{% endblock %}
                 </v-banner>
                 <v-main>
