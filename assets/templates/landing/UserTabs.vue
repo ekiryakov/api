@@ -13,13 +13,13 @@
         <p class="font-weight-light">
           customer content
         </p>
-        <v-btn :href="customer_register" elevation="2" rounded x-large>Registration</v-btn>
+        <v-btn :href="customer_register" color="primary" rounded x-large>Registration</v-btn>
       </v-tab-item>
       <v-tab-item value="vendor">
         <p class="font-weight-light">
           vendor content
         </p>
-        <v-btn :href="vendor_register" elevation="2" rounded x-large>Registration</v-btn>
+        <v-btn :href="vendor_register" color="primary" rounded x-large>Registration</v-btn>
       </v-tab-item>
     </v-tabs-items>
   </section>
