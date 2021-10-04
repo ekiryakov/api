@@ -31,9 +31,9 @@ new Vue({
     },
     mounted() {
         let res = document.querySelectorAll('[data-title]');
-        res.forEach(el => {
-            console.log(el);
-        });
+            res.forEach(el => {
+                console.log(el.offsetTop);
+            });
         console.log(res);
         window.addEventListener('scroll', this.onScroll);
     },
