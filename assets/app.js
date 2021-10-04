@@ -30,9 +30,6 @@ new Vue({
         }
     },
     methods: {
-        onScroll: function (t) {
-            this.title = t;
-        },
         toggleDarkMode: function () {
             this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
             this.darkMode = !this.darkMode;
