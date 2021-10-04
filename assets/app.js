@@ -29,7 +29,7 @@ new Vue({
         }
     },
     methods: {
-        testScroll: function (e) {
+        onScroll: function (e) {
             console.log(e);
         },
         toggleDarkMode: function () {
