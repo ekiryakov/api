@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import vuetify from './plugins/vuetify.js' // path to vuetify export
 
-import logo from './images/logo.png';
 import './styles/app.scss';
 
 import UserTabs from "./templates/landing/UserTabs";
