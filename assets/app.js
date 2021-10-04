@@ -24,11 +24,15 @@ new Vue({
     },
     data: () => {
         return {
+            title:'',
             darkMode: false,
             width: window.screen.width,
         }
     },
     methods: {
+        onScroll: function (t) {
+            this.title = t;
+        },
         toggleDarkMode: function () {
             this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
             this.darkMode = !this.darkMode;
