@@ -5,7 +5,7 @@
 {% block banner %}{% endblock %}
 
 {% block body %}
-    <v-container v-scroll="this.onScroll" id="introducing" fluid>
+    <v-container id="introducing" data-title="introducing" fluid>
         <v-row>
             <v-col md="6">
                 <p class="font-weight-light">
@@ -16,15 +16,15 @@
             </v-col>
         </v-row>
     </v-container>
-    <v-container id="partners" fluid>
+    <v-container id="partners" data-title="partners" fluid>
         <Partners data="{{ vendors|serialize(format = 'json') }}"></Partners>
     </v-container>
-    <v-container id="principles" fluid class="pa-0">
+    <v-container id="principles" data-title="principles" fluid class="pa-0">
         <user-tabs vendor_register="{{ path('vendor_register') }}"
                    customer_register="{{ path('customer_register') }}">
         </user-tabs>
     </v-container>
-    <v-container id="examples" fluid>
+    <v-container id="examples" data-title="examples" fluid>
         <v-row>
             <v-col md="6">
                 <List data="{{ offers|serialize(format = 'json') }}"></List>
@@ -36,7 +36,7 @@
             </v-col>
         </v-row>
     </v-container>
-    <v-container id="faq" fluid>
+    <v-container id="faq" data-title="faq" fluid>
         <v-row justify="center">
             <v-expansion-panels accordion class="ma-3">
                 <v-expansion-panel v-for="(item,i) in 5" :key="i">

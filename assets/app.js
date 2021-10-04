@@ -23,14 +23,24 @@ new Vue({
     },
     data: () => {
         return {
-            title:'',
+            title: '',
+            titles: [],
             darkMode: false,
             width: window.screen.width,
         }
     },
+    mounted() {
+        let res = [];
+        document.querySelectorAll('[data-title]').forEach(el => {
+            console.log(el);
+            res.push(el.target.offsetTop);
+        });
+        console.log(res);
+        window.addEventListener('scroll', this.onScroll);
+    },
     methods: {
-        onScroll: function (e) {
-            console.log(e);
+        onScroll: function () {
+
         },
         toggleDarkMode: function () {
             this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
