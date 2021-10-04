@@ -31,7 +31,7 @@ new Vue({
     },
     methods: {
         testScroll: function (e) {
-            console.log(e.target.scrollTop);
+            console.log(e);
         },
         toggleDarkMode: function () {
             this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
