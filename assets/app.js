@@ -31,7 +31,7 @@ new Vue({
     },
     mounted() {
         let res = [];
-        document.getElementsByName('[data-title]').forEach(el => {
+        document.querySelectorAll('[data-title]').forEach(el => {
             console.log(el);
         });
         console.log(res);
