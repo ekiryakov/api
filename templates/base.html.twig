@@ -19,7 +19,7 @@
         <div id="app">
             <v-app>
                 <v-app-bar app rounded="pill" class="ma-3">
-                    <v-img height="48" src="{{ asset('build/images/logo.png') }}"></v-img>
+                    <v-img max-height="48" max-width="100" src="{{ asset('build/images/logo.png') }}"></v-img>
                     <v-toolbar-title>Title</v-toolbar-title>
                     <v-spacer></v-spacer>
                     <v-switch hide-details v-model="this.darkMode" @change="this.toggleDarkMode"></v-switch>
