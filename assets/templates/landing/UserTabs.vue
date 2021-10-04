@@ -8,7 +8,7 @@
         vendor
       </v-tab>
     </v-tabs>
-    <v-tabs-items v-model="user">
+    <v-tabs-items class="pa-3" v-model="user">
       <v-tab-item value="customer">
         <p class="font-weight-light">
           customer content
