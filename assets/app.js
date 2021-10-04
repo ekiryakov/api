@@ -31,7 +31,7 @@ new Vue({
     },
     methods: {
         testScroll: function (e) {
-            console.log(e);
+            console.log(e.target.offsetTop());
         },
         toggleDarkMode: function () {
             this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
