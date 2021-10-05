@@ -5,6 +5,11 @@ h1 {
 .v-application--is-ltr .v-input--selection-controls__input {
   margin-right: 0;
 }
+
+.v-input--selection-controls__ripple {
+  width: 0;
+}
+
 .v-input--hide-details {
   .v-input__slot:before {
     border: none !important;
