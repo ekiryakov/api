@@ -2,10 +2,8 @@ h1 {
   margin: revert;
   font-weight: bold !important;
 }
-.v-toolbar__content {
-  .v-application--is-ltr .v-input--selection-controls__input {
-    margin-right: 0;
-  }
+.v-application--is-ltr .v-input--selection-controls__input {
+  margin-right: 0;
 }
 .v-input--hide-details {
   .v-input__slot:before {
