@@ -24,32 +24,24 @@ new Vue({
     data: () => {
         return {
             title: '',
-            titles: [],
-            titlesOffsets: [],
             darkMode: false,
             width: window.screen.width,
         }
     },
     mounted() {
-        this.titles = document.querySelectorAll('[data-title]');
-        let self = this;
-            self.titles.forEach(el => {
-                self.titlesOffsets.push(el.offsetTop);
-            });
-            this.titlesOffsets = self.titlesOffsets;
-        window.addEventListener('scroll', this.onScroll);
+        let titles = document.querySelectorAll('[data-title]');
+        if (titles.length > 0) window.addEventListener('scroll', this.onScroll);
     },
     methods: {
         onScroll: function (e) {
             let offsetIndex = 0;
             let scrollOffset = e.target.scrollingElement.scrollTop;
-            this.titlesOffsets.forEach(function (to,i) {
-                if (scrollOffset > to) {
-                    console.log(i);
-                    offsetIndex = i;
-                }
+            let titles = document.querySelectorAll('[data-title]');
+            titles.forEach(function (el,i) {
+                let offsetBottom = el.offsetTop + el.offsetHeight;
+                if (scrollOffset > el.offsetTop && scrollOffset < offsetBottom) offsetIndex = i;
             });
-            this.title = this.titles[offsetIndex].dataset.title;
+            this.title = titles[offsetIndex].dataset.title;
         },
         toggleDarkMode: function () {
             this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
