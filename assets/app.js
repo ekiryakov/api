@@ -42,7 +42,7 @@ new Vue({
     methods: {
         onScroll: function (e) {
             let offsetIndex = 0;
-            let scrollOffset = e.target.scrollTop;
+            let scrollOffset = e.target.scrollingElement.scrollTop;
             console.log(e);
             this.titlesOffsets.forEach(function (to,i) {
                 if (scrollOffset < to) {
