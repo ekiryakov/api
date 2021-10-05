@@ -1,7 +1,11 @@
-$expansion-panel-border-radius: 100%;
 h1 {
   margin: revert;
   font-weight: bold !important;
+}
+#dark-mode {
+  .v-application--is-ltr .v-input--selection-controls__input {
+    margin-right: 0;
+  }
 }
 .v-input--hide-details {
   .v-input__slot:before {
