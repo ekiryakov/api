@@ -25,21 +25,31 @@ new Vue({
         return {
             title: '',
             titles: [],
+            titlesOffsets: [],
             darkMode: false,
             width: window.screen.width,
         }
     },
     mounted() {
-        let res = document.querySelectorAll('[data-title]');
-            res.forEach(el => {
-                console.log(el.offsetTop);
+        this.titles = document.querySelectorAll('[data-title]');
+        let self = this;
+            self.titles.forEach(el => {
+                self.titlesOffsets.push(el.offsetTop);
             });
-        console.log(res);
+            this.titlesOffsets = self.titlesOffsets;
         window.addEventListener('scroll', this.onScroll);
     },
     methods: {
-        onScroll: function () {
-
+        onScroll: function (e) {
+            let offsetIndex = 0;
+            let scrollOffset = e.target.scrollTop;
+            this.titlesOffsets.forEach(function (to,i) {
+                if (scrollOffset < to) {
+                    offsetIndex = i;
+                    return;
+                }
+            });
+            this.title = this.titles[offsetIndex].dataset.title;
         },
         toggleDarkMode: function () {
             this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
