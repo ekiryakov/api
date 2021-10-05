@@ -34,7 +34,7 @@ new Vue({
         this.titles = document.querySelectorAll('[data-title]');
         let self = this;
             self.titles.forEach(el => {
-                self.titlesOffsets.push(el.offsetTop + el.offsetHeight);
+                self.titlesOffsets.push(el.offsetTop);
             });
             this.titlesOffsets = self.titlesOffsets;
         window.addEventListener('scroll', this.onScroll);
@@ -43,9 +43,9 @@ new Vue({
         onScroll: function (e) {
             let offsetIndex = 0;
             let scrollOffset = e.target.scrollingElement.scrollTop;
-            console.log(scrollOffset);
             this.titlesOffsets.forEach(function (to,i) {
                 if (scrollOffset < to) {
+                    console.log(i);
                     offsetIndex = i;
                     return;
                 }
