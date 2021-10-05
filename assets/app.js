@@ -34,7 +34,7 @@ new Vue({
         this.titles = document.querySelectorAll('[data-title]');
         let self = this;
             self.titles.forEach(el => {
-                self.titlesOffsets.push(el.offsetTop);
+                self.titlesOffsets.push(el.offsetTop + el.offsetHeight);
             });
             this.titlesOffsets = self.titlesOffsets;
         window.addEventListener('scroll', this.onScroll);
