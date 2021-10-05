@@ -24,7 +24,7 @@ new Vue({
     data: () => {
         return {
             title: '',
-            darkMode: false,
+            darkMode: true,
             width: window.screen.width,
         }
     },
