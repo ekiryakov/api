@@ -44,10 +44,9 @@ new Vue({
             let offsetIndex = 0;
             let scrollOffset = e.target.scrollingElement.scrollTop;
             this.titlesOffsets.forEach(function (to,i) {
-                if (scrollOffset < to) {
+                if (scrollOffset > to) {
                     console.log(i);
                     offsetIndex = i;
-                    return;
                 }
             });
             this.title = this.titles[offsetIndex].dataset.title;
