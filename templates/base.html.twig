@@ -24,7 +24,7 @@
                     <v-spacer></v-spacer>
                     <v-toolbar-title v-text="this.title"></v-toolbar-title>
                     <v-spacer></v-spacer>
-                    <v-switch class="ma-0" inset hide-details v-model="this.darkMode" @change="this.toggleDarkMode"></v-switch>
+                    <v-switch inset hide-details v-model="this.darkMode" @change="this.toggleDarkMode"></v-switch>
                 </v-app-bar>
                 <v-banner>
                     {% block banner %}{% endblock %}
