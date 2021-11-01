@@ -6,6 +6,7 @@
         <meta content='true' name='HandheldFriendly'/>
         <meta content='width' name='MobileOptimized'/>
         <meta content='yes' name='apple-mobile-web-app-capable'/>
+        <meta content="#2196f3" name="theme-color" />
         <title>
             {% block title %}Welcome!{% endblock %}
         </title>
@@ -18,7 +19,6 @@
     <body>
         <div id="app">
             <v-app>
-                <v-system-bar app height="30" lights-out></v-system-bar>
                 <v-app-bar app rounded="pill" class="ma-3">
                     <v-img v-if="this.darkMode" max-width="50" src="{{ asset('build/images/logo_dark.png') }}"></v-img>
                     <v-img v-else max-width="50" src="{{ asset('build/images/logo.png') }}"></v-img>
