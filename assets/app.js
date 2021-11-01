@@ -27,7 +27,7 @@ new Vue({
         return {
             title: '',
             darkMode: true,
-            bottomMenu: 1,
+            bottomMenu: null,
             width: window.screen.width,
         }
     },
