@@ -25,16 +25,7 @@
         </user-tabs>
     </v-container>
     <v-container id="examples" data-title="examples" fluid>
-        <v-row>
-            <v-col md="6">
-                <SetList data="{{ sets|serialize(format = 'json') }}"></SetList>
-            </v-col>
-            <v-col md="6">
-                <p class="font-weight-light">
-                    Light weight text.
-                </p>
-            </v-col>
-        </v-row>
+        <set-list data="{{ sets|serialize(format = 'json') }}"></set-list>
     </v-container>
     <v-container id="faq" data-title="faq" fluid>
         <v-row justify="center">
