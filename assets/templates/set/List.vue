@@ -1,5 +1,5 @@
 <template>
-  <v-carousel v-model="model" hide-delimiters :show-arrows="false" height="auto">
+  <v-carousel v-model="model" hide-delimiters height="auto">
     <v-carousel-item v-for="set in sets" :key="set.id">
       <Set :data="set"></Set>
     </v-carousel-item>
