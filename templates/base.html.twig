@@ -19,7 +19,7 @@
     <body>
         <div id="app">
             <v-app>
-                <v-app-bar app rounded="pill" class="ma-3">
+                <v-app-bar app rounded="pill" class="ma-3" :light="this.darkMode">
                     <v-img v-if="this.darkMode" max-width="50" src="{{ asset('build/images/logo_dark.png') }}"></v-img>
                     <v-img v-else max-width="50" src="{{ asset('build/images/logo.png') }}"></v-img>
                     <v-spacer></v-spacer>
@@ -33,7 +33,7 @@
                 <v-main>
                     {% block body %}{% endblock %}
                 </v-main>
-                <v-bottom-navigation app :value="bottomMenu" background-color="amber darken-1" grow>
+                <v-bottom-navigation app :value="bottomMenu" background-color="amber darken-1" :dark="!this.darkMode" grow>
                     <v-btn>
                         <span>Recents</span>
                         <v-icon>mdi-history</v-icon>
