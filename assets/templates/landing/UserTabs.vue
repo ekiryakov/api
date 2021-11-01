@@ -1,6 +1,6 @@
 <template>
   <section>
-    <v-tabs v-model="user" centered>
+    <v-tabs v-model="user" centered grow>
       <v-tab href="#customer">
         customer
       </v-tab>
