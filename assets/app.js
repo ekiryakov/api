@@ -7,7 +7,8 @@ import UserTabs from "./templates/landing/UserTabs";
 import Partners from "./templates/landing/Partners";
 import Login from "./templates/security/Login";
 import CustomerLogin from "./templates/security/CustomerLogin";
-import List from "./templates/offer/List";
+import SetList from "./templates/set/List";
+import OfferList from "./templates/offer/List";
 import Categories from "./templates/offer/Categories";
 
 new Vue({
@@ -18,7 +19,8 @@ new Vue({
         Partners,
         Login,
         CustomerLogin,
-        List,
+        SetList,
+        OfferList,
         Categories,
     },
     data: () => {
