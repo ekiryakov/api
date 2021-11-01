@@ -32,7 +32,7 @@
                 <v-main>
                     {% block body %}{% endblock %}
                 </v-main>
-                <v-bottom-navigation app :value="bottomMenu" color="primary" grow>
+                <v-bottom-navigation app :value="bottomMenu" background-color="primary" grow>
                     <v-btn>
                         <span>Recents</span>
                         <v-icon>mdi-history</v-icon>
@@ -46,7 +46,7 @@
                         <v-icon>mdi-map-marker</v-icon>
                     </v-btn>
                 </v-bottom-navigation>
-                <v-footer class="pa-0" app>
+                <v-footer app>
                     {% block alert %}{% endblock %}
                 </v-footer>
             </v-app>
