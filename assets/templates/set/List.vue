@@ -1,9 +1,9 @@
 <template>
-  <v-slide-group center-active v-model="model" active-class="success" show-arrows="desktop">
-    <v-slide-item v-for="set in sets" :key="set.id" v-slot="{ active, toggle }">
+  <v-carousel v-model="model">
+    <v-carousel-item v-for="set in sets" :key="set.id">
       <Set :data="set"></Set>
-    </v-slide-item>
-  </v-slide-group>
+    </v-carousel-item>
+  </v-carousel>
 </template>
 
 <script>
@@ -15,7 +15,7 @@ export default {
   },
   data: () => ({
     sets: [],
-    model: null,
+    model: 0,
   }),
   mounted() {
     this.sets = JSON.parse(this.data);
