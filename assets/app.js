@@ -31,13 +31,11 @@ new Vue({
             width: window.screen.width,
         }
     },
-    beforeCreate() {
+    mounted() {
         this.darkMode = localStorage.getItem('darkMode') || true;
-        console.log(this.darkMode);
         document.querySelector('body').style.backgroundColor = this.darkMode ? '#121212' : '#fff';
         this.$vuetify.theme.dark = this.darkMode;
-    },
-    mounted() {
+
         let titles = document.querySelectorAll('[data-title]');
         if (titles.length > 0) window.addEventListener('scroll', this.onScroll);
     },
