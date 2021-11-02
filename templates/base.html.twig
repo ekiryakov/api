@@ -32,18 +32,18 @@
                     {% block body %}{% endblock %}
                 </v-main>
                 <v-footer app padless rounded elevation="3">
-                    <v-bottom-sheet @input="this.closeAllBottomSheets" light v-model="this.profileSheet">
-                        <v-sheet class="rounded-t-xl" height="50vh">
+                    <v-bottom-sheet @input="this.closeAllBottomSheets" v-model="this.profileSheet">
+                        <v-sheet color="primary" class="rounded-t-xl" height="50vh">
                             Profile
                         </v-sheet>
                     </v-bottom-sheet>
-                    <v-bottom-sheet @input="this.closeAllBottomSheets" light v-model="this.myListSheet">
-                        <v-sheet class="rounded-t-xl" height="50vh">
+                    <v-bottom-sheet @input="this.closeAllBottomSheets" v-model="this.myListSheet">
+                        <v-sheet color="primary" class="rounded-t-xl" height="50vh">
                             My list
                         </v-sheet>
                     </v-bottom-sheet>
-                    <v-bottom-sheet @input="this.closeAllBottomSheets" light v-model="this.settingSheet">
-                        <v-sheet class="rounded-t-xl" height="50vh">
+                    <v-bottom-sheet @input="this.closeAllBottomSheets" v-model="this.settingSheet">
+                        <v-sheet color="primary" class="rounded-t-xl" height="50vh">
                             Setting
                         </v-sheet>
                     </v-bottom-sheet>
