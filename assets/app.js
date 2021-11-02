@@ -28,6 +28,9 @@ new Vue({
             title: '',
             darkMode: null,
             bottomMenu: null,
+            profileSheet: null,
+            myListSheet: null,
+            settingSheet: null,
             width: window.screen.width,
         }
     },
@@ -61,7 +64,24 @@ new Vue({
         toggleDarkMode: function () {
             this.darkMode = !this.darkMode;
             this.$vuetify.theme.dark = this.darkMode;
-        }
+        },
+        openProfileSheet: function () {
+            this.closeAllBottomSheets();
+            this.profileSheet = true;
+        },
+        openMyListSheet: function () {
+            this.closeAllBottomSheets();
+            this.myListSheet = true;
+        },
+        openSettingSheet: function () {
+            this.closeAllBottomSheets();
+            this.settingSheet = true;
+        },
+        closeAllBottomSheets: function () {
+            this.profileSheet = false;
+            this.myListSheet = false;
+            this.settingSheet = false;
+        },
     },
     computed: {
         height: function () {

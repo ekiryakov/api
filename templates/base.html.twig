@@ -32,18 +32,33 @@
                     {% block body %}{% endblock %}
                 </v-main>
                 <v-bottom-navigation app background-color="amber darken-1" dark grow>
-                    <v-btn>
-                        <span>Recent</span>
-                        <v-icon>mdi-history</v-icon>
+                    <v-btn @click="this.openProfileSheet">
+                        <span>Profile</span>
+                        <v-icon>mdi-account-outline</v-icon>
                     </v-btn>
-                    <v-btn>
-                        <span>Favorites</span>
-                        <v-icon>mdi-heart</v-icon>
+                    <v-bottom-sheet v-model="this.profileSheet">
+                        <v-sheet height="50%">
+                            Profile
+                        </v-sheet>
+                    </v-bottom-sheet>
+                    <v-btn @click="this.openMyListSheet">
+                        <span>My list</span>
+                        <v-icon>mdi-playlist-check</v-icon>
                     </v-btn>
-                    <v-btn>
-                        <span>Nearby</span>
-                        <v-icon>mdi-map-marker</v-icon>
+                    <v-bottom-sheet v-model="this.myListSheet">
+                        <v-sheet height="50%">
+                            My list
+                        </v-sheet>
+                    </v-bottom-sheet>
+                    <v-btn @click="this.openSettingSheet">
+                        <span>Setting</span>
+                        <v-icon>mdi-cog</v-icon>
                     </v-btn>
+                    <v-bottom-sheet v-model="this.settingSheet">
+                        <v-sheet height="50%">
+                            Setting
+                        </v-sheet>
+                    </v-bottom-sheet>
                 </v-bottom-navigation>
             </v-app>
         </div>
