@@ -31,7 +31,7 @@ new Vue({
             width: window.screen.width,
         }
     },
-    beforeMount() {
+    beforeCreate() {
         this.darkMode = localStorage.getItem('darkMode') || true;
         document.querySelector('body').style.backgroundColor = this.darkMode ? '#121212' : '#fff';
         this.$vuetify.theme.dark = this.darkMode;
