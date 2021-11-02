@@ -26,14 +26,15 @@ new Vue({
     data: () => {
         return {
             title: '',
-            darkMode: true,
+            darkMode: null,
             bottomMenu: null,
             width: window.screen.width,
         }
     },
     beforeMount() {
-        this.darkMode = localStorage.getItem('darkMode');
+        this.darkMode = localStorage.getItem('darkMode') || true;
         document.querySelector('body').style.backgroundColor = this.darkMode ? '#121212' : '#fff';
+        this.$vuetify.theme.dark = this.darkMode;
     },
     mounted() {
         let titles = document.querySelectorAll('[data-title]');
@@ -56,8 +57,8 @@ new Vue({
             this.title = titles[offsetIndex].dataset.title;
         },
         toggleDarkMode: function () {
-            this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
             this.darkMode = !this.darkMode;
+            this.$vuetify.theme.dark = this.darkMode;
         }
     },
     computed: {
