@@ -33,6 +33,7 @@ new Vue({
     },
     beforeCreate() {
         this.darkMode = localStorage.getItem('darkMode') || true;
+        console.log(this.darkMode);
         document.querySelector('body').style.backgroundColor = this.darkMode ? '#121212' : '#fff';
         this.$vuetify.theme.dark = this.darkMode;
     },
