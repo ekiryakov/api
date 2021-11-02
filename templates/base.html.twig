@@ -26,7 +26,7 @@
                     <v-spacer></v-spacer>
                     <v-toolbar-title v-text="this.title"></v-toolbar-title>
                     <v-spacer></v-spacer>
-                    <v-btn v-model="this.darkMode" @click="this.toggleDarkMode">
+                    <v-btn icon @click="this.toggleDarkMode">
                         <v-icon v-if="this.darkMode">mdi-light-mode</v-icon>
                         <v-icon v-else>mdi-dark-mode</v-icon>
                     </v-btn>
