@@ -31,11 +31,14 @@ new Vue({
             width: window.screen.width,
         }
     },
-    mounted() {
-        this.darkMode = localStorage.getItem('darkMode') || true;
-        document.querySelector('body').style.backgroundColor = this.darkMode ? '#121212' : '#fff';
-        this.$vuetify.theme.dark = this.darkMode;
+    created() {
+        let darkMode = localStorage.getItem('darkMode') || true;
+        document.querySelector('body').style.backgroundColor = darkMode ? '#121212' : '#fff';
 
+        this.darkMode = darkMode;
+        this.$vuetify.theme.dark = darkMode;
+    },
+    mounted() {
         let titles = document.querySelectorAll('[data-title]');
         if (titles.length > 0) window.addEventListener('scroll', this.onScroll);
     },
