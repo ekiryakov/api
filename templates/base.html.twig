@@ -26,7 +26,10 @@
                     <v-spacer></v-spacer>
                     <v-toolbar-title v-text="this.title"></v-toolbar-title>
                     <v-spacer></v-spacer>
-                    <v-switch id="dark-mode" inset hide-details color="grey" v-model="this.darkMode" @change="this.toggleDarkMode"></v-switch>
+                    <v-btn v-model="this.darkMode" @click="this.toggleDarkMode">
+                        <v-icon v-if="this.darkMode">mdi-light-mode</v-icon>
+                        <v-icon v-else>mdi-dark-mode</v-icon>
+                    </v-btn>
                 </v-app-bar>
                 <v-banner>
                     {% block banner %}{% endblock %}
