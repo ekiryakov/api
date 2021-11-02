@@ -32,8 +32,16 @@ new Vue({
         }
     },
     mounted() {
+        this.darkMode = localStorage.getItem('darkMode') || true;
+        document.querySelector('body').style.backgroundColor = this.darkMode ? '#121212' : '#fff';
+
         let titles = document.querySelectorAll('[data-title]');
         if (titles.length > 0) window.addEventListener('scroll', this.onScroll);
+    },
+    watch: {
+        darkMode: (v) => {
+            localStorage.setItem('darkMode', v);
+        }
     },
     methods: {
         onScroll: function (e) {
