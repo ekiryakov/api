@@ -31,19 +31,19 @@
                 <v-main>
                     {% block body %}{% endblock %}
                 </v-main>
-                <v-footer>
-                    <v-bottom-sheet v-model="this.profileSheet">
-                        <v-sheet>
+                <v-footer app>
+                    <v-bottom-sheet light v-model="this.profileSheet">
+                        <v-sheet height="50vh">
                             Profile
                         </v-sheet>
                     </v-bottom-sheet>
-                    <v-bottom-sheet v-model="this.myListSheet">
-                        <v-sheet>
+                    <v-bottom-sheet light v-model="this.myListSheet">
+                        <v-sheet height="50vh">
                             My list
                         </v-sheet>
                     </v-bottom-sheet>
-                    <v-bottom-sheet v-model="this.settingSheet">
-                        <v-sheet>
+                    <v-bottom-sheet light v-model="this.settingSheet">
+                        <v-sheet height="50vh">
                             Setting
                         </v-sheet>
                     </v-bottom-sheet>
