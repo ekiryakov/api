@@ -30,15 +30,12 @@
                         <v-icon>mdi-checkbox-blank-circle-outline</v-icon>
                     </v-btn>
                 </v-app-bar>
-                <v-banner>
-                    {% block banner %}{% endblock %}
-                </v-banner>
                 <v-main>
                     {% block body %}{% endblock %}
                 </v-main>
                 <v-bottom-navigation app :value="bottomMenu" background-color="amber darken-1" dark grow>
                     <v-btn>
-                        <span>Recents</span>
+                        <span>Recent</span>
                         <v-icon>mdi-history</v-icon>
                     </v-btn>
                     <v-btn>
