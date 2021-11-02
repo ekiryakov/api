@@ -17,9 +17,10 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
     </head>
+{% if true %}
     <body>
         <div id="app">
-            <v-app v-cloak>
+            <v-app>
                 <v-app-bar app rounded="pill" class="ma-3">
                     <v-img v-if="this.darkMode" max-width="50" src="{{ asset('build/images/logo_dark.png') }}"></v-img>
                     <v-img v-else max-width="50" src="{{ asset('build/images/logo.png') }}"></v-img>
@@ -53,4 +54,5 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </body>
+{% endif %}
 </html>
