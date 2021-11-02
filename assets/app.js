@@ -32,7 +32,7 @@ new Vue({
         }
     },
     created() {
-        let darkMode = localStorage.getItem('darkMode') || true;
+        let darkMode = Boolean(localStorage.getItem('darkMode'));
         document.querySelector('body').style.backgroundColor = darkMode ? '#121212' : '#fff';
 
         this.darkMode = darkMode;
