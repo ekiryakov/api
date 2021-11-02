@@ -31,10 +31,11 @@ new Vue({
             width: window.screen.width,
         }
     },
-    mounted() {
-        this.darkMode = localStorage.getItem('darkMode') || true;
+    beforeMount() {
+        this.darkMode = localStorage.getItem('darkMode');
         document.querySelector('body').style.backgroundColor = this.darkMode ? '#121212' : '#fff';
-
+    },
+    mounted() {
         let titles = document.querySelectorAll('[data-title]');
         if (titles.length > 0) window.addEventListener('scroll', this.onScroll);
     },
