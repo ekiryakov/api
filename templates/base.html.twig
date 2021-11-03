@@ -21,9 +21,7 @@
                 <v-app-bar app elevation="3" rounded="pill" class="ma-3 blur">
                     <v-img v-if="this.darkMode" max-width="50" src="{{ asset('build/images/logo_dark.png') }}"></v-img>
                     <v-img v-else max-width="50" src="{{ asset('build/images/logo.png') }}"></v-img>
-                    <v-spacer></v-spacer>
                     <v-toolbar-title v-text="this.title"></v-toolbar-title>
-                    <v-spacer></v-spacer>
                 </v-app-bar>
                 <v-main>
                     {% block body %}{% endblock %}
