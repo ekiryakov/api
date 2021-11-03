@@ -32,23 +32,23 @@
                     {% block body %}{% endblock %}
                 </v-main>
                 <v-footer app padless rounded elevation="3">
-                    <v-bottom-sheet @input="this.closeAllBottomSheets" v-model="this.profileSheet">
-                        <v-sheet color="primary" class="rounded-t-xl" height="50vh">
+                    <v-bottom-sheet overlay-opacity="0" class="rounded-t-xl" @input="this.closeAllBottomSheets" v-model="this.profileSheet">
+                        <v-sheet class="rounded-t-xl" height="50vh">
                             Profile
                         </v-sheet>
                     </v-bottom-sheet>
-                    <v-bottom-sheet @input="this.closeAllBottomSheets" v-model="this.myListSheet">
-                        <v-sheet color="primary" class="rounded-t-xl" height="50vh">
+                    <v-bottom-sheet overlay-opacity="0" class="rounded-t-xl" @input="this.closeAllBottomSheets" v-model="this.myListSheet">
+                        <v-sheet class="rounded-t-xl" height="50vh">
                             My list
                         </v-sheet>
                     </v-bottom-sheet>
-                    <v-bottom-sheet @input="this.closeAllBottomSheets" v-model="this.settingSheet">
-                        <v-sheet color="primary" class="rounded-t-xl" height="50vh">
+                    <v-bottom-sheet overlay-opacity="0" class="rounded-t-xl" @input="this.closeAllBottomSheets" v-model="this.settingSheet">
+                        <v-sheet class="rounded-t-xl" height="50vh">
                             Setting
                         </v-sheet>
                     </v-bottom-sheet>
                 </v-footer>
-                <v-bottom-navigation app background-color="amber darken-1" dark grow>
+                <v-bottom-navigation app dark grow>
                     <v-btn @click="this.openProfileSheet">
                         <span>Profile</span>
                         <v-icon>mdi-account-outline</v-icon>
