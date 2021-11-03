@@ -39,11 +39,18 @@
                     </v-bottom-sheet>
                 </v-footer>
                 <v-bottom-navigation app grow>
-                    <v-btn href="{{ path('customer_edit', {'id': app.user.id}) }}">
+                    {% if app.user %}
+                        {% set profile_link = path('customer_edit', {'id': app.user.id}) %}
+                        {% set my_list_link = path('subscription_edit', {'id': app.user.subscriptions[0]}) %}
+                    {% else %}
+                        {% set profile_link = path('customer_login') %}
+                        {% set my_list_link = path('customer_login') %}
+                    {% endif %}
+                    <v-btn href="{{ profile_link }}">
                         <span>Profile</span>
                         <v-icon>mdi-account-outline</v-icon>
                     </v-btn>
-                    <v-btn href="{{ path('subscription_edit', {'id': app.user.subscriptions[0]}) }}">
+                    <v-btn href="{{ my_list_link }}">
                         <span>My list</span>
                         <v-icon>mdi-playlist-check</v-icon>
                     </v-btn>
