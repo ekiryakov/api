@@ -11,8 +11,6 @@ import SetList from "./templates/set/List";
 import OfferList from "./templates/offer/List";
 import Categories from "./templates/offer/Categories";
 
-import './templates/profile.js';
-
 new Vue({
     vuetify,
     delimiters: ['${', '}$'],
