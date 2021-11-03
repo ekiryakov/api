@@ -24,7 +24,17 @@ h1 {
   }
 }
 
-.blur {
-  backdrop-filter: blur(50px);
-  -webkit-backdrop-filter: blur(50px);
+.theme--dark {
+  .blur {
+    background-color: rgba(0,0,0,.5);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+  }
+}
+.theme--light {
+  .blur {
+    background-color: rgba(255,255,255,.5);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+  }
 }
