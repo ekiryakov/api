@@ -23,18 +23,24 @@
                     <v-img v-else max-width="50" src="{{ asset('build/images/logo.png') }}"></v-img>
                     <v-spacer></v-spacer>
                     <v-toolbar-title v-text="this.title"></v-toolbar-title>
-                    <v-spacer></v-spacer>
-                    <v-btn icon @click="this.toggleDarkMode">
-                        <v-icon>mdi-checkbox-blank-circle</v-icon>
-                    </v-btn>
                 </v-app-bar>
                 <v-main>
                     {% block body %}{% endblock %}
                 </v-main>
                 <v-footer app padless rounded elevation="3">
-                    <v-bottom-sheet overlay-opacity="0" content-class="rounded-t-xl" @input="this.settingSheet = false" v-model="this.settingSheet">
+                    <v-bottom-sheet overlay-opacity="0" content-class="rounded-t-xl" @input="this.toggleSettingSheet" v-model="this.settingSheet">
                         <v-sheet class="rounded-t-xl blur" height="50vh">
-                            Setting
+                            <v-list>
+                                <v-list-item>
+                                    <v-list-item-icon>
+                                        <v-icon>mdi-brightness-6</v-icon>
+                                    </v-list-item-icon>
+                                    <v-list-item-title>Dark mode</v-list-item-title>
+                                    <v-list-item-action>
+                                        <v-switch @click="this.toggleDarkMode" v-model="this.darkMode"></v-switch>
+                                    </v-list-item-action>
+                                </v-list-item>
+                            </v-list>
                         </v-sheet>
                     </v-bottom-sheet>
                 </v-footer>
@@ -54,7 +60,7 @@
                         <span>My list</span>
                         <v-icon>mdi-playlist-check</v-icon>
                     </v-btn>
-                    <v-btn @click="this.settingSheet = true">
+                    <v-btn @click="this.toggleSettingSheet">
                         <span>Setting</span>
                         <v-icon>mdi-settings</v-icon>
                     </v-btn>

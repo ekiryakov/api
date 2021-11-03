@@ -63,6 +63,9 @@ new Vue({
             this.darkMode = !this.darkMode;
             this.$vuetify.theme.dark = this.darkMode;
         },
+        toggleSettingSheet: function () {
+            this.settingSheet = !this.settingSheet;
+        },
     },
     computed: {
         height: function () {
