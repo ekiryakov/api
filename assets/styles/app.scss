@@ -23,3 +23,8 @@ h1 {
     }
   }
 }
+
+.blur {
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+}
