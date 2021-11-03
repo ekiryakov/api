@@ -18,7 +18,7 @@
     <body style="opacity: 0">
         <div id="app">
             <v-app>
-                <v-app-bar app rounded="pill" class="ma-3 blur">
+                <v-app-bar app elevation="3" rounded="pill" class="ma-3 blur">
                     <v-img v-if="this.darkMode" max-width="50" src="{{ asset('build/images/logo_dark.png') }}"></v-img>
                     <v-img v-else max-width="50" src="{{ asset('build/images/logo.png') }}"></v-img>
                     <v-spacer></v-spacer>
@@ -38,7 +38,7 @@
                         </v-sheet>
                     </v-bottom-sheet>
                 </v-footer>
-                <v-bottom-navigation app grow>
+                <v-bottom-navigation app grow class="blur">
                     {% if app.user %}
                         {% set profile_link = path('customer_edit', {'id': app.user.id}) %}
                         {% set my_list_link = path('subscription_edit', {'id': app.user.subscriptions[0]}) %}
