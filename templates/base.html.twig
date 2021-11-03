@@ -32,32 +32,22 @@
                     {% block body %}{% endblock %}
                 </v-main>
                 <v-footer app padless rounded elevation="3">
-                    <v-bottom-sheet overlay-opacity="0" content-class="rounded-t-xl" @input="this.closeAllBottomSheets" v-model="this.profileSheet">
-                        <v-sheet class="rounded-t-xl blur" height="50vh">
-                            <profile></profile>
-                        </v-sheet>
-                    </v-bottom-sheet>
-                    <v-bottom-sheet overlay-opacity="0" content-class="rounded-t-xl" @input="this.closeAllBottomSheets" v-model="this.myListSheet">
-                        <v-sheet class="rounded-t-xl blur" height="50vh">
-                            My list
-                        </v-sheet>
-                    </v-bottom-sheet>
-                    <v-bottom-sheet overlay-opacity="0" content-class="rounded-t-xl" @input="this.closeAllBottomSheets" v-model="this.settingSheet">
+                    <v-bottom-sheet overlay-opacity="0" content-class="rounded-t-xl" @input="this.settingSheet = false" v-model="this.settingSheet">
                         <v-sheet class="rounded-t-xl blur" height="50vh">
                             Setting
                         </v-sheet>
                     </v-bottom-sheet>
                 </v-footer>
                 <v-bottom-navigation app grow>
-                    <v-btn @click="this.openProfileSheet">
+                    <v-btn href="{{ path('customer_edit', {'id': app.user.id}) }}">
                         <span>Profile</span>
                         <v-icon>mdi-account-outline</v-icon>
                     </v-btn>
-                    <v-btn @click="this.openMyListSheet">
+                    <v-btn href="{{ path('subscription_edit', {'id': app.user.subscriptions[0]}) }}">
                         <span>My list</span>
                         <v-icon>mdi-playlist-check</v-icon>
                     </v-btn>
-                    <v-btn @click="this.openSettingSheet">
+                    <v-btn @click="this.settingSheet = true">
                         <span>Setting</span>
                         <v-icon>mdi-settings</v-icon>
                     </v-btn>
