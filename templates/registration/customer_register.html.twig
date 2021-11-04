@@ -10,6 +10,6 @@
 
 {% block alert %}
     {% if error %}
-        <v-alert type="error">{{ registrationForm.errors }}</v-alert>
+        <v-alert type="error">{{ registrationForm.errors[0] }}</v-alert>
     {% endif %}
 {% endblock %}
