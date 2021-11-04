@@ -44,7 +44,7 @@
     </v-text-field>
     <v-checkbox
         v-model="agreeTerms"
-        :value="this.agreeTerms.toString()"
+        :aria-checked="agreeTerms"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
         label="Agree terms">
