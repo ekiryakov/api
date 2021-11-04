@@ -99,7 +99,7 @@ export default {
   },
   watch: {
     agreeTerms: (v) => {
-      const input = document.getElementById('customer_registration_form_agreeTerms');
+      let input = document.getElementById('customer_registration_form_agreeTerms');
       input.value = v;
       v ? input.checked = 'checked' : input.checked = null;
     }
