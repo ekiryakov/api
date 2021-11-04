@@ -1,15 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Auth{% endblock %}
+{% block title %}Customer login{% endblock %}
 
 {% block body %}
-<v-container fluid>
-
-    <customer-login last_username="{{ last_username }}"
-           csrf_token="{{ csrf_token('authenticate') }}">
-    </customer-login>
-
-</v-container>
+    <v-container fluid>
+        <customer-login last_username="{{ last_username }}"
+               csrf_token="{{ csrf_token('authenticate') }}">
+        </customer-login>
+    </v-container>
 {% endblock %}
 
 {% block alert %}

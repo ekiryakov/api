@@ -45,6 +45,7 @@
                             </v-list>
                         </v-sheet>
                     </v-bottom-sheet>
+                    {% block alert %}{% endblock %}
                 </v-footer>
                 <v-bottom-navigation app grow class="blur">
                     {% if app.user %}
