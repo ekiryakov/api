@@ -8,7 +8,7 @@
     </v-container>
     <v-text-field
         v-model="phone_number"
-        type="text"
+        type="tel"
         name="customer_registration_form[phone_number]"
         id="customer_registration_form_phone_number"
         label="Phone number"
@@ -17,7 +17,7 @@
     </v-text-field>
     <v-text-field
         v-model="email"
-        type="text"
+        type="email"
         name="customer_registration_form[email]"
         id="customer_registration_form_email"
         label="Email"
@@ -44,7 +44,6 @@
     </v-text-field>
     <v-checkbox
         v-model="agree_terms"
-        :value="agree_terms"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
         label="Agree terms">
@@ -90,7 +89,7 @@ export default {
     phone_number: '',
     email: '',
     name: '',
-    agree_terms: false,
+    agree_terms: true,
   }),
 
   methods: {
