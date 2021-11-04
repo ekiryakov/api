@@ -4,12 +4,13 @@
 
 {% block body %}
     <v-container fluid>
-        <customer-register _token="{{ registrationForm._token|json_encode() }}"></customer-register>
+        <customer-register _token=""></customer-register>
     </v-container>
 {% endblock %}
 
 {% block alert %}
-    {% if registrationForm.errors|length > 0 %}
-        <v-alert type="error">{{ registrationForm.errors[0] }}</v-alert>
-    {% endif %}
+    {{ registrationForm|json_encode() }}
+{#    {% if registrationForm.errors|length > 0 %}#}
+{#        <v-alert type="error">{{ registrationForm.errors[0] }}</v-alert>#}
+{#    {% endif %}#}
 {% endblock %}
