@@ -1,5 +1,5 @@
 <template>
-  <v-card class="ma-2" color="primary" dark>
+  <v-card class="ma-2" color="primary" elevation="2" dark>
     <div class="d-flex flex-no-wrap justify-space-between">
       <div>
         <v-card-title class="text-h5" v-text="data.name"></v-card-title>
