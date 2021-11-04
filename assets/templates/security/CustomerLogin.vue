@@ -1,8 +1,8 @@
 <template>
   <v-form method="post" ref="form" v-model="valid" lazy-validation>
-    <v-btn-toggle v-model="userType">
-      <v-btn href="/customer/login" rounded>Customer</v-btn>
-      <v-btn href="/vendor/login" rounded>Vendor</v-btn>
+    <v-btn-toggle rounded dense borderless mandatory v-model="userType">
+      <v-btn href="/customer/login">Customer</v-btn>
+      <v-btn href="/vendor/login">Vendor</v-btn>
     </v-btn-toggle>
     <v-text-field
         v-model="phone_number"
