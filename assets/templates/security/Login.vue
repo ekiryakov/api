@@ -1,6 +1,6 @@
 <template>
   <v-form method="post" ref="form" v-model="valid" lazy-validation>
-    <v-container class="justify-center">
+    <v-container class="text-center">
       <v-btn-toggle rounded dense borderless mandatory v-model="userType">
         <v-btn href="/vendor/login">Vendor</v-btn>
         <v-btn href="/customer/login">Customer</v-btn>
