@@ -90,7 +90,7 @@ export default {
     phone_number: '',
     email: '',
     name: '',
-    agreeTerms: true,
+    agreeTerms: null,
   }),
 
   methods: {
