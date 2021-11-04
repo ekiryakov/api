@@ -50,7 +50,11 @@
                 <v-bottom-navigation app grow class="blur">
                     {% if app.user %}
                         {% set profile_link = path('customer_edit', {'id': app.user.id}) %}
-                        {% set my_list_link = path('subscription_edit', {'id': app.user.subscriptions[0]}) %}
+                        {% if app.user.subscriptions|length > 0 %}
+                            {% set my_list_link = path('subscription_edit', {'id': app.user.subscriptions[0]}) %}
+                        {% else %}
+                            {% set my_list_link = path('offer_index') %}
+                        {% endif %}
                     {% else %}
                         {% set profile_link = path('customer_login') %}
                         {% set my_list_link = path('customer_login') %}
