@@ -43,8 +43,8 @@
         required>
     </v-text-field>
     <v-checkbox
-        @change="this.agreeTerms = !this.agreeTerms"
-        :value="this.agreeTerms"
+        v-model="agreeTerms"
+        true-value="checked"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
         label="Agree terms">
