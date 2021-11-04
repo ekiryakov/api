@@ -4,7 +4,7 @@
 
 {% block body %}
     <v-container fluid>
-        <customer-register token="{{ csrf_token('registration') }}"></customer-register>
+        <customer-register token="{{ csrf_token('authenticate') }}"></customer-register>
     </v-container>
 {% endblock %}
 
