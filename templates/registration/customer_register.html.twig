@@ -4,7 +4,7 @@
 
 {% block body %}
     <v-container fluid>
-        <customer-register _token="{{ registrationForm._token.value }}"></customer-register>
+        <customer-register _token="{{ json_encode(registrationForm._token) }}"></customer-register>
     </v-container>
 {% endblock %}
 
