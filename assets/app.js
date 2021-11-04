@@ -33,6 +33,7 @@ new Vue({
         }
     },
     created() {
+        this.title = document.title;
         let darkMode = (localStorage.getItem('darkMode') === 'true');
         document.querySelector('body').style.backgroundColor = darkMode ? '#121212' : '#fff';
         document.querySelector('body').style.opacity = '1';
