@@ -99,7 +99,7 @@ export default {
   },
   watch: {
     agreeTerms: (v) => {
-      document.querySelector('[name="customer_registration_form[agreeTerms]"]').value = v;
+      document.getElementById('customer_registration_form_agreeTerms').value = v;
     }
   }
 }
