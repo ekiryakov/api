@@ -99,8 +99,7 @@ export default {
   },
   watch: {
     agreeTerms: (v) => {
-      console.log(v);
-      document.getElementById('customer_registration_form_agreeTerms').checked = v;
+      document.getElementById('customer_registration_form_agreeTerms').value = String(v);
     }
   }
 }
