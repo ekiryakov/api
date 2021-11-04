@@ -44,7 +44,6 @@
     </v-text-field>
     <v-checkbox
         v-model="agreeTerms"
-        checked="checked"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
         label="Agree terms">
@@ -98,6 +97,13 @@ export default {
       this.$refs.form.validate()
     },
   },
+  watch: {
+    agreeTerms: (v) => {
+      const input = document.getElementById('customer_registration_form_agreeTerms');
+      input.value = v;
+      v ? input.checked = 'checked' : input.checked = null;
+    }
+  }
 }
 </script>
 
