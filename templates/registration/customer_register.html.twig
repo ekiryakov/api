@@ -4,12 +4,12 @@
 
 {% block body %}
     <v-container fluid>
-        <customer-register _token="{{ form._token }}"></customer-register>
+        <customer-register _token="{{ registrationForm._token }}"></customer-register>
     </v-container>
 {% endblock %}
 
 {% block alert %}
     {% if error %}
-        <v-alert type="error">{{ form.errors }}</v-alert>
+        <v-alert type="error">{{ registrationForm.errors }}</v-alert>
     {% endif %}
 {% endblock %}
