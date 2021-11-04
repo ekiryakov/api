@@ -51,7 +51,7 @@
     <v-text-field
         name="customer_registration_form[_token]"
         id="customer_registration_form__token"
-        :value="_token"
+        :value="token"
         type="hidden"
         hide-details="auto">
     </v-text-field>
@@ -76,7 +76,7 @@
 <script>
 export default {
   props: {
-    _token: String,
+    token: String,
   },
   data: () => ({
     valid: false,
