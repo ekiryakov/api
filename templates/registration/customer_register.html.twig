@@ -4,12 +4,12 @@
 
 {% block body %}
     <v-container fluid>
-        <customer-register _token="{{ csrf_token('register') }}"></customer-register>
+        <customer-register _token="{{ registrationForm._token.value }}"></customer-register>
     </v-container>
 {% endblock %}
 
 {% block alert %}
     {% if error %}
-        <v-alert type="error">{{ error.messageKey|trans(error.messageData, 'security') }}</v-alert>
+        <v-alert type="error">{{ registrationForm.errors[0] }}</v-alert>
     {% endif %}
 {% endblock %}
