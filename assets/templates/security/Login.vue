@@ -1,8 +1,8 @@
 <template>
   <v-form method="post" ref="form" v-model="valid" lazy-validation>
     <v-btn-toggle v-model="userType">
-      <v-btn href="'{{ path('customer_login') }}'" rounded>Customer</v-btn>
-      <v-btn href="'{{ path('vendor_login') }}'" rounded>Vendor</v-btn>
+      <v-btn href="/customer/login" rounded>Customer</v-btn>
+      <v-btn href="/vendor/login" rounded>Vendor</v-btn>
     </v-btn-toggle>
     <v-text-field
         v-model="email"
@@ -50,7 +50,7 @@
     <v-btn
         outlined rounded x-large
         class="mb-1"
-        href="'{{ path('vendor_register') }}'">
+        href="/vendor/register">
       Register
     </v-btn>
   </v-form>
