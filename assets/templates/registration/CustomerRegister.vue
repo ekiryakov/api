@@ -44,6 +44,7 @@
     </v-text-field>
     <v-checkbox
         v-model="agree_terms"
+        :value="agree_terms"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
         label="Agree terms">
