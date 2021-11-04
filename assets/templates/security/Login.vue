@@ -1,9 +1,11 @@
 <template>
   <v-form method="post" ref="form" v-model="valid" lazy-validation>
-    <v-btn-toggle rounded dense borderless mandatory v-model="userType">
-      <v-btn href="/vendor/login">Vendor</v-btn>
-      <v-btn href="/customer/login">Customer</v-btn>
-    </v-btn-toggle>
+    <v-container class="justify-center">
+      <v-btn-toggle rounded dense borderless mandatory v-model="userType">
+        <v-btn href="/vendor/login">Vendor</v-btn>
+        <v-btn href="/customer/login">Customer</v-btn>
+      </v-btn-toggle>
+    </v-container>
     <v-text-field
         v-model="email"
         :rules="emailRules"
