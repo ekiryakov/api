@@ -44,7 +44,7 @@
     </v-text-field>
     <v-checkbox
         v-model="agreeTerms"
-        @change="setAgree"
+        @change="this.setAgree"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
         label="Agree terms">
@@ -101,8 +101,8 @@ export default {
       let input = document.getElementById('customer_registration_form_agreeTerms');
       input.value = this.agreeTerms;
       this.agreeTerms ? input.checked = 'checked' : input.checked = '';
-    }
-  }
+    },
+  },
 }
 </script>
 
