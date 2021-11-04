@@ -4,9 +4,7 @@
 
 {% block body %}
     <v-container fluid>
-        <customer-login last_username="{{ last_username }}"
-               csrf_token="{{ csrf_token('authenticate') }}">
-        </customer-login>
+        <customer-login csrf_token="{{ csrf_token('authenticate') }}"></customer-login>
     </v-container>
 {% endblock %}
 

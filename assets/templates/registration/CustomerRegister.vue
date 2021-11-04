@@ -32,7 +32,7 @@
         required>
     </v-text-field>
     <v-text-field
-        v-model="password"
+        v-model="plainPassword"
         :counter="10"
         :rules="passwordRules"
         type="password"
@@ -43,7 +43,7 @@
         required>
     </v-text-field>
     <v-checkbox
-        v-model="agree_terms"
+        v-model="agreeTerms"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
         label="Agree terms">
@@ -51,7 +51,7 @@
     <v-text-field
         name="customer_registration_form[_token]"
         id="customer_registration_form__token"
-        :value="token"
+        :value="csrf_token"
         type="hidden"
         hide-details="auto">
     </v-text-field>
@@ -76,12 +76,12 @@
 <script>
 export default {
   props: {
-    token: String,
+    csrf_token: String,
   },
   data: () => ({
     valid: false,
     userType: null,
-    password: '',
+    plainPassword: '',
     passwordRules: [
       v => !!v || 'Password is required',
       v => (v && v.length <= 10) || 'Password must be less than 10 characters',
@@ -89,7 +89,7 @@ export default {
     phone_number: '',
     email: '',
     name: '',
-    agree_terms: true,
+    agreeTerms: false,
   }),
 
   methods: {
@@ -97,6 +97,11 @@ export default {
       this.$refs.form.validate()
     },
   },
+  watch: {
+    agreeTerms: (v) => {
+      document.querySelector('[name="customer_registration_form[agreeTerms]"]').value = v;
+    }
+  }
 }
 </script>
 

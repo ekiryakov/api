@@ -8,7 +8,6 @@
     </v-container>
     <v-text-field
         v-model="phone_number"
-        :value="last_username"
         type="text"
         name="phone_number"
         id="inputPhoneNumber"
@@ -61,7 +60,6 @@
 export default {
   props: {
     csrf_token: String,
-    last_username: String,
   },
   data: () => ({
     valid: true,
