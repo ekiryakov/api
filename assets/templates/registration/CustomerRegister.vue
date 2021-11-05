@@ -98,6 +98,12 @@ export default {
       this.$refs.form.validate()
     },
   },
+  watch: {
+    agreeTerms: (v) => {
+      document.getElementById('customer_registration_form_agreeTerms').checked = v;
+      console.log(document.getElementById('customer_registration_form_agreeTerms').checked);
+    }
+  }
 }
 </script>
 
