@@ -43,7 +43,7 @@
         required>
     </v-text-field>
     <v-checkbox
-        v-model.lazy="agreeTerms"
+        v-model="this.agreeTerms"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
         type="checkbox"
