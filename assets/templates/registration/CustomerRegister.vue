@@ -44,7 +44,7 @@
     </v-text-field>
     <v-checkbox
         ref="agreeTerms"
-        v-model="$refs.agreeTerms"
+        v-model="agreeTerms"
         @change="setAgreeTerms"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
