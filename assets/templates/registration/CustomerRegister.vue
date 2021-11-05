@@ -43,10 +43,12 @@
         required>
     </v-text-field>
     <v-checkbox
-        type="checkbox"
-        v-model="agreeTerms"
+        ref="agreeTerms"
+        v-model="$refs.agreeTerms"
+        @change="setAgreeTerms"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
+        type="checkbox"
         label="Agree terms">
     </v-checkbox>
     <v-text-field
@@ -95,6 +97,9 @@ export default {
   methods: {
     validate () {
       this.$refs.form.validate();
+    },
+    setAgreeTerms () {
+      this.$refs.agreeTerms = this.agreeTerms;
     },
   },
 }
