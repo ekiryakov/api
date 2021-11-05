@@ -98,7 +98,7 @@ export default {
   },
   watch: {
     agreeTerms: (v) => {
-      document.getElementById('customer_registration_form_agreeTerms').checked = v;
+      document.querySelector('#customer_registration_form_agreeTerms').checked = v;
     }
   }
 }
