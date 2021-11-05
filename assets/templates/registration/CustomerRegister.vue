@@ -94,7 +94,7 @@ export default {
   }),
   computed: {
     isAgree: () => {
-      return this.agreeTerms;
+      return this.agreeTerms || false;
     }
   },
   methods: {
