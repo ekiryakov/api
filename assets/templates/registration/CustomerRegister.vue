@@ -91,12 +91,16 @@ export default {
     name: '',
     agreeTerms: false,
   }),
-
   methods: {
     validate () {
       this.$refs.form.validate()
     },
   },
+  watch: {
+    agreeTerms: (v) => {
+      document.getElementById('customer_registration_form_agreeTerms').checked = v;
+    }
+  }
 }
 </script>
 
