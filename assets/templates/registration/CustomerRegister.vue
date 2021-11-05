@@ -44,7 +44,7 @@
     </v-text-field>
     <v-checkbox
         v-model="agreeTerms"
-        :success="agreeTerms"
+        :value="isAgree"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
         label="Agree terms">
@@ -92,6 +92,11 @@ export default {
     name: '',
     agreeTerms: false,
   }),
+  computed: {
+    isAgree: () => {
+      return this.agreeTerms;
+    }
+  },
   methods: {
     validate () {
       this.$refs.form.validate()
