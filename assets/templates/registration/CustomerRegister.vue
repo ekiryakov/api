@@ -43,9 +43,10 @@
         required>
     </v-text-field>
     <v-checkbox
+        ref="agree"
         v-model="agreeTerms"
         :rules="agreeTermsRules"
-        :checked="agreeTerms"
+        @change="(v) => { this.$refs.agree.checked =  this.agreeTerms }"
         type="checkbox"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
