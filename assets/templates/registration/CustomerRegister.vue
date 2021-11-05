@@ -45,7 +45,6 @@
     <v-checkbox
         ref="agreeTerms"
         v-model="$refs.agreeTerms"
-        :aria-checked="false"
         @change="setAgreeTerms"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
@@ -99,8 +98,8 @@ export default {
     validate () {
       this.$refs.form.validate();
     },
-    setAgreeTerms (v) {
-      this.$refs.agreeTerms = v;
+    setAgreeTerms () {
+      this.$refs.agreeTerms = this.agreeTerms;
     },
   },
 }
