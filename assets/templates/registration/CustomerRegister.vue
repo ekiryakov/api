@@ -43,7 +43,8 @@
         required>
     </v-text-field>
     <v-checkbox
-        v-model="this.agreeTerms"
+        type="checkbox"
+        v-model="agreeTerms"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
         label="Agree terms">
