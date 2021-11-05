@@ -43,8 +43,7 @@
         required>
     </v-text-field>
     <v-checkbox
-        ref="agreeTerms"
-        v-model="this.$refs.agreeTerms"
+        v-model="agreeTerms"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
         type="checkbox"
@@ -62,8 +61,7 @@
         :disabled="!valid"
         class="mb-1 mr-1"
         type="submit"
-        color="success"
-        @click="validate">
+        color="success">
       Register
     </v-btn>
     <v-btn
