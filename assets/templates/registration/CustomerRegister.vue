@@ -93,7 +93,7 @@ export default {
   }),
   methods: {
     validate () {
-      this.$refs.form.validate()
+      this.$refs.form.validate();
     },
   },
 }
