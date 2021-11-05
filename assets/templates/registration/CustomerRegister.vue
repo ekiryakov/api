@@ -43,6 +43,7 @@
         required>
     </v-text-field>
     <v-checkbox
+        v-model.lazy="agreeTerms"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
         type="checkbox"
@@ -89,6 +90,7 @@ export default {
     phone_number: '',
     email: '',
     name: '',
+    agreeTerms: false,
   }),
   methods: {
     validate () {
