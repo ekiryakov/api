@@ -44,7 +44,7 @@
     </v-text-field>
     <v-checkbox
         v-model="agreeTerms"
-        value="1"
+        true-value="1"
         type="checkbox"
         @change="setAgreeTerms"
         name="customer_registration_form[agreeTerms]"
