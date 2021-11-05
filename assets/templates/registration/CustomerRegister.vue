@@ -1,5 +1,5 @@
 <template>
-  <v-form method="post" ref="form" v-model="valid" lazy-validation>
+  <v-form method="post" ref="form" v-model="valid" @submit="(f) => {console.log(f);}">
     <v-container class="text-center">
       <v-btn-toggle rounded dense borderless mandatory v-model="userType">
         <v-btn href="/customer/register">Customer</v-btn>
