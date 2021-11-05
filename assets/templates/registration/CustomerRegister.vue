@@ -58,7 +58,6 @@
     </v-text-field>
     <v-btn
         rounded x-large
-        :disabled="!valid"
         class="mb-1 mr-1"
         type="submit"
         color="success">
