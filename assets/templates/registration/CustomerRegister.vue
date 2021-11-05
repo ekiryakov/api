@@ -44,7 +44,7 @@
     </v-text-field>
     <v-checkbox
         ref="agreeTerms"
-        v-model="this.$refs.agreeTerms.$parent.$data.agreeTerms"
+        v-model="this.$refs.agreeTerms"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
         type="checkbox"
