@@ -44,7 +44,8 @@
     </v-text-field>
     <v-checkbox
         v-model="agreeTerms"
-        @change="setAgreeTerms"
+        true-value="1"
+        false-value="0"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
         label="Agree terms">
@@ -90,14 +91,11 @@ export default {
     phone_number: '',
     email: '',
     name: '',
-    agreeTerms: false,
+    agreeTerms: 0,
   }),
   methods: {
     validate () {
       this.$refs.form.validate()
-    },
-    setAgreeTerms () {
-      window.document.getElementById('customer_registration_form_agreeTerms').checked = this.agreeTerms;
     },
   },
 }
