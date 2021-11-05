@@ -1,5 +1,5 @@
 <template>
-  <v-form method="post" ref="form" v-model="valid" @submit="(f) => {console.log(f);}">
+  <v-form method="post" ref="form" v-model="valid" @submit="checkForm">
     <v-container class="text-center">
       <v-btn-toggle rounded dense borderless mandatory v-model="userType">
         <v-btn href="/customer/register">Customer</v-btn>
@@ -91,6 +91,12 @@ export default {
     name: '',
     agreeTerms: false,
   }),
+  methods: {
+    checkForm (e) {
+      console.log(e, this);
+      e.preventDefault();
+    },
+  }
 }
 </script>
 
