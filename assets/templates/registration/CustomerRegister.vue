@@ -43,7 +43,8 @@
         required>
     </v-text-field>
     <v-checkbox
-        v-model="this.agreeTerms"
+        ref="agreeTerms"
+        @change="(v) => { this.$refs.agreeTerms = v ;}"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
         type="checkbox"
