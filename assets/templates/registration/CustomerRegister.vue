@@ -44,8 +44,6 @@
     </v-text-field>
     <v-checkbox
         v-model="agreeTerms"
-        value="1"
-        type="checkbox"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
         label="Agree terms">
@@ -91,7 +89,7 @@ export default {
     phone_number: '',
     email: '',
     name: '',
-    agreeTerms: 0,
+    agreeTerms: true,
   }),
   methods: {
     validate () {
@@ -99,10 +97,10 @@ export default {
     },
   },
   watch: {
-    agreeTerms: (v) => {
-      v ? document.querySelector('#customer_registration_form_agreeTerms').setAttribute('checked', 'true')
-        : document.querySelector('#customer_registration_form_agreeTerms').removeAttribute('checked')
-    }
+    // agreeTerms: (v) => {
+    //   v ? document.querySelector('#customer_registration_form_agreeTerms').setAttribute('checked', 'true')
+    //     : document.querySelector('#customer_registration_form_agreeTerms').removeAttribute('checked')
+    // }
   }
 }
 </script>
