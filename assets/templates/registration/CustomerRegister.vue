@@ -1,5 +1,5 @@
 <template>
-  <form method="post">
+  <v-form method="post" ref="form" v-model="valid">
     <v-container class="text-center">
       <v-btn-toggle rounded dense borderless mandatory v-model="userType">
         <v-btn href="/customer/register">Customer</v-btn>
@@ -44,10 +44,12 @@
     </v-text-field>
     <v-checkbox
         v-model="agreeTerms"
+        :rules="agreeTermsRules"
+        type="checkbox"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
-        type="checkbox"
-        label="Agree terms">
+        label="Agree terms"
+        required>
     </v-checkbox>
     <v-text-field
         name="customer_registration_form[_token]"
@@ -58,6 +60,7 @@
     </v-text-field>
     <v-btn
         rounded x-large
+        :disabled="!valid"
         class="mb-1 mr-1"
         type="submit"
         color="success">
@@ -69,7 +72,7 @@
         href="/customer/login">
       Sign in
     </v-btn>
-  </form>
+  </v-form>
 </template>
 
 <script>
@@ -85,6 +88,7 @@ export default {
       v => !!v || 'Password is required',
       v => (v && v.length <= 10) || 'Password must be less than 10 characters',
     ],
+    agreeTermsRules: [v => !!v || 'You must agree to continue!'],
     phone_number: '',
     email: '',
     name: '',
