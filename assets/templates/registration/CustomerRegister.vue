@@ -42,14 +42,12 @@
         label="Password"
         required>
     </v-text-field>
-    <v-checkbox
+    <v-simple-checkbox
         v-model="agreeTerms"
-        true-value="1"
-        false-value="0"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
         label="Agree terms">
-    </v-checkbox>
+    </v-simple-checkbox>
     <v-text-field
         name="customer_registration_form[_token]"
         id="customer_registration_form__token"
@@ -91,19 +89,13 @@ export default {
     phone_number: '',
     email: '',
     name: '',
-    agreeTerms: true,
+    agreeTerms: false,
   }),
   methods: {
     validate () {
       this.$refs.form.validate()
     },
   },
-  watch: {
-    // agreeTerms: (v) => {
-    //   v ? document.querySelector('#customer_registration_form_agreeTerms').setAttribute('checked', 'true')
-    //     : document.querySelector('#customer_registration_form_agreeTerms').removeAttribute('checked')
-    // }
-  }
 }
 </script>
 
