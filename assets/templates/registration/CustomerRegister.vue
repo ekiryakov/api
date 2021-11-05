@@ -46,6 +46,7 @@
         v-model="agreeTerms"
         value="1"
         type="checkbox"
+        @change="setAgreeTerms"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
         label="Agree terms">
@@ -97,12 +98,10 @@ export default {
     validate () {
       this.$refs.form.validate()
     },
-  },
-  watch: {
-    agreeTerms: (v) => {
-      document.getElementById('customer_registration_form_agreeTerms').checked = v;
+    setAgreeTerms () {
+      document.getElementById('customer_registration_form_agreeTerms').checked = this.agreeTerms;
       console.log(document.getElementById('customer_registration_form_agreeTerms').checked);
-    }
+    },
   }
 }
 </script>
