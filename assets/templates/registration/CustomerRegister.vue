@@ -100,7 +100,7 @@ export default {
   },
   watch: {
     agreeTerms: (v) => {
-      v ? document.querySelector('#customer_registration_form_agreeTerms').setAttribute('checked', 'checked')
+      v ? document.querySelector('#customer_registration_form_agreeTerms').setAttribute('checked', 'true')
         : document.querySelector('#customer_registration_form_agreeTerms').removeAttribute('checked')
     }
   }
