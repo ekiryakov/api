@@ -91,11 +91,6 @@ export default {
     name: '',
     agreeTerms: false,
   }),
-  methods: {
-    validate () {
-      this.$refs.form.validate();
-    },
-  },
 }
 </script>
 
