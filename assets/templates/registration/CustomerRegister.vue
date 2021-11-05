@@ -43,8 +43,9 @@
         required>
     </v-text-field>
     <v-checkbox
-        v-model="agreeTerms"
-        @change="setAgree"
+        v-model="this.agreeTerms"
+        :value="this.agreeTerms"
+        @change="this.agreeTerms = !this.agreeTerms"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
         label="Agree terms">
@@ -90,17 +91,12 @@ export default {
     phone_number: '',
     email: '',
     name: '',
-    agreeTerms: null,
+    agreeTerms: false,
   }),
 
   methods: {
     validate () {
       this.$refs.form.validate()
-    },
-    setAgree () {
-      let input = document.getElementById('customer_registration_form_agreeTerms');
-      input.value = this.agreeTerms;
-      this.agreeTerms ? input.checked = 'checked' : input.checked = '';
     },
   },
 }
