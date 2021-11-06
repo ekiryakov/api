@@ -44,6 +44,8 @@
     </v-text-field>
     <v-checkbox
         v-model="agree"
+        true-value="yes"
+        false-value="no"
         type="checkbox"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
