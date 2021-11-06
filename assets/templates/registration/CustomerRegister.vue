@@ -98,7 +98,8 @@ export default {
   }),
   methods: {
     changeAgree () {
-      console.log(this.$refs.agree);
+      this.$refs.agree.$refs.input.checked = this.agreeTerms;
+      console.log(this.$refs.agree.$refs.input);
     },
     checkForm (e) {
       e.preventDefault();
