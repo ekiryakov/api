@@ -13,7 +13,7 @@
         name="phone_number"
         id="inputPhoneNumber"
         autocomplete="tel"
-        label="Email"
+        label="Phone number"
         required
         autofocus>
     </v-text-field>
