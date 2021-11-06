@@ -5,7 +5,7 @@ import './styles/app.scss';
 
 import UserTabs from "./templates/landing/UserTabs";
 import Partners from "./templates/landing/Partners";
-import VendorLogin from "./templates/security/Login";
+import VendorLogin from "./templates/security/VendorLogin";
 import CustomerLogin from "./templates/security/CustomerLogin";
 import CustomerRegister from "./templates/registration/CustomerRegister";
 import SetList from "./templates/set/List";
