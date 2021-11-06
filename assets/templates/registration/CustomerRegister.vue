@@ -43,6 +43,7 @@
         required>
     </v-text-field>
     <v-checkbox
+        v-model="agree"
         type="checkbox"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
@@ -90,6 +91,7 @@ export default {
     phone_number: '',
     email: '',
     name: '',
+    agree: true,
   }),
   methods: {
     checkForm () {
