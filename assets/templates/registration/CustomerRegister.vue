@@ -44,6 +44,7 @@
     </v-text-field>
     <v-checkbox
         v-model="agree"
+        :checked="agree"
         true-value="yes"
         false-value="no"
         type="checkbox"
