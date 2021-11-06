@@ -46,6 +46,7 @@
         ref="agree"
         v-model="agreeTerms"
         :checked="agreeTerms"
+        value="1"
         :rules="agreeTermsRules"
         @change="changeAgree"
         true-value="1"
