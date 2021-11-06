@@ -99,7 +99,7 @@ export default {
   methods: {
     changeAgree () {
       this.$refs.agree.$refs.input.checked = this.agreeTerms;
-      console.log(this.$refs.agree.$refs.input);
+      console.log(this.agreeTerms, this.$refs.agree, this.$refs.form);
     },
     checkForm (e) {
       e.preventDefault();
