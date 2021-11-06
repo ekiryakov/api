@@ -44,7 +44,7 @@
     </v-text-field>
     <v-checkbox
         v-model="agreeTerms"
-        :checked="this.agree"
+        :checked="agree"
         :rules="agreeTermsRules"
         @change="changeAgree"
         type="checkbox"
