@@ -1,5 +1,5 @@
 <template>
-  <v-form method="post" ref="form" v-model="valid" @submit="checkForm">
+  <v-form method="post" ref="form" v-model="valid">
     <v-container class="text-center">
       <v-btn-toggle rounded dense borderless mandatory v-model="userType">
         <v-btn href="/customer/register">Customer</v-btn>
