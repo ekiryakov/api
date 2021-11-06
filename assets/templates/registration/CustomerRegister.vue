@@ -103,7 +103,7 @@ export default {
       this.agreeTerms = !this.agreeTerms;
     },
     checkForm (e) {
-      console.log(this.$refs.form.data);
+      console.log(this.$refs.form);
       e.preventDefault();
     }
   }
