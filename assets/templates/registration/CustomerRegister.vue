@@ -29,7 +29,6 @@
     <v-text-field
         v-model="name"
         :rules="nameRules"
-        :counter="3"
         type="text"
         name="customer_registration_form[name]"
         id="customer_registration_form_name"
@@ -39,7 +38,6 @@
     <v-text-field
         v-model="plainPassword"
         :rules="passwordRules"
-        :counter="6"
         type="password"
         name="customer_registration_form[plainPassword]"
         id="customer_registration_form_plainPassword"
@@ -101,11 +99,11 @@ export default {
     agree: false,
     phoneRules: [
       v => !!v || 'Phone number is required',
-      v => v.match(/^\d{10}$/)|| 'Incorrect phone number',
+      v => v.test(/^\d{10}$/) || 'Incorrect phone number',
     ],
     emailRules: [
       v => !!v || 'Email is required',
-      v => v.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)|| 'Incorrect email',
+      v => v.test(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) || 'Incorrect email',
     ],
     nameRules: [
       v => !!v || 'Name is required',
@@ -116,7 +114,7 @@ export default {
       v => (v && v.length >= 6) || 'Password must be more than 6 characters',
     ],
     agreeRules: [
-      v => !!v || 'You must agree to continue!'
+      v => !!v || 'You must agree to continue!',
     ],
   }),
 }
