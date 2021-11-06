@@ -1,5 +1,5 @@
 <template>
-  <v-form method="post" ref="form" v-model="valid" lazy-validation>
+  <v-form method="post" ref="form" v-model="valid">
     <v-container class="text-center">
       <v-btn-toggle rounded dense borderless mandatory v-model="userType">
         <v-btn href="/customer/login">Customer</v-btn>
@@ -8,17 +8,17 @@
     </v-container>
     <v-text-field
         v-model="phone_number"
-        type="text"
+        :rules="phoneRules"
+        type="tel"
         name="phone_number"
         id="inputPhoneNumber"
-        autocomplete="email"
+        autocomplete="tel"
         label="Email"
         required
         autofocus>
     </v-text-field>
     <v-text-field
         v-model="password"
-        :counter="10"
         :rules="passwordRules"
         type="password"
         name="password"
@@ -29,9 +29,16 @@
     </v-text-field>
     <v-checkbox
         v-model="remember_me"
-        name="_remember_me"
-        label="Remember me">
+        label="Remember me"
+        required>
     </v-checkbox>
+    <v-text-field v-if="remember_me"
+        class="ma-0 pa-0"
+        name="_remember_me"
+        value="remember"
+        type="hidden"
+        hide-details="auto">
+    </v-text-field>
     <v-text-field
         name="_csrf_token"
         :value="csrf_token"
@@ -43,8 +50,7 @@
         :disabled="!valid"
         class="mb-1 mr-1"
         type="submit"
-        color="success"
-        @click="validate">
+        color="success">
       Sign in
     </v-btn>
     <v-btn
@@ -65,19 +71,17 @@ export default {
     valid: true,
     userType: null,
     password: '',
-    passwordRules: [
-      v => !!v || 'Password is required',
-      v => (v && v.length <= 10) || 'Password must be less than 10 characters',
-    ],
     phone_number: '',
     remember_me: true,
+    phoneRules: [
+      v => !!v || 'Phone number is required',
+      v => /^\d{10}$/.test(v) || 'Incorrect phone number',
+    ],
+    passwordRules: [
+      v => !!v || 'Password is required',
+      v => (v && v.length >= 6) || 'Password must be more than 6 characters',
+    ],
   }),
-
-  methods: {
-    validate () {
-      this.$refs.form.validate()
-    },
-  },
 }
 </script>
 
