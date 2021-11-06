@@ -46,7 +46,6 @@
         v-model="agreeTerms"
         :checked="agreeTerms"
         :rules="agreeTermsRules"
-        :value="agreeTerms"
         type="checkbox"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
@@ -94,7 +93,7 @@ export default {
     phone_number: '',
     email: '',
     name: '',
-    agreeTerms: false,
+    agreeTerms: null,
   }),
   methods: {
     checkForm () {
