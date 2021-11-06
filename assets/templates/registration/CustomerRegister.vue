@@ -43,11 +43,6 @@
         required>
     </v-text-field>
     <v-checkbox
-        @change="agreeTerms = !agreeTerms"
-        :checked="agreeTerms"
-        :rules="agreeTermsRules"
-        true-value="1"
-        false-value="0"
         type="checkbox"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
@@ -95,7 +90,6 @@ export default {
     phone_number: '',
     email: '',
     name: '',
-    agreeTerms: false,
   }),
   methods: {
     checkForm () {
