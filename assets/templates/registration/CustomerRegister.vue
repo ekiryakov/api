@@ -97,7 +97,6 @@ export default {
     email: '',
     name: '',
     agreeTerms: true,
-    isAgree: false,
   }),
   computed: {
     isAgree: () => {
