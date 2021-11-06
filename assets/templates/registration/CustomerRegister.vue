@@ -44,9 +44,10 @@
     </v-text-field>
     <v-checkbox
         v-model="agreeTerms"
-        :checked="agree"
+        :checked="agreeTerms"
         :rules="agreeTermsRules"
-        @change="changeAgree"
+        true-value="1"
+        false-value="0"
         type="checkbox"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
@@ -94,16 +95,12 @@ export default {
     phone_number: '',
     email: '',
     name: '',
-    agreeTerms: true,
-    agree: false,
+    agreeTerms: '0',
   }),
   methods: {
     checkForm () {
       return true;
     },
-    changeAgree () {
-      this.agree = !this.agree;
-    }
   }
 }
 </script>
