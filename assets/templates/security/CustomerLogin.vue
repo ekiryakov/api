@@ -70,8 +70,8 @@ export default {
   data: () => ({
     valid: true,
     userType: null,
-    password: '',
     phone_number: '',
+    password: '',
     remember_me: true,
     phoneRules: [
       v => !!v || 'Phone number is required',

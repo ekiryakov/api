@@ -1,5 +1,5 @@
 <template>
-  <v-form method="post" ref="form" v-model="valid" lazy-validation>
+  <v-form method="post" ref="form" v-model="valid">
     <v-container class="text-center">
       <v-btn-toggle rounded dense borderless mandatory v-model="userType">
         <v-btn href="/vendor/login">Vendor</v-btn>
@@ -9,7 +9,6 @@
     <v-text-field
         v-model="email"
         :rules="emailRules"
-        :value="last_username"
         type="email"
         name="email"
         id="inputEmail"
@@ -20,7 +19,6 @@
     </v-text-field>
     <v-text-field
         v-model="password"
-        :counter="10"
         :rules="passwordRules"
         type="password"
         name="password"
@@ -31,9 +29,16 @@
     </v-text-field>
     <v-checkbox
         v-model="remember_me"
-        name="_remember_me"
-        label="Remember me">
+        label="Remember me"
+        required>
     </v-checkbox>
+    <v-text-field v-if="remember_me"
+        class="ma-0 pa-0"
+        name="_remember_me"
+        value="remember"
+        type="hidden"
+        hide-details="auto">
+    </v-text-field>
     <v-text-field
         name="_csrf_token"
         :value="csrf_token"
@@ -45,8 +50,7 @@
         :disabled="!valid"
         class="mb-1 mr-1"
         type="submit"
-        color="success"
-        @click="validate">
+        color="success">
       Sign in
     </v-btn>
     <v-btn
@@ -62,29 +66,22 @@
 export default {
   props: {
     csrf_token: String,
-    last_username: String,
   },
   data: () => ({
-    valid: true,
+    valid: false,
     userType: null,
+    email: '',
     password: '',
+    remember_me: true,
+    emailRules: [
+      v => !!v || 'Email is required',
+      v => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'Incorrect email',
+    ],
     passwordRules: [
       v => !!v || 'Password is required',
-      v => (v && v.length <= 10) || 'Password must be less than 10 characters',
+      v => (v && v.length >= 6) || 'Password must be more than 6 characters',
     ],
-    email: '',
-    emailRules: [
-      v => !!v || 'E-mail is required',
-      v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-    ],
-    remember_me: true,
   }),
-
-  methods: {
-    validate () {
-      this.$refs.form.validate()
-    },
-  },
 }
 </script>
 
