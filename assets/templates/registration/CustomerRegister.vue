@@ -99,6 +99,11 @@ export default {
     agreeTerms: true,
     isAgree: false,
   }),
+  computed: {
+    isAgree: () => {
+      return this !== undefined ? this.isAgree = !this.isAgree : false;
+    }
+  },
   methods: {
     changeAgree () {
       this.isAgree = !this.isAgree;
