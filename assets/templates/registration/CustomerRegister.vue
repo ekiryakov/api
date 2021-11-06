@@ -48,6 +48,8 @@
         :checked="agreeTerms"
         :rules="agreeTermsRules"
         @change="changeAgree"
+        true-value="1"
+        false-value="0"
         type="checkbox"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
@@ -103,6 +105,7 @@ export default {
     },
     checkForm (e) {
       e.preventDefault();
+      return true;
     }
   }
 }
