@@ -1,5 +1,5 @@
 <template>
-  <v-form method="post" ref="form" v-model="valid">
+  <v-form method="post" ref="form" v-model="valid" @submit="checkForm">
     <v-container class="text-center">
       <v-btn-toggle rounded dense borderless mandatory v-model="userType">
         <v-btn href="/customer/register">Customer</v-btn>
@@ -101,6 +101,10 @@ export default {
   methods: {
     changeAgree () {
       this.agreeTerms = !this.agreeTerms;
+    },
+    checkForm (e) {
+      console.log(this.$refs.form.data);
+      e.preventDefault();
     }
   }
 }
