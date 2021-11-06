@@ -99,11 +99,11 @@ export default {
     agree: false,
     phoneRules: [
       v => !!v || 'Phone number is required',
-      v => v.test(/^\d{10}$/) || 'Incorrect phone number',
+      v => /^\d{10}$/.test(v) || 'Incorrect phone number',
     ],
     emailRules: [
       v => !!v || 'Email is required',
-      v => v.test(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) || 'Incorrect email',
+      v => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'Incorrect email',
     ],
     nameRules: [
       v => !!v || 'Name is required',
