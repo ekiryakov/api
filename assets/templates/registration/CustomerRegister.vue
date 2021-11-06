@@ -46,7 +46,7 @@
         ref="agree"
         v-model="agreeTerms"
         :rules="agreeTermsRules"
-        @change="(v) => { this.$refs.agree.$refs.input.checked = v }"
+        @change="() => { this.$refs.agree.$refs.input.checked = this.agreeTerms }"
         type="checkbox"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
