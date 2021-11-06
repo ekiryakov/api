@@ -23,6 +23,7 @@
         name="customer_registration_form[email]"
         id="customer_registration_form_email"
         label="Email"
+        autocomplete="email"
         required>
     </v-text-field>
     <v-text-field
