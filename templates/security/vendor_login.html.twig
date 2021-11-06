@@ -1,15 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Auth{% endblock %}
+{% block title %}Vendor login{% endblock %}
 
 {% block body %}
-<v-container fluid>
-
-    <login last_username="{{ last_username }}"
-           csrf_token="{{ csrf_token('authenticate') }}">
-    </login>
-
-</v-container>
+    <v-container fluid>
+        <vendor-login csrf_token="{{ csrf_token('authenticate') }}"></vendor-login>
+    </v-container>
 {% endblock %}
 
 {% block alert %}
