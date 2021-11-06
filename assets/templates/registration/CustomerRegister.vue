@@ -1,5 +1,5 @@
 <template>
-  <v-form method="post" ref="form" v-model="valid" @submit="checkForm">
+  <v-form method="post" ref="form" v-model="valid">
     <v-container class="text-center">
       <v-btn-toggle rounded dense borderless mandatory v-model="userType">
         <v-btn href="/customer/register">Customer</v-btn>
@@ -52,7 +52,7 @@
         class="ma-0 pa-0"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
-        :value="agree"
+        value="agree"
         type="hidden"
         hide-details="auto">
     </v-text-field>
@@ -98,13 +98,8 @@ export default {
     phone_number: '',
     email: '',
     name: '',
-    agree: 'no',
+    agree: false,
   }),
-  methods: {
-    checkForm () {
-      return true;
-    },
-  }
 }
 </script>
 
