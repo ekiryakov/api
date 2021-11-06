@@ -97,13 +97,8 @@ export default {
     email: '',
     name: '',
     agreeTerms: true,
-    agree: false,
+    isAgree: false,
   }),
-  computed: {
-    isAgree: () => {
-      return this !== undefined ? this.agree = !this.agree : false;
-    }
-  },
   methods: {
     changeAgree () {
       this.isAgree = !this.isAgree;
