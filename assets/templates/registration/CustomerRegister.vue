@@ -95,7 +95,7 @@ export default {
     phone_number: '',
     email: '',
     name: '',
-    agreeTerms: '0',
+    agreeTerms: false,
   }),
   methods: {
     checkForm () {
