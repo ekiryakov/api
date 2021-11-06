@@ -45,7 +45,7 @@
     <v-checkbox
         v-model="agreeTerms"
         :rules="agreeTermsRules"
-        :checked="agreeTerms"
+        :checked="checkAgreeTerms"
         true-value="1"
         false-value="0"
         type="checkbox"
@@ -97,11 +97,10 @@ export default {
     name: '',
     agreeTerms: false,
   }),
-  methods: {
-    checkForm (e) {
-      console.log(this.$refs.form);
-      e.preventDefault();
-    },
+  computed: {
+    checkAgreeTerms: () => {
+      return this === undefined ? false : this.agreeTerms;
+    }
   }
 }
 </script>
