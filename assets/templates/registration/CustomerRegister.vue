@@ -8,6 +8,7 @@
     </v-container>
     <v-text-field
         v-model="phone_number"
+        :rules="phoneRules"
         type="tel"
         name="customer_registration_form[phone_number]"
         id="customer_registration_form_phone_number"
@@ -17,6 +18,7 @@
     </v-text-field>
     <v-text-field
         v-model="email"
+        :rules="emailRules"
         type="email"
         name="customer_registration_form[email]"
         id="customer_registration_form_email"
@@ -25,6 +27,8 @@
     </v-text-field>
     <v-text-field
         v-model="name"
+        :rules="nameRules"
+        :counter="3"
         type="text"
         name="customer_registration_form[name]"
         id="customer_registration_form_name"
@@ -33,8 +37,8 @@
     </v-text-field>
     <v-text-field
         v-model="plainPassword"
-        :counter="10"
         :rules="passwordRules"
+        :counter="6"
         type="password"
         name="customer_registration_form[plainPassword]"
         id="customer_registration_form_plainPassword"
@@ -89,16 +93,30 @@ export default {
   data: () => ({
     valid: false,
     userType: null,
-    plainPassword: '',
-    passwordRules: [
-      v => !!v || 'Password is required',
-      v => (v && v.length <= 10) || 'Password must be less than 10 characters',
-    ],
-    agreeRules: [v => !!v || 'You must agree to continue!'],
     phone_number: '',
     email: '',
     name: '',
+    plainPassword: '',
     agree: false,
+    phoneRules: [
+      v => !!v || 'Phone number is required',
+      v => v.match(/^\d{10}$/)|| 'Incorrect phone number',
+    ],
+    emailRules: [
+      v => !!v || 'Email is required',
+      v => v.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)|| 'Incorrect email',
+    ],
+    nameRules: [
+      v => !!v || 'Name is required',
+      v => (v && v.length >= 3) || 'Name must be more than 3 characters',
+    ],
+    passwordRules: [
+      v => !!v || 'Password is required',
+      v => (v && v.length >= 6) || 'Password must be more than 6 characters',
+    ],
+    agreeRules: [
+      v => !!v || 'You must agree to continue!'
+    ],
   }),
 }
 </script>
