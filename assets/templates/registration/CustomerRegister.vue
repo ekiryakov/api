@@ -44,13 +44,17 @@
     </v-text-field>
     <v-checkbox
         v-model="agree"
-        true-value="yes"
-        false-value="no"
-        name="customer_registration_form[agreeTerms]"
-        id="customer_registration_form_agreeTerms"
+        :rules="agreeRules"
         label="Agree terms"
         required>
     </v-checkbox>
+    <v-text-field v-if="agree"
+        name="customer_registration_form[agreeTerms]"
+        id="customer_registration_form_agreeTerms"
+        :value="agree"
+        type="hidden"
+        hide-details="auto">
+    </v-text-field>
     <v-text-field
         name="customer_registration_form[_token]"
         id="customer_registration_form__token"
@@ -88,7 +92,7 @@ export default {
       v => !!v || 'Password is required',
       v => (v && v.length <= 10) || 'Password must be less than 10 characters',
     ],
-    agreeTermsRules: [v => !!v || 'You must agree to continue!'],
+    agreeRules: [v => !!v || 'You must agree to continue!'],
     phone_number: '',
     email: '',
     name: '',
