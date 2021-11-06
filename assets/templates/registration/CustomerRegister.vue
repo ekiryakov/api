@@ -49,6 +49,7 @@
         required>
     </v-checkbox>
     <v-text-field v-if="agree"
+        class="ma-0 pa-0"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
         :value="agree"
@@ -56,6 +57,7 @@
         hide-details="auto">
     </v-text-field>
     <v-text-field
+        class="ma-0 pa-0"
         name="customer_registration_form[_token]"
         id="customer_registration_form__token"
         :value="csrf_token"
