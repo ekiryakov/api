@@ -46,7 +46,7 @@
         ref="agree"
         v-model="agreeTerms"
         :rules="agreeTermsRules"
-        @change="() => { console.log(this); }"
+        @change="agreeChange"
         type="checkbox"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
@@ -100,6 +100,9 @@ export default {
     checkForm (e) {
       console.log(this.$refs.form);
       e.preventDefault();
+    },
+    agreeChange () {
+      console.log(this.$refs.form);
     },
   }
 }
