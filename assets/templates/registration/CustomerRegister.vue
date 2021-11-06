@@ -1,5 +1,5 @@
 <template>
-  <v-form method="post" ref="form" v-model="valid">
+  <v-form method="post" ref="form" v-model="valid" @submit="checkForm">
     <v-container class="text-center">
       <v-btn-toggle rounded dense borderless mandatory v-model="userType">
         <v-btn href="/customer/register">Customer</v-btn>
@@ -45,8 +45,8 @@
     <v-checkbox
         v-model="agreeTerms"
         :rules="agreeTermsRules"
+        :checked="agreeTerms"
         type="checkbox"
-        :input-value="1"
         name="customer_registration_form[agreeTerms]"
         id="customer_registration_form_agreeTerms"
         label="Agree terms"
@@ -95,6 +95,12 @@ export default {
     name: '',
     agreeTerms: false,
   }),
+  methods: {
+    checkForm (e) {
+      console.log(this.$refs.form);
+      e.preventDefault();
+    },
+  }
 }
 </script>
 
