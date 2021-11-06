@@ -104,7 +104,6 @@ export default {
       console.log(this.agreeTerms, this.$refs.agree, this.$refs.form);
     },
     checkForm (e) {
-      e.preventDefault();
       return true;
     }
   }
