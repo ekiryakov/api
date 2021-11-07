@@ -59,7 +59,8 @@ class VendorRegistrationController extends AbstractController
         }
 
         return $this->render('registration/vendor_register.html.twig', [
-            'registrationForm' => $form->getErrors(false),
+            'registrationForm' => $form->createView(),
+            'errors' => $form->getErrors(true),
         ]);
     }
 

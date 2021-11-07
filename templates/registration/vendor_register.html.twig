@@ -6,11 +6,10 @@
     <v-container fluid>
         <vendor-register csrf_token="{{ csrf_token('vendor_registration_form') }}"></vendor-register>
     </v-container>
-    {{ registrationForm|serialize('json') }}
 {% endblock %}
 
 {% block alert %}
-    {% if registrationForm.errors is defined and registrationForm.errors|length > 0 %}
-        <v-alert type="error">{{ registrationForm.errors[0] }}</v-alert>
+    {% if errors|length > 0 %}
+        <v-alert type="error">{{ errors[0].message }}</v-alert>
     {% endif %}
 {% endblock %}
