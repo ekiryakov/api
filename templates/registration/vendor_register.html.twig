@@ -10,7 +10,7 @@
 
 {% block alert %}
     {% if errors|length > 0 %}
-        <v-alert v-if="this.alert" dismissible type="error" transition="scale-transition">
+        <v-alert v-model="this.alert" dismissible type="error" transition="scale-transition">
             {{ errors[0].message }}
         </v-alert>
     {% endif %}
