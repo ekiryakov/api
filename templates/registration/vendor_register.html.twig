@@ -6,7 +6,7 @@
     <v-container fluid>
         <vendor-register csrf_token="{{ csrf_token('vendor_registration_form') }}"></vendor-register>
     </v-container>
-    {{ registrationForm|serialize('json') }}
+    {{ form_errors(registrationForm)|serialize('json') }}
 {% endblock %}
 
 {% block alert %}
