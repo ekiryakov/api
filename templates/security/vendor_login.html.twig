@@ -10,6 +10,8 @@
 
 {% block alert %}
     {% if error %}
-        <v-alert type="error">{{ error.messageKey|trans(error.messageData, 'security') }}</v-alert>
+        <v-alert v-model="this.alert" dismissible type="error" transition="scale-transition">
+            {{ error.messageKey|trans(error.messageData, 'security') }}
+        </v-alert>
     {% endif %}
 {% endblock %}
