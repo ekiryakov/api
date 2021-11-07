@@ -3,9 +3,11 @@
 {% block title %}Vendor register{% endblock %}
 
 {% block body %}
+    {{ form_start(registrationForm) }}
     <v-container fluid>
-        <vendor-register form="{{ registrationForm|json_encode() }}" csrf_token="{{ csrf_token('vendor_registration_form') }}"></vendor-register>
+        <vendor-register form="{{ form_errors(registrationForm)|json_encode() }}" csrf_token="{{ csrf_token('vendor_registration_form') }}"></vendor-register>
     </v-container>
+    {{ form_end(registrationForm) }}
 {% endblock %}
 
 {% block alert %}
