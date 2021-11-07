@@ -25,7 +25,9 @@
                     <v-toolbar-title v-text="this.title"></v-toolbar-title>
                 </v-app-bar>
                 <v-main>
-                    {% block alert %}{% endblock %}
+                    <v-container fluid>
+                        {% block alert %}{% endblock %}
+                    </v-container>
                     {% block body %}{% endblock %}
                 </v-main>
                 <v-footer app padless rounded elevation="3">
