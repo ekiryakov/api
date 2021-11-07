@@ -7,7 +7,9 @@
         <vendor-register csrf_token="{{ csrf_token('vendor_registration_form') }}"></vendor-register>
     </v-container>
     <div id="json">
-        {{ registrationForm.vars|json_encode() }}
+        <script>
+        console.log(JSON.parse({{ registrationForm|json_encode() }}));
+        </script>
     </div>
 {% endblock %}
 
