@@ -29,6 +29,7 @@ new Vue({
     },
     data: () => {
         return {
+            error: null,
             title: '',
             darkMode: null,
             bottomMenu: null,
