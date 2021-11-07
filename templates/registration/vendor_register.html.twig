@@ -10,9 +10,9 @@
 
 {% block alert %}
     {% if errors|length > 0 %}
-        <v-alert :value="this.error" dismissible type="error" transition="scale-transition">
+        <v-alert v-if="this.alert" dismissible type="error" transition="scale-transition">
             {{ errors[0].message }}
-            <v-btn class="float-right" @click="this.error = false">
+            <v-btn class="float-right" @click="this.alert = false">
                 <v-icon>mdi-close</v-icon>
             </v-btn>
         </v-alert>
