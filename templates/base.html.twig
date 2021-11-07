@@ -25,6 +25,7 @@
                     <v-toolbar-title v-text="this.title"></v-toolbar-title>
                 </v-app-bar>
                 <v-main>
+                    {% block alert %}{% endblock %}
                     {% block body %}{% endblock %}
                 </v-main>
                 <v-footer app padless rounded elevation="3">
@@ -71,7 +72,6 @@
                         <v-icon>mdi-settings</v-icon>
                     </v-btn>
                 </v-bottom-navigation>
-                {% block alert %}{% endblock %}
             </v-app>
         </div>
         {% block javascripts %}
