@@ -88,7 +88,6 @@
 export default {
   props: {
     csrf_token: String,
-    form: String,
   },
   data: () => ({
     valid: false,
