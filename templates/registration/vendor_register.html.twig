@@ -4,13 +4,8 @@
 
 {% block body %}
     <v-container fluid>
-        <vendor-register csrf_token="{{ csrf_token('vendor_registration_form') }}"></vendor-register>
+        <vendor-register :form="{{ registrationForm|json_encode() }}" csrf_token="{{ csrf_token('vendor_registration_form') }}"></vendor-register>
     </v-container>
-    <div id="json">
-        <script>
-        console.log(JSON.parse({{ registrationForm|json_encode() }}));
-        </script>
-    </div>
 {% endblock %}
 
 {% block alert %}
