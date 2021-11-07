@@ -1,25 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Vendor register{% endblock %}
 
 {% block body %}
-<v-container>
-    {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-    {% endfor %}
+    <v-container fluid>
+        <vendor-register csrf_token="{{ csrf_token('customer_registration_form') }}"></vendor-register>
+    </v-container>
+{% endblock %}
 
-    <h1>Register</h1>
-
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.name) }}
-        {{ form_row(registrationForm.logo) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
-</v-container>
+{% block alert %}
+    {% if registrationForm.errors is defined and registrationForm.errors|length > 0 %}
+        <v-alert type="error">{{ registrationForm.errors[0] }}</v-alert>
+    {% endif %}
 {% endblock %}
