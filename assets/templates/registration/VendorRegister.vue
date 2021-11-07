@@ -14,7 +14,8 @@
         id="vendor_registration_form_email"
         label="Email"
         autocomplete="email"
-        required>
+        required
+        autofocus>
     </v-text-field>
     <v-text-field
         v-model="name"
@@ -32,8 +33,7 @@
         name="vendor_registration_form[logo]"
         id="vendor_registration_form_logo"
         label="Logo"
-        required
-        autofocus>
+        required>
     </v-text-field>
     <v-text-field
         v-model="plainPassword"
