@@ -51,11 +51,20 @@
                 </v-footer>
                 <v-bottom-navigation app grow class="blur">
                     {% if app.user %}
-                        {% set profile_link = path('customer_edit', {'id': app.user.id}) %}
-                        {% if app.user.subscriptions|length > 0 %}
-                            {% set my_list_link = path('subscription_edit', {'id': app.user.subscriptions[0]}) %}
-                        {% else %}
-                            {% set my_list_link = path('offer_index') %}
+                        {% if is_granted('ROLE_CUSTOMER') %}
+                            {% set profile_link = path('customer_edit', {'id': app.user.id}) %}
+                            {% if app.user.subscriptions|length > 0 %}
+                                {% set my_list_link = path('subscription_edit', {'id': app.user.subscriptions[0]}) %}
+                            {% else %}
+                                {% set my_list_link = path('offer_index') %}
+                            {% endif %}
+                        {% elseif is_granted('ROLE_VENDOR') %}
+                            {% set profile_link = path('vendor_edit', {'id': app.user.id}) %}
+                            {% if app.user.offers|length > 0 %}
+                                {% set my_list_link = path('offer_index') %}
+                            {% else %}
+                                {% set my_list_link = path('offer_new') %}
+                            {% endif %}
                         {% endif %}
                     {% else %}
                         {% set profile_link = path('customer_login') %}
