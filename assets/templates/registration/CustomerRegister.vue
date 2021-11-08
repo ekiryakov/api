@@ -7,7 +7,6 @@
       </v-btn-toggle>
     </v-container>
     <v-text-field
-        value="{{ registrationForm|serialize(format='json') }}"
         v-model="phone_number"
         :rules="phoneRules"
         type="tel"
@@ -89,8 +88,10 @@
 export default {
   props: {
     csrf_token: String,
+    data: String,
   },
   data: () => ({
+    form: null,
     valid: false,
     userType: null,
     phone_number: '',
@@ -118,6 +119,9 @@ export default {
       v => !!v || 'You must agree to continue!',
     ],
   }),
+  mounted() {
+    this.form = JSON.parse(this.data);
+  }
 }
 </script>
 

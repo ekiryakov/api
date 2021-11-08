@@ -4,7 +4,9 @@
 
 {% block body %}
     <v-container fluid>
-        <customer-register csrf_token="{{ csrf_token('customer_registration_form') }}"></customer-register>
+        <customer-register csrf_token="{{ csrf_token('customer_registration_form') }}"
+                           data="{{ registrationForm|serialize(format='json') }}">
+        </customer-register>
     </v-container>
 {% endblock %}
 
