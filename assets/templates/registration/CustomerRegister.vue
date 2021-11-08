@@ -7,7 +7,6 @@
       </v-btn-toggle>
     </v-container>
     <v-text-field
-        :value="form.phoneNumber || ''"
         v-model="phone_number"
         :rules="phoneRules"
         type="tel"
@@ -18,7 +17,6 @@
         autofocus>
     </v-text-field>
     <v-text-field
-        :value="form.email || ''"
         v-model="email"
         :rules="emailRules"
         type="email"
@@ -29,7 +27,6 @@
         required>
     </v-text-field>
     <v-text-field
-        :value="form.name || ''"
         v-model="name"
         :rules="nameRules"
         type="text"
@@ -124,6 +121,10 @@ export default {
   }),
   mounted() {
     this.form = JSON.parse(this.data);
+    
+    this.phone_number = this.form.phoneNumber || '';
+    this.email = this.form.email || '';
+    this.name = this.form.name || '';
   }
 }
 </script>
