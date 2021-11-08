@@ -160,7 +160,7 @@ class Vendor implements UserInterface
         return $this->email;
     }
 
-    public function getUserIdentifier(): string
+    public function getUserIdentifier(): ?string
     {
         return $this->getUsername();
     }
