@@ -4,7 +4,9 @@
 
 {% block body %}
     <v-container fluid>
-        <vendor-register csrf_token="{{ csrf_token('vendor_registration_form') }}"></vendor-register>
+        <vendor-register csrf_token="{{ csrf_token('vendor_registration_form') }}"
+                         data="{{ registrationForm|serialize(format='json') }}">
+        </vendor-register>
     </v-container>
 {% endblock %}
 

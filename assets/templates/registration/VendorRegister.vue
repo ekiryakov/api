@@ -88,8 +88,10 @@
 export default {
   props: {
     csrf_token: String,
+    data: String,
   },
   data: () => ({
+    form: null,
     valid: false,
     userType: null,
     email: '',
@@ -116,6 +118,13 @@ export default {
       v => !!v || 'You must agree to continue!',
     ],
   }),
+  mounted() {
+    this.form = JSON.parse(this.data);
+
+    this.email = this.form.email || '';
+    this.name = this.form.name || '';
+    this.logo = this.form.logo || '';
+  },
 }
 </script>
 

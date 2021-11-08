@@ -125,7 +125,7 @@ export default {
     this.phone_number = this.form.phoneNumber || '';
     this.email = this.form.email || '';
     this.name = this.form.name || '';
-  }
+  },
 }
 </script>
 
