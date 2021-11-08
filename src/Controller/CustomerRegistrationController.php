@@ -39,7 +39,7 @@ class CustomerRegistrationController extends AbstractController
         }
 
         return $this->render('registration/customer_register.html.twig', [
-            'registrationForm' => $form->createView(),
+            'registrationForm' => $form,
             'errors' => $form->getErrors(true),
         ]);
     }
