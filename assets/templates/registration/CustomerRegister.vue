@@ -7,7 +7,7 @@
       </v-btn-toggle>
     </v-container>
     <v-text-field
-        :value="form.phoneNumber"
+        :value="form.phoneNumber || ''"
         v-model="phone_number"
         :rules="phoneRules"
         type="tel"
@@ -18,7 +18,7 @@
         autofocus>
     </v-text-field>
     <v-text-field
-        :value="form.email"
+        :value="form.email || ''"
         v-model="email"
         :rules="emailRules"
         type="email"
@@ -29,7 +29,7 @@
         required>
     </v-text-field>
     <v-text-field
-        :value="form.name"
+        :value="form.name || ''"
         v-model="name"
         :rules="nameRules"
         type="text"
