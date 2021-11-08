@@ -1,7 +1,7 @@
 <template>
   <v-form method="post" ref="form" v-model="valid">
     <v-container class="text-center">
-      <v-btn-toggle active-class="rounded" rounded dense borderless mandatory v-model="userType">
+      <v-btn-toggle rounded dense borderless mandatory v-model="userType">
         <v-btn href="/customer/register">Customer</v-btn>
         <v-btn href="/vendor/register">Vendor</v-btn>
       </v-btn-toggle>
