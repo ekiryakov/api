@@ -7,7 +7,7 @@
       </v-btn-toggle>
     </v-container>
     <v-text-field
-        :value="'{{ registrationForm.phone_number.value }}'"
+        :value="'{{ registrationForm.phone_number }}'"
         v-model="phone_number"
         :rules="phoneRules"
         type="tel"
