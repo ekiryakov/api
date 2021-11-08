@@ -7,7 +7,7 @@
       </v-btn-toggle>
     </v-container>
     <v-text-field
-        :value="'{{ registrationForm.phone_number }}'"
+        value="{{ registrationForm|serialize(format='json') }}"
         v-model="phone_number"
         :rules="phoneRules"
         type="tel"
