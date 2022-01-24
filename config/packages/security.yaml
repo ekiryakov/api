@@ -33,7 +33,7 @@ security:
             security: false
         vendor_side:
             lazy: true
-            pattern: ^/(vendor|offer)
+            pattern: ^/(vendor|offer|set)
             provider: vendors
             custom_authenticator: App\Security\VendorAuthenticator
             logout:
@@ -50,7 +50,7 @@ security:
                 #always_remember_me: true
         customer_side:
             lazy: true
-            pattern: ^/(customer|subscription)
+            pattern: ^/(customer|subscription|set)
             provider: customers
             custom_authenticator: App\Security\CustomerAuthenticator
             logout:
@@ -77,9 +77,9 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
-        - { path: ^/(customer|vendor)/(new|\d+|)$, roles: ROLE_ADMIN }
+        - { path: ^/(customer|vendor|set)/(new|\d+|)$, roles: ROLE_ADMIN }
         - { path: ^/(vendor|customer)/(register|login), roles: PUBLIC_ACCESS }
-        - { path: ^/offer/(\d+|)$, methods: [GET], roles: PUBLIC_ACCESS }
+        - { path: ^/(offer|set)/(\d+|)$, methods: [GET], roles: PUBLIC_ACCESS }
         - { path: ^/subscription/(\d+)/pay$, methods: [POST], roles: PUBLIC_ACCESS }
         - { path: ^/(customer|subscription), roles: ROLE_CUSTOMER }
         - { path: ^/(vendor|offer), roles: ROLE_VENDOR }
