@@ -7,7 +7,7 @@
     {% if categories %}
         <Categories data="{{ categories|serialize(format = 'json') }}"></Categories>
     {% endif %}
-    <OfferList data="{{ offers|serialize(format = 'json') }}"></OfferList>
+    <offer-list data="{{ offers|serialize(format = 'json') }}"></offer-list>
     <v-fab-transition>
         <v-btn href="/offer/new" fab large dark absolute bottom right>
             <v-icon>mdi-plus</v-icon>
